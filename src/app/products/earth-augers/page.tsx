@@ -15,75 +15,80 @@ const diameters = [
   850, 900, 950, 1000, 1100, 1200, 1500, 1800, 2000,
 ];
 
+const D = diameters.length;
+const pad = (a: (number | null)[]) => {
+  const r: (number | null)[] = new Array(D).fill(null);
+  a.forEach((v, i) => {
+    r[i] = v;
+  });
+  return r;
+};
+
 const depthRows: {
   model: string;
-  start: number;
-  soft: number[];
-  medium: number[];
-  hard: number[];
+  soft: (number | null)[];
+  medium: (number | null)[];
+  hard: (number | null)[];
 }[] = [
   {
     model: 'YA-2000',
-    start: 150,
-    soft: [3.5, 3.0, 2.5, 2.5, 2.4],
-    medium: [3.5, 3.0, 2.4, 2.4, 2.2],
-    hard: [3.0, 3.0, 2.2, 2.2, 2.0],
+    soft: pad([3.5, 3, 2.5, 2.5, 2.4]),
+    medium: pad([3.5, 3, 2.4, 2.4, 2.2]),
+    hard: pad([3, 3, 2.2, 2.2, 2]),
   },
   {
     model: 'YA-3000',
-    start: 150,
-    soft: [3.5, 3.0, 2.5, 2.5, 2.4, 2.0, 1.7, 1.5],
-    medium: [3.5, 3.0, 2.4, 2.4, 2.2, 1.8, 1.6, 1.4],
-    hard: [3.0, 3.0, 2.2, 2.2, 2.0, 1.5, 1.5, 1.3],
+    soft: pad([3.5, 3, 2.5, 2.5, 2.4, 2, 1.7, 1.5]),
+    medium: pad([3.5, 3, 2.4, 2.4, 2.2, 1.8, 1.6, 1.4]),
+    hard: pad([3, 3, 2.2, 2.2, 2, 1.5, 1.5, 1.3]),
   },
   {
     model: 'YA-5000',
-    start: 150,
-    soft: [4.5, 4.5, 4.5, 4.5, 4.5, 3.2, 3.0, 2.6, 2.0, 1.7, 1.5],
-    medium: [4.2, 4.2, 4.2, 4.2, 4.2, 3.7, 2.8, 2.4, 1.8, 1.6, 1.3],
-    hard: [3.5, 3.5, 3.5, 3.5, 3.5, 3.3, 2.5, 2.1, 1.7, 1.4, 1.2],
+    soft: pad([4.5, 4.5, 4.5, 4.5, 4.5, 3.2, 3, 2.6, 2, 1.7, 1.5]),
+    medium: pad([4.2, 4.2, 4.2, 4.2, 4.2, 3.7, 2.8, 2.4, 1.8, 1.6, 1.3]),
+    hard: pad([3.5, 3.5, 3.5, 3.5, 3.5, 3.3, 2.5, 2.1, 1.7, 1.4, 1.2]),
   },
   {
     model: 'YA-8000',
-    start: 150,
-    soft: [6.5, 6.5, 6.5, 6.5, 6.5, 4.5, 4.0, 4.0, 4.0, 3.6, 3.0, 2.6, 2.5],
-    medium: [5.5, 5.5, 5.5, 5.5, 5.5, 4.5, 3.7, 3.7, 3.7, 3.5, 2.8, 2.7, 2.2],
-    hard: [5.0, 5.0, 5.0, 5.0, 5.0, 3.5, 3.5, 3.5, 3.2, 3.0, 2.4, 2.4, 2.0],
+    soft: pad([6.5, 6.5, 6.5, 6.5, 6.5, 4.5, 4, 4, 4, 3.6, 3, 2.6, 2.5]),
+    medium: pad([5.5, 5.5, 5.5, 5.5, 5.5, 4.5, 3.7, 3.7, 3.7, 3.5, 2.8, 2.7, 2.2]),
+    hard: pad([5, 5, 5, 5, 5, 3.5, 3.5, 3.5, 3.2, 3, 2.4, 2.4, 2]),
   },
   {
     model: 'YA-10000',
-    start: 150,
-    soft: [6.5, 6.5, 6.5, 6.5, 6.5, 4.5, 4.0, 4.0, 4.0, 3.6, 3.0, 2.6, 2.5, 2.3],
-    medium: [5.5, 5.5, 5.5, 5.5, 5.5, 4.5, 3.7, 3.7, 3.7, 3.5, 2.8, 2.7, 2.2, 1.9],
-    hard: [5.0, 5.0, 5.0, 5.0, 5.0, 3.5, 3.5, 3.5, 3.2, 3.0, 2.4, 2.4, 2.0, 1.5],
+    soft: pad([6.5, 6.5, 6.5, 6.5, 6.5, 4.5, 4, 4, 4, 3.6, 3, 2.6, 2.5, 2.3]),
+    medium: pad([5.5, 5.5, 5.5, 5.5, 5.5, 4.5, 3.7, 3.7, 3.7, 3.5, 2.8, 2.7, 2.2, 1.9]),
+    hard: pad([5, 5, 5, 5, 5, 3.5, 3.5, 3.5, 3.2, 3, 2.4, 2.4, 2, 1.5]),
   },
   {
     model: 'YA-18000',
-    start: 150,
-    soft: [8.6, 7.2, 7.1, 7.0, 6.5, 6.1, 6.0, 5.7, 5.5, 5.3, 5.0, 4.7, 4.5, 4.2, 4.0],
-    medium: [7.6, 6.4, 6.4, 6.2, 5.8, 5.4, 5.3, 5.2, 5.0, 4.6, 4.5, 4.2, 4.0, 3.7],
-    hard: [7.0, 5.8, 5.7, 5.5, 5.4, 5.0, 4.8, 4.6, 4.6, 4.3, 4.2, 4.0, 3.7],
+    soft: pad([8.6, 7.2, 7.1, 7, 6.5, 6.1, 6, 5.7, 5.5, 5.3, 5, 4.7, 4.5, 4.2, 4]),
+    medium: pad([7.6, 6.4, 6.4, 6.2, 5.8, 5.4, 5.3, 5.2, 5, 4.6, 4.5, 4.2, 4, 3.7]),
+    hard: pad([7, 5.8, 5.7, 5.5, 5.4, 5, 4.8, 4.6, 4.6, 4.3, 4.2, 4, 3.7]),
   },
   {
     model: 'YA-30000',
-    start: 150,
-    soft: [9.0, 8.6, 8.6, 8.6, 8.6, 8.4, 8.0, 7.6, 7.0, 6.5, 6.3, 6.0, 5.0],
-    medium: [8.2, 7.7, 7.7, 7.7, 7.7, 7.5, 7.3, 6.8, 6.3, 6.0, 5.7, 5.5, 4.6],
-    hard: [7.3, 7.0, 7.0, 7.0, 7.0, 6.8, 6.6, 6.2, 5.7, 5.3, 5.0, 4.8, 4.0],
+    soft: pad([9, 8.6, 8.6, 8.6, 8.6, 8.4, 8, 7.6, 7, 6.5, 6.3, 6, 5]),
+    medium: pad([8.2, 7.7, 7.7, 7.7, 7.7, 7.5, 7.3, 6.8, 6.3, 6, 5.7, 5.5, 4.6]),
+    hard: pad([7.3, 7, 7, 7, 7, 6.8, 6.6, 6.2, 5.7, 5.3, 5, 4.8, 4]),
   },
   {
     model: 'YA-50000',
-    start: 300,
-    soft: [12, 12, 11, 11, 11, 10, 9, 9, 8, 8, 7, 6, 4],
-    medium: [11, 11, 10, 10, 10, 9, 7, 7, 6, 6, 5, 5, 3.3],
-    hard: [8, 8, 7, 7, 7, 7, 6, 6, 5, 5, 5, 4, 2.5],
+    soft: pad([12, 12, 11, 11, 11, 10, 9, 9, 8, 8, 7, 6, 4]),
+    medium: pad([11, 11, 10, 10, 10, 9, 7, 7, 6, 6, 5, 5, 3.3]),
+    hard: pad([8, 8, 7, 7, 7, 7, 6, 6, 5, 5, 5, 4, 2.5]),
   },
   {
     model: 'YA-80000',
-    start: 300,
-    soft: [15, 14, 14, 14, 12, 12, 10, 8, 8, 7],
-    medium: [11, 10, 10, 10, 9, 9, 8, 7, 7, 6],
-    hard: [8, 7, 7, 7, 7, 7, 6, 6, 6, 5],
+    soft: pad([15, 14, 14, 14, 12, 12, 10, 8, 8, 7]),
+    medium: pad([11, 10, 10, 10, 9, 9, 8, 7, 7, 6]),
+    hard: pad([8, 7, 7, 7, 7, 7, 6, 6, 6, 5]),
+  },
+  {
+    model: 'YA-100000',
+    soft: pad([]),
+    medium: pad([]),
+    hard: pad([]),
   },
 ];
 
@@ -123,11 +128,16 @@ const combos = [
   { pair: 'AOP4 + AOT4', use: 'for W4 Rock Auger' },
 ];
 
-function DepthValue({ list, start, mm }: { list: number[]; start: number; mm: number }) {
-  const idx = (mm - start) / 50;
-  const ok = idx >= 0 && idx < list.length && Math.floor(idx) === idx;
-  return <td className="whitespace-nowrap border border-line px-2 py-1.5 text-center text-sm text-ink">{ok ? list[idx] : '–'}</td>;
+function DepthCell({ v }: { v: number | null }) {
+  return (
+    <td className="whitespace-nowrap border-b border-line px-2 py-1.5 text-center text-sm text-ink">
+      {v === null ? '–' : v}
+    </td>
+  );
 }
+
+const headerBlue = 'bg-[#0A2E5C] text-white';
+const subBlue = 'bg-[#123a6d] text-white';
 
 export default function EarthAugersPage() {
   return (
@@ -213,57 +223,78 @@ export default function EarthAugersPage() {
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
             Maximum Drilling Depth Reference
           </h2>
-          <p className="mt-2 text-sm text-inksoft">
-            Drilling Depth Reference (Soft / Medium / Hard, in meters)
-          </p>
-          <div className="mt-6 overflow-x-auto rounded-lg border border-line">
-            <table className="w-full min-w-[1200px] border-collapse text-sm">
+          <p className="mt-2 text-sm text-inksoft">Units: meters (m).</p>
+          <div className="mt-6 overflow-x-auto rounded-xl border border-line shadow-sm">
+            <table className="w-full min-w-[1500px] border-collapse text-sm">
               <thead>
                 <tr>
-                  <th className="sticky left-0 z-10 border border-line bg-hm/5 px-3 py-2 text-left font-semibold text-hm">
-                    Drive Model / Ground
+                  <th
+                    rowSpan={2}
+                    className={`sticky left-0 z-20 border-b-2 border-r border-[#0A2E5C]/20 px-3 py-2.5 text-left font-semibold ${headerBlue}`}
+                  >
+                    Drive Model
                   </th>
+                  <th colSpan={D} className={`border-b border-r border-[#0A2E5C]/20 px-2 py-2 text-center font-semibold ${headerBlue}`}>
+                    Soft Ground
+                  </th>
+                  <th colSpan={D} className={`border-b border-r border-[#0A2E5C]/20 px-2 py-2 text-center font-semibold ${headerBlue}`}>
+                    Medium Ground
+                  </th>
+                  <th colSpan={D} className={`border-b border-[#0A2E5C]/20 px-2 py-2 text-center font-semibold ${headerBlue}`}>
+                    Hard Ground
+                  </th>
+                </tr>
+                <tr>
                   {diameters.map((mm) => (
                     <th
-                      key={mm}
-                      className="whitespace-nowrap border border-line bg-hm/5 px-2 py-2 text-center font-medium text-hm"
+                      key={`s-${mm}`}
+                      className={`whitespace-nowrap border-b-2 border-r border-[#0A2E5C]/15 px-2 py-1.5 text-center text-xs font-medium ${subBlue}`}
                     >
-                      {mm}mm
+                      {mm}
+                    </th>
+                  ))}
+                  {diameters.map((mm) => (
+                    <th
+                      key={`m-${mm}`}
+                      className={`whitespace-nowrap border-b-2 border-r border-[#0A2E5C]/15 px-2 py-1.5 text-center text-xs font-medium ${subBlue}`}
+                    >
+                      {mm}
+                    </th>
+                  ))}
+                  {diameters.map((mm) => (
+                    <th
+                      key={`h-${mm}`}
+                      className={`whitespace-nowrap border-b-2 border-r border-[#0A2E5C]/15 px-2 py-1.5 text-center text-xs font-medium ${subBlue}`}
+                    >
+                      {mm}
                     </th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {depthRows.map((d) => {
-                  const count = Math.max(
-                    d.soft.length,
-                    d.medium.length,
-                    d.hard.length,
-                  );
+                {depthRows.map((d, idx) => {
+                  const zebra = idx % 2 === 0;
+                  const rowBg = zebra ? 'bg-white' : 'bg-[#F4F6FA]';
+                  const cellTd = zebra ? 'bg-white' : 'bg-[#F4F6FA]';
+                  const modelTd = `sticky left-0 z-10 border-b border-r border-line px-3 py-2 text-left font-semibold text-hm ${cellTd}`;
                   return (
                     <>
-                      <tr key={`${d.model}-soft`} className="bg-white">
-                        <td className="sticky left-0 z-10 border border-line bg-white px-3 py-1.5 text-left font-semibold text-hm">
-                          {d.model} · Soft
+                      <tr className={rowBg}>
+                        <td rowSpan={3} className={modelTd}>
+                          {d.model}
                         </td>
-                        {diameters.map((mm) => (
-                          <DepthValue key={mm} list={d.soft} start={d.start} mm={mm} />
+                        {d.soft.map((v, i) => (
+                          <DepthCell key={i} v={v} />
                         ))}
                       </tr>
-                      <tr key={`${d.model}-medium`} className="bg-white">
-                        <td className="sticky left-0 z-10 border border-line bg-white px-3 py-1.5 pl-8 text-left text-inksoft">
-                          Medium
-                        </td>
-                        {diameters.map((mm) => (
-                          <DepthValue key={mm} list={d.medium} start={d.start} mm={mm} />
+                      <tr className={rowBg}>
+                        {d.medium.map((v, i) => (
+                          <DepthCell key={i} v={v} />
                         ))}
                       </tr>
-                      <tr key={`${d.model}-hard`} className="bg-mist/40">
-                        <td className="sticky left-0 z-10 border border-line bg-mist/40 px-3 py-1.5 pl-8 text-left text-inksoft">
-                          Hard
-                        </td>
-                        {diameters.map((mm) => (
-                          <DepthValue key={mm} list={d.hard} start={d.start} mm={mm} />
+                      <tr className={rowBg}>
+                        {d.hard.map((v, i) => (
+                          <DepthCell key={i} v={v} />
                         ))}
                       </tr>
                     </>
@@ -273,9 +304,8 @@ export default function EarthAugersPage() {
             </table>
           </div>
           <p className="mt-3 text-xs text-inksoft">
-            Values shown are indicative maximum drilling depths (meters) per auger drive model.
-            Unused diameters for a given drive are marked &ldquo;–&rdquo;. Support range: from
-            150mm up to 2000mm.
+            &ldquo;–&rdquo; indicates this drive model does not support that diameter. Drive Model
+            column stays fixed while scrolling horizontally.
           </p>
         </div>
       </section>
