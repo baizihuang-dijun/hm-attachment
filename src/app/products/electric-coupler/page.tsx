@@ -6,7 +6,6 @@ import {
   Droplets,
   Layers,
   ShieldCheck,
-  Shield,
   Sparkles,
   Wrench,
   Zap,
@@ -26,6 +25,7 @@ const lockTiers: {
   title: string;
   points: { label: string; text: string }[];
   variant: string;
+  image: string;
 }[] = [
   {
     tag: 'Lock 01',
@@ -45,6 +45,7 @@ const lockTiers: {
       },
     ],
     variant: 'border-t-hm',
+    image: '[image-power-lock]',
   },
   {
     tag: 'Lock 02',
@@ -64,6 +65,7 @@ const lockTiers: {
       },
     ],
     variant: 'border-t-hm-bright',
+    image: '[image-auto-lock]',
   },
   {
     tag: 'Lock 03',
@@ -83,6 +85,7 @@ const lockTiers: {
       },
     ],
     variant: 'border-t-hm-dark',
+    image: '[image-safety-lock]',
   },
 ];
 
@@ -109,18 +112,22 @@ const strengthPoints = [
   {
     title: 'Integral Casting',
     desc: 'Seamless single-piece design eliminates weld weak points.',
+    image: '[image-integral-casting]',
   },
   {
     title: 'High-Strength Steel',
     desc: 'Engineered for extreme load-bearing capacity.',
+    image: '[image-high-strength]',
   },
   {
     title: 'Tri-Support Push Structure',
     desc: 'Disperses 85% of impact force to housing.',
+    image: '[image-tri-support]',
   },
   {
     title: 'Durability',
     desc: 'Heat-treated to withstand 4x more impact than traditional couplers.',
+    image: '[image-durability-impact]',
   },
 ];
 
@@ -185,8 +192,13 @@ export default function ElectricCouplerPage() {
               'radial-gradient(circle at 15% 20%, rgba(43,108,176,0.5), transparent 50%), radial-gradient(circle at 85% 85%, rgba(6,32,63,0.9), transparent 60%)',
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-[0.3em] text-hm-bright-2">
+        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <ImagePlaceholder
+            alt="HM Electric Quick Coupler"
+            label="[image-hero]"
+            className="h-56 w-full rounded-lg border border-white/15 sm:h-72"
+          />
+          <p className="mt-8 text-sm font-bold uppercase tracking-[0.3em] text-hm-bright-2">
             HM Attachment / Electric Coupler
           </p>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
@@ -246,7 +258,7 @@ export default function ElectricCouplerPage() {
             attachment change positively locked.
           </p>
           <div className="mt-8 grid gap-4">
-            {lockTiers.map((t) => (
+            {lockTiers.map((t, i) => (
               <div
                 key={t.tag}
                 className={`rounded-lg border-l-4 border-t border-line bg-white p-6 ${t.variant}`}
@@ -257,13 +269,22 @@ export default function ElectricCouplerPage() {
                   </span>
                   <h3 className="text-lg font-bold text-hm">{t.title}</h3>
                 </div>
-                <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                  {t.points.map((p) => (
-                    <div key={p.label}>
-                      <p className="text-xs font-bold uppercase tracking-wide text-inksoft">{p.label}</p>
-                      <p className="mt-1 text-sm text-ink">{p.text}</p>
-                    </div>
-                  ))}
+                <div className="mt-4 grid items-center gap-6 lg:grid-cols-2">
+                  <ImagePlaceholder
+                    alt={t.title}
+                    label={t.image}
+                    className={`h-56 w-full rounded-lg border border-line ${
+                      i % 2 === 1 ? 'lg:order-last' : 'lg:order-first'
+                    }`}
+                  />
+                  <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                    {t.points.map((p) => (
+                      <div key={p.label}>
+                        <p className="text-xs font-bold uppercase tracking-wide text-inksoft">{p.label}</p>
+                        <p className="mt-1 text-sm text-ink">{p.text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -312,7 +333,12 @@ export default function ElectricCouplerPage() {
           <p className="mt-3 text-inksoft">
             No hydraulic lines needed. Plug-and-play wireless controller.
           </p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ImagePlaceholder
+            alt="10-minute installation"
+            label="[image-installation]"
+            className="mt-8 h-48 w-full rounded-lg border border-line"
+          />
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {installSteps.map((step, i) => (
               <div key={step.title} className="rounded-lg border border-line bg-white p-6 transition-all hover:-translate-y-1 hover:border-hm-bright-2 hover:shadow-md">
                 <span className="flex h-9 w-9 items-center justify-center rounded bg-hm text-sm font-black text-white">
@@ -335,10 +361,12 @@ export default function ElectricCouplerPage() {
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {strengthPoints.map((s) => (
-              <div key={s.title} className="rounded-lg border border-line bg-mist/40 p-6">
-                <Shield className="h-7 w-7 text-hm-bright-2" />
-                <h3 className="mt-3 font-bold text-hm">{s.title}</h3>
-                <p className="mt-1 text-sm text-inksoft">{s.desc}</p>
+              <div key={s.title} className="overflow-hidden rounded-lg border border-line bg-mist/40">
+                <ImagePlaceholder alt={s.title} label={s.image} className="h-40 w-full border-b border-line" />
+                <div className="p-6">
+                  <h3 className="font-bold text-hm">{s.title}</h3>
+                  <p className="mt-1 text-sm text-inksoft">{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -464,6 +492,11 @@ export default function ElectricCouplerPage() {
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
             Built for the job site
           </h2>
+          <ImagePlaceholder
+            alt="Electric coupler applications"
+            label="[image-applications]"
+            className="mt-6 h-48 w-full rounded-lg border border-line"
+          />
           <div className="mt-6 flex flex-wrap gap-3">
             {applications.map((a) => (
               <span
