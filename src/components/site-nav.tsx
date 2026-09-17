@@ -14,7 +14,6 @@ const topNav = [
   { label: 'Home', href: '/' },
   { label: 'Drilling', dropdown: true },
   { label: 'Electric Coupler', href: '/products/electric-coupler' },
-  { label: 'Accessories', href: '/products/accessories' },
   { label: 'Applications', href: '/products/applications' },
   { label: 'Contact', href: '/about' },
 ];
@@ -195,7 +194,6 @@ export function SiteNav() {
 
             {[
               { label: 'Electric Coupler', href: '/products/electric-coupler' },
-              { label: 'Accessories', href: '/products/accessories' },
               { label: 'Applications', href: '/products/applications' },
               { label: 'Contact', href: '/about' },
             ].map((item) => (

@@ -214,28 +214,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Accessories (lightweight) */}
-      <section className="border-t border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-inksoft">
-            Accessories
-          </p>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <Link
-              href="/products/accessories"
-              className="inline-flex items-center gap-1 rounded-md border border-line px-3 py-1.5 text-sm text-ink transition-colors hover:border-hm-bright-2 hover:text-hm-bright-2"
-            >
-              View Accessories <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-            {['Log Splitter', 'Stump Planer', 'Core Barrel', 'Cement Mixer'].map((a) => (
-              <span key={a} className="rounded-md bg-mist px-3 py-1.5 text-sm text-inksoft">
-                {a}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA band */}
       <section className="bg-hm text-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">

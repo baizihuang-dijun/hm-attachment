@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       { source: '/products/auger-drives', destination: '/products/drives', permanent: true },
       { source: '/products/drilling-drives', destination: '/products/drives', permanent: true },
       { source: '/products/wear-parts', destination: '/products/earth-augers#teeth', permanent: true },
+      { source: '/products/accessories', destination: '/products/tools', permanent: true },
     ];
   },
   // outputFileTracingRoot: path.resolve(__dirname, '../../'),  // Uncomment and add 'import path from "path"' if needed

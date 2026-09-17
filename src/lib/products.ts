@@ -154,20 +154,6 @@ export const categories: Category[] = [
     ],
   },
   {
-    slug: 'accessories',
-    name: 'Accessories',
-    short: 'Attachments',
-    description:
-      'Complementary attachments and tools incl. log splitter, stump planer, core barrel and cement mixer.',
-    image: pImg('accessories'),
-    items: [
-      { name: 'Log Splitter', model: 'Log Splitter', image: pImg('acc-log-splitter'), description: 'Log splitter attachment for splitting timber.' },
-      { name: 'Stump Planer', model: 'Stump Planer', image: pImg('acc-stump-planer'), description: 'Stump planer for milling and levelling tree stumps.' },
-      { name: 'Core Barrel', model: 'Core Barrel', image: pImg('acc-core-barrel'), description: 'Core barrel for rock coring and sampling.' },
-      { name: 'Cement Mixer', model: 'Cement Mixer', image: pImg('acc-cement-mixer'), description: 'Cement mixer attachment for on-site slurry mixing.' },
-    ],
-  },
-  {
     slug: 'applications',
     name: 'Applications',
     short: 'Applications',
