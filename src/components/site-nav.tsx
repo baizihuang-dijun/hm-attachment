@@ -19,7 +19,7 @@ const topNav = [
   { label: 'Contact', href: '/about' },
 ];
 
-const drillingSlugs = ['auger-drives', 'earth-augers', 'drilling-drives', 'hitch', 'wear-parts'];
+const drillingSlugs = ['drives', 'earth-augers', 'hitch', 'helical-piles', 'tools'];
 const drillingItems = drillingSlugs
   .map((s) => ({ slug: s, ...getCategory(s) }))
   .filter((c) => c && c.slug) as { slug: string; name: string }[];

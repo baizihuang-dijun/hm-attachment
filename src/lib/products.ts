@@ -29,10 +29,11 @@ export const brand = {
   email: 'hm@hmattachment.com',
   website: 'www.hmattachment.com',
   short:
-    'HM Attachment manufactures excavator auger drives, drilling equipment and wear parts, delivering reliable power to construction, piling and drilling sites worldwide.',
+    'HM Attachment supplies excavator auger drives, drilling drives, augers, hitches, helical piles and drilling tools for construction, piling and drilling sites worldwide.',
 };
 
-const augerDrivesTable = {
+// Yichen YA series Standard Auger Drive specification table (10 models)
+export const augerDrivesTable = {
   headers: [
     'Model',
     'Excavator',
@@ -61,30 +62,16 @@ const augerDrivesTable = {
 
 export const categories: Category[] = [
   {
-    slug: 'auger-drives',
-    name: 'Auger Drives',
-    short: 'Rotary Drilling',
+    slug: 'drives',
+    name: 'Drives',
+    short: 'Drilling Drives',
     description:
-      'Hydraulic auger drives from 1,900 N·m to 100,000 N·m, compatible with 0.5-52 ton excavators for piling, fence, pole and well drilling operations.',
-    image: pImg('auger-drives'),
-    hasTable: true,
-    tableTitle: 'Auger Drives Specification (10 Models)',
-    table: augerDrivesTable,
+      'Standard, high speed and horizontal auger drives. YA series from 1,900 N·m to 100,000 N·m for 0.5-52 ton excavators.',
+    image: pImg('drives'),
     items: [
-      {
-        name: 'YA Series Auger Drive',
-        model: 'YA-2000 ~ YA-100000',
-        image: pImg('auger-drive-ya'),
-        description:
-          'Hydraulic motor and planetary gearbox auger drive. Ten models cover 0.5-52 ton excavators with torque up to 100,000 N·m for reliable, powerful drilling.',
-        specs: [
-          { label: 'Range', value: 'YA-2000 / YA-3300 / YA-5000 / YA-8000 / YA-10000 / YA-18000 / YA-31000 / YA-50000 / YA-80000 / YA-100000' },
-          { label: 'Drive', value: 'Hydraulic motor + planetary gearbox' },
-          { label: 'Mount', value: 'Excavator 0.5-52 ton' },
-          { label: 'Torque', value: '1,900 - 100,000 N·m' },
-          { label: 'Shaft', value: 'Round / hex / square shank (configurable)' },
-        ],
-      },
+      { name: 'Standard Auger Drive', model: 'YA-2000 ~ YA-100000', image: pImg('auger-drive-ya'), description: 'Hydraulic motor and planetary gearbox auger drive covering ten models and 0.5-52 ton excavators.' },
+      { name: 'High Speed Auger Drive', image: pImg('hs-drive'), description: 'Specially designed for high-speed applications for unparalleled productivity.' },
+      { name: 'Horizontal Drill Auger Drive', image: pImg('hd-drive'), description: 'Designed for horizontal drilling and foundation penetrations.' },
     ],
   },
   {
@@ -92,107 +79,53 @@ export const categories: Category[] = [
     name: 'Earth Augers',
     short: 'Soil Augers',
     description:
-      'Complete auger flights and augers for hydraulic drives, with multiple flight types for different ground conditions. Diameter range 150mm to 2000mm.',
+      'W2, W3 and W4 augers plus pilots and teeth for general, combination and rock drilling. Diameter from 150mm to 2000mm.',
     image: pImg('earth-augers'),
     items: [
-      {
-        name: 'W2 Earth/Clay Auger',
-        model: 'W2',
-        image: pImg('auger-w2'),
-        description:
-          'Continuous flight auger for earth and clay, general drilling applications. Fitted with ADP2 pilot and AOT2 teeth.',
-        specs: [
-          { label: 'Ground', value: 'Earth / clay, general drilling' },
-          { label: 'Pilot', value: 'ADP2' },
-          { label: 'Teeth', value: 'AOT2' },
-        ],
-      },
-      {
-        name: 'W3 Combination Auger',
-        model: 'W3',
-        image: pImg('auger-w3'),
-        description:
-          'Combination auger for all ground conditions. Tapered teeth, fitted with AOP3 pilot and AOT3 teeth.',
-        specs: [
-          { label: 'Ground', value: 'Combination, all ground conditions' },
-          { label: 'Pilot', value: 'AOP3' },
-          { label: 'Teeth', value: 'AOT3, tapered teeth' },
-        ],
-      },
-      {
-        name: 'W4 Rock Auger',
-        model: 'W4',
-        image: pImg('auger-w4'),
-        description:
-          'Heavy-duty rock auger for concrete, shale and fracturable rock. Fitted with AOP4 pilot and AOT4 teeth.',
-        specs: [
-          { label: 'Ground', value: 'Concrete / shale / fracturable rock' },
-          { label: 'Pilot', value: 'AOP4' },
-          { label: 'Teeth', value: 'AOT4, heavy duty' },
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'drilling-drives',
-    name: 'Drilling Drives',
-    short: 'Drilling Power',
-    description:
-      'High speed auger drives and horizontal drill drives delivering reliable rotational power for fast and directional drilling.',
-    image: pImg('drilling-drives'),
-    items: [
-      {
-        name: 'High Speed Auger Drive',
-        model: 'HS series',
-        image: pImg('hs-drive'),
-        description:
-          'High-output auger drive suited to small-diameter, high-speed drilling for greater per-hour productivity.',
-        specs: [{ label: 'Output', value: 'High speed output for rapid drilling' }],
-      },
-      {
-        name: 'Horizontal Drill Drive',
-        model: 'HDD series',
-        image: pImg('hd-drive'),
-        description:
-          'Horizontal drill drive for horizontal directional bores and cross drilling, with stable torque and reliable anti-rotation.',
-        specs: [{ label: 'Mode', value: 'Horizontal / directional drilling' }],
-      },
+      { name: 'W2 Earth Auger', model: 'W2', image: pImg('auger-w2'), description: 'All-purpose earth auger for general drilling in earth, clay, shale and soft rock. Multi-faced tungsten.' },
+      { name: 'W3 Combination Auger', model: 'W3', image: pImg('auger-w3'), description: 'Cost effective taper teeth for ripping in fracturable rock, permafrost and general earth.' },
+      { name: 'W4 Rock Auger', model: 'W4', image: pImg('auger-w4'), description: 'Heavy duty rock auger with high efficiency cutting heads and quality wear parts.' },
     ],
   },
   {
     slug: 'hitch',
-    name: 'Hitch & Connectors',
-    short: 'Quick Couplers',
+    name: 'Hitch & Extension',
+    short: 'Hitch / Extension',
     description:
-      'High-strength quick hitching systems including single pin, double pin, double pin cradle and skid steer configurations for fast, secure attachment changes.',
+      'Four hitch connector types for all excavator ranges, plus customizable auger extensions.',
     image: pImg('hitch'),
     items: [
-      { name: 'Single Pin Hitch', model: 'Single Pin', image: pImg('hitch-single'), description: 'Single pin quick hitch with a simple, fast and reliable connection.' },
-      { name: 'Double Pin Hitch', model: 'Double Pin', image: pImg('hitch-double'), description: 'Double pin quick hitch for higher load stability and heavy attachments.' },
-      { name: 'Double Pin Cradle Hitch', model: 'Double Pin Cradle', image: pImg('hitch-cradle'), description: 'Double pin cradle hitch with a larger support area for heavy shock loads.' },
-      { name: 'Skid Steer Hitch', model: 'Skid Steer', image: pImg('hitch-skid'), description: 'Quick hitch for skid steer loaders and their attachment mounting.' },
+      { name: 'Single Pin Hitch', image: pImg('hitch-single'), description: 'Lightweight, non-bulky and economical.' },
+      { name: 'Double Pin Hitch', image: pImg('hitch-double'), description: 'Loose and fixed pin, standard and quick hitch.' },
+      { name: 'Double Pin Cradle Hitch', image: pImg('hitch-cradle'), description: 'For YA2000-YA100000 range, eliminates auger swing.' },
+      { name: 'Skid Steer Loader Frame', image: pImg('hitch-skid'), description: 'Slide operation for YA2000-YA5000.' },
     ],
   },
   {
-    slug: 'wear-parts',
-    name: 'Wear Parts',
-    short: 'Consumables',
+    slug: 'helical-piles',
+    name: 'Helical Piles',
+    short: 'Helical Piles',
     description:
-      'Complete set of auger teeth and pilots in wear-resistant alloys, matched to each auger type to extend continuous operation time.',
-    image: pImg('wear-parts'),
+      'AP series helical piles from 18-46 ton capacity, with installation system and torque sensing accessories.',
+    image: pImg('helical-piles'),
     items: [
-      {
-        name: 'Auger Teeth & Pilots',
-        model: 'ADP2 / AOP3 / AOP4 · AOT2 / AOT3 / AOT4',
-        image: pImg('teeth-pilots'),
-        description:
-          'Matched pilots and teeth, including ADP2/AOP3/AOP4 pilots and AOT2/AOT3/AOT4 teeth, in wear-resistant alloy and tungsten carbide.',
-        specs: [
-          { label: 'Pilots', value: 'ADP2, AOP3, AOP4' },
-          { label: 'Teeth', value: 'AOT2, AOT3, AOT4' },
-          { label: 'Material', value: 'Wear-resistant alloy + tungsten carbide' },
-        ],
-      },
+      { name: 'Helical Piles', model: 'AP-18 / AP-22 / AP-36 / AP-46', image: pImg('helical-pile'), description: 'Screw piles with galvanized, bare or epoxy coating for 18-46 ton loads.' },
+      { name: 'Torque Indicator', model: 'ATS series', image: pImg('torque-indicator'), description: 'Wireless torque measurement from 10,000 to 100,000 N·m.' },
+    ],
+  },
+  {
+    slug: 'tools',
+    name: 'Tools',
+    short: 'Drilling Tools',
+    description:
+      'Log splitter, stump planer, core barrel, cement mixer bowl and hole cleaner drilling and ground tools.',
+    image: pImg('tools'),
+    items: [
+      { name: 'Log Splitter', model: 'ALS-180', image: pImg('tool-log-splitter'), description: 'Self-guiding log splitter for 1-5 ton machines.' },
+      { name: 'Stump Planer', model: 'ASP series', image: pImg('tool-stump-planer'), description: 'Z-shaped blade stump planer with two-stage cutting.' },
+      { name: 'Core Barrel', model: 'ACB series', image: pImg('tool-core-barrel'), description: 'Core barrel from 350-1200mm cutting diameter.' },
+      { name: 'Cement Mixer Bowl', model: 'ACM series', image: pImg('tool-cement-mixer'), description: '180L concrete mixer bowl for on-site mixing.' },
+      { name: 'Hole Cleaner', image: pImg('tool-hole-cleaner'), description: 'Pre-pile hole cleaning tool.' },
     ],
   },
   {
@@ -269,6 +202,61 @@ export function getCategory(slug: string): Category | undefined {
 export function categoryItemsBySlug(slug: string): ProductItem[] | undefined {
   return getCategory(slug)?.items;
 }
+
+// Home page 18-product-card data grouped by 5 product families
+export type HomeProductCard = {
+  title: string;
+  tagline: string;
+  href: string;
+  image: string;
+  badge?: string;
+};
+
+export const homeProductGroups: { title: string; cards: HomeProductCard[] }[] = [
+  {
+    title: 'Drives',
+    cards: [
+      { title: 'Standard Auger Drive', tagline: '10 models, 1900-100000 Nm, 0.5-52T', href: '/products/drives', image: pImg('auger-drive-ya'), badge: 'YA Series' },
+      { title: 'High Speed Auger Drive', tagline: 'High-speed, customizable', href: '/products/drives#high-speed', image: pImg('hs-drive') },
+      { title: 'Horizontal Drill Auger Drive', tagline: 'Horizontal drilling', href: '/products/drives#horizontal', image: pImg('hd-drive') },
+    ],
+  },
+  {
+    title: 'Earth Augers',
+    cards: [
+      { title: 'W2 Earth Auger', tagline: 'All-purpose general drilling', href: '/products/earth-augers', image: pImg('auger-w2') },
+      { title: 'W3 Combination Auger', tagline: 'Taper teeth, rock and earth', href: '/products/earth-augers', image: pImg('auger-w3') },
+      { title: 'W4 Rock Auger', tagline: 'Heavy-duty rock drilling', href: '/products/earth-augers', image: pImg('auger-w4') },
+      { title: 'Pilot and Teeth', tagline: 'Tungsten carbide, 3 configs', href: '/products/earth-augers#teeth', image: pImg('teeth-pilots') },
+    ],
+  },
+  {
+    title: 'Hitch and Extension',
+    cards: [
+      { title: 'Hitch', tagline: '4 types for all excavators', href: '/products/hitch', image: pImg('hitch-single') },
+      { title: 'Auger Extension', tagline: 'Customizable length', href: '/products/hitch#extension', image: pImg('auger-extension') },
+    ],
+  },
+  {
+    title: 'Helical Piles',
+    cards: [
+      { title: 'Helical Piles', tagline: 'AP series, 18-46 ton', href: '/products/helical-piles', image: pImg('helical-pile') },
+      { title: 'Angle Indicator', tagline: 'AAS-360, wireless, IP66', href: '/products/helical-piles#sensors', image: pImg('angle-indicator') },
+      { title: 'In-cab Monitor', tagline: 'EM-10W, 10.1in, IP67', href: '/products/helical-piles#sensors', image: pImg('in-cab-monitor') },
+      { title: 'Torque Indicator', tagline: 'ATS series, up to 100000 Nm', href: '/products/helical-piles#sensors', image: pImg('torque-indicator') },
+    ],
+  },
+  {
+    title: 'Tools',
+    cards: [
+      { title: 'Log Splitter', tagline: 'ALS-180, 1-5T', href: '/products/tools', image: pImg('tool-log-splitter') },
+      { title: 'Stump Planer', tagline: 'ASP series, 250-350mm', href: '/products/tools', image: pImg('tool-stump-planer') },
+      { title: 'Core Barrel', tagline: 'ACB series, 350-1200mm', href: '/products/tools', image: pImg('tool-core-barrel') },
+      { title: 'Cement Mixer Bowl', tagline: 'ACM series, 180L', href: '/products/tools', image: pImg('tool-cement-mixer') },
+      { title: 'Hole Cleaner', tagline: 'Pre-pile cleaning', href: '/products/tools', image: pImg('tool-hole-cleaner') },
+    ],
+  },
+];
 
 export const homeStats = [
   { value: '10', label: 'Auger Drive Models' },
