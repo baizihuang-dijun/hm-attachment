@@ -81,7 +81,7 @@ export default async function CategoryPage({ params }: Props) {
         subtitle={cat.description}
       />
 
-      {/* 分类主图占位 */}
+      {/* Category hero image placeholder */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <ImagePlaceholder alt={cat.name} label={cat.image} className="h-64 w-full rounded-lg border border-line" />
@@ -93,12 +93,12 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 参数表（Auger Drives 10 款） */}
+      {/* Specification table (Auger Drives 10 models) */}
       {cat.hasTable && cat.table && (
         <TableSection title={cat.tableTitle ?? cat.name} headers={cat.table.headers} rows={cat.table.rows} />
       )}
 
-      {/* 产品条目 */}
+      {/* Product items */}
       <section className={cat.hasTable ? 'bg-white' : 'bg-white'}>
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="mb-6 text-2xl font-extrabold tracking-tight text-hm">
@@ -140,7 +140,7 @@ export default async function CategoryPage({ params }: Props) {
             ))}
           </div>
 
-          {/* 其他分类快捷导航 */}
+          {/* Other category quick nav */}
           <div className="mt-12 border-t border-line pt-6">
             <p className="text-xs font-semibold uppercase tracking-widest text-inksoft">
               More Products

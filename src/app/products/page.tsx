@@ -7,7 +7,7 @@ import { categories } from '@/lib/products';
 
 export const metadata: Metadata = {
   title: 'Products',
-  description: 'HM Attachment 全系列挖掘机属具与钻探设备产品。',
+  description: 'HM Attachment full range of excavator attachments and drilling equipment.',
 };
 
 const mainCats = categories.filter((c) => c.slug !== 'about');
@@ -18,7 +18,7 @@ export default function ProductsPage() {
       <PageHeader
         kicker="HM Attachment / Products"
         title="All Products"
-        subtitle="覆盖螺旋钻动力头、钻机、连接器、耐磨件等全系列挖掘机属具与钻探设备。"
+        subtitle="A complete range of excavator attachments and drilling equipment — auger drives, drilling drives, quick couplers, wear parts and more."
       />
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">

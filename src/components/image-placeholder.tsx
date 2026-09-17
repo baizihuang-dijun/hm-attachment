@@ -2,8 +2,8 @@ import { Image } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 /**
- * 产品实拍图占位符。
- * 传入 data 形如 [image-xxx]。替换实拍图时，仅需将实现改为 <Image/> 指向真实图源。
+ * Product image placeholder.
+ * data is a marker like [image-xxx]. To swap in a real photo, replace with <Image/> pointing to the real source.
  */
 export function ImagePlaceholder({
   alt,

@@ -29,7 +29,7 @@ export default function Home() {
             {brand.subtitle}
           </p>
 
-          {/* 三个关键数字 */}
+          {/* Three key numbers */}
           <div className="mt-12 grid max-w-2xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
             {homeStats.map((s) => (
               <div key={s.label}>
@@ -72,17 +72,17 @@ export default function Home() {
             {
               icon: Grip,
               title: 'Full Attachment Lineup',
-              desc: '动力头、钻杆钻头、连接器、耐磨件与配件一站式配套。',
+              desc: 'Auger drives, augers, drilling drives, hitches, wear parts and accessories — one-stop.',
             },
             {
               icon: Wrench,
               title: 'Rigorous Engineering',
-              desc: '高强材质与精密传动，适应严苛工地工况。',
+              desc: 'High-strength materials and precision drives for demanding job sites.',
             },
             {
               icon: ShieldCheck,
               title: 'Global Service',
-              desc: '面向全球施工与钻井现场的稳定供应与支持。',
+              desc: 'Stable supply and support for construction and drilling operations worldwide.',
             },
           ].map((f) => (
             <div key={f.title} className="flex gap-4 p-4 sm:border-r sm:border-line sm:last:border-0">
@@ -107,8 +107,9 @@ export default function Home() {
               Complete Range of Excavator Attachments
             </h2>
             <p className="mt-3 text-inksoft">
-              覆盖螺旋钻动力头、钻杆钻头、钻探驱动、连接器、耐磨件、电动快换与配件，
-              满足从市政钻孔到大型桩基的全链条需求。
+              From auger drives, augers and drilling drives to quick couplers, wear
+              parts and electric couplers — covering the full range from municipal
+              drilling to large-scale piling.
             </p>
           </div>
 

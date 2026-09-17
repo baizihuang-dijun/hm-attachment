@@ -3,7 +3,7 @@ export type SpecRow = { label: string; value: string };
 export type ProductItem = {
   name: string;
   model?: string;
-  image: string; // "[image-xxx]" 占位标记，替换实拍图时指向真实图源
+  image: string; // "[image-xxx]" placeholder marker, replace with real image URL later
   description: string;
   specs?: SpecRow[];
 };
@@ -29,7 +29,7 @@ export const brand = {
   email: 'bai@hmattachment.com',
   website: 'www.hmattachment.com',
   short:
-    'HM Attachment 专业制造挖掘机钻机属具、钻探设备与耐磨部件，为全球基建、打桩与钻井现场提供可靠动力。',
+    'HM Attachment manufactures excavator auger drives, drilling equipment and wear parts, delivering reliable power to construction, piling and drilling sites worldwide.',
 };
 
 const augerDrivesTable = {
@@ -63,12 +63,12 @@ export const categories: Category[] = [
   {
     slug: 'auger-drives',
     name: 'Auger Drives',
-    short: '螺旋钻动力头',
+    short: 'Rotary Drilling',
     description:
-      '液压螺旋钻动力头，扭矩覆盖 1,900–100,000 Nm，适配 0.5–52 吨级挖掘机，广泛用于桩基、护栏桩、杆塔与钻井作业。',
+      'Hydraulic auger drives from 1,900 N·m to 100,000 N·m, compatible with 0.5-52 ton excavators for piling, fence, pole and well drilling operations.',
     image: pImg('auger-drives'),
     hasTable: true,
-    tableTitle: 'Auger Drives 系列参数表 (10 Models)',
+    tableTitle: 'Auger Drives Specification (10 Models)',
     table: augerDrivesTable,
     items: [
       {
@@ -76,12 +76,12 @@ export const categories: Category[] = [
         model: 'YA-2000 ~ YA-100000',
         image: pImg('auger-drive-ya'),
         description:
-          '液压马达 + 行星齿轮箱组合的螺旋钻动力头，10 款型号覆盖 0.5–52 吨挖掘机，扭矩最高达 100,000 Nm，结构紧凑、传动平稳，适合各类钻孔作业。',
+          'Hydraulic motor and planetary gearbox auger drive. Ten models cover 0.5-52 ton excavators with torque up to 100,000 N·m for reliable, powerful drilling.',
         specs: [
           { label: 'Range', value: 'YA-2000 / YA-3300 / YA-5000 / YA-8000 / YA-10000 / YA-18000 / YA-31000 / YA-50000 / YA-80000 / YA-100000' },
           { label: 'Drive', value: 'Hydraulic motor + planetary gearbox' },
           { label: 'Mount', value: 'Excavator 0.5-52 ton' },
-          { label: 'Torque', value: '1,900 – 100,000 N·m' },
+          { label: 'Torque', value: '1,900 - 100,000 N·m' },
           { label: 'Shaft', value: 'Round / hex / square shank (configurable)' },
         ],
       },
@@ -90,9 +90,9 @@ export const categories: Category[] = [
   {
     slug: 'earth-augers',
     name: 'Earth Augers',
-    short: '螺旋钻杆钻头',
+    short: 'Soil Augers',
     description:
-      '与动力头配套的整体螺旋钻杆与钻头，多种钻型适配不同地质，直径范围 150mm–2000mm。',
+      'Complete auger flights and augers for hydraulic drives, with multiple flight types for different ground conditions. Diameter range 150mm to 2000mm.',
     image: pImg('earth-augers'),
     items: [
       {
@@ -100,7 +100,7 @@ export const categories: Category[] = [
         model: 'W2',
         image: pImg('auger-w2'),
         description:
-          '用于一般土质与黏土的整体螺旋钻，配备 ADP2 钻头与 AOT2 钻齿，常规钻孔用途。',
+          'Continuous flight auger for earth and clay, general drilling applications. Fitted with ADP2 pilot and AOT2 teeth.',
         specs: [
           { label: 'Ground', value: 'Earth / clay, general drilling' },
           { label: 'Pilot', value: 'ADP2' },
@@ -112,7 +112,7 @@ export const categories: Category[] = [
         model: 'W3',
         image: pImg('auger-w3'),
         description:
-          '组合型整体螺旋钻，适应所有地质条件，采用锥形钻齿，配 AOP3 钻头与 AOT3 钻齿。',
+          'Combination auger for all ground conditions. Tapered teeth, fitted with AOP3 pilot and AOT3 teeth.',
         specs: [
           { label: 'Ground', value: 'Combination, all ground conditions' },
           { label: 'Pilot', value: 'AOP3' },
@@ -124,7 +124,7 @@ export const categories: Category[] = [
         model: 'W4',
         image: pImg('auger-w4'),
         description:
-          '重载型岩层螺旋钻，用于混凝土、页岩及可破碎岩石，配 AOP4 钻头与 AOT4 钻齿。',
+          'Heavy-duty rock auger for concrete, shale and fracturable rock. Fitted with AOP4 pilot and AOT4 teeth.',
         specs: [
           { label: 'Ground', value: 'Concrete / shale / fracturable rock' },
           { label: 'Pilot', value: 'AOP4' },
@@ -136,9 +136,9 @@ export const categories: Category[] = [
   {
     slug: 'drilling-drives',
     name: 'Drilling Drives',
-    short: '钻探驱动',
+    short: 'Drilling Power',
     description:
-      '高速钻孔动力头与水平钻孔驱动装置，为高速成孔与水平钻进提供可靠动力输出。',
+      'High speed auger drives and horizontal drill drives delivering reliable rotational power for fast and directional drilling.',
     image: pImg('drilling-drives'),
     items: [
       {
@@ -146,7 +146,7 @@ export const categories: Category[] = [
         model: 'HS series',
         image: pImg('hs-drive'),
         description:
-          '高输出转速螺旋钻动力头，适合小直径、高转速的快速钻孔需求，提升单位时间成孔效率。',
+          'High-output auger drive suited to small-diameter, high-speed drilling for greater per-hour productivity.',
         specs: [{ label: 'Output', value: 'High speed output for rapid drilling' }],
       },
       {
@@ -154,7 +154,7 @@ export const categories: Category[] = [
         model: 'HDD series',
         image: pImg('hd-drive'),
         description:
-          '水平钻孔驱动装置，用于水平定向钻孔与横向贯入作业，传动稳定、止转可靠。',
+          'Horizontal drill drive for horizontal directional bores and cross drilling, with stable torque and reliable anti-rotation.',
         specs: [{ label: 'Mode', value: 'Horizontal / directional drilling' }],
       },
     ],
@@ -162,23 +162,23 @@ export const categories: Category[] = [
   {
     slug: 'hitch',
     name: 'Hitch',
-    short: '连接器',
+    short: 'Quick Couplers',
     description:
-      '高强度快换连接器，覆盖单销、双销、双销摇篮及滑移装载机等多种接口形式，更换属具快速可靠。',
+      'High-strength quick hitching systems including single pin, double pin, double pin cradle and skid steer configurations for fast, secure attachment changes.',
     image: pImg('hitch'),
     items: [
-      { name: 'Single Pin Hitch', model: 'Single Pin', image: pImg('hitch-single'), description: '单销快换连接器，结构简单、连接快捷可靠。' },
-      { name: 'Double Pin Hitch', model: 'Double Pin', image: pImg('hitch-double'), description: '双销快换连接器，承载更稳定，适配重型属具。' },
-      { name: 'Double Pin Cradle Hitch', model: 'Double Pin Cradle', image: pImg('hitch-cradle'), description: '双销摇篮式连接器，支撑面大、抗冲击能力突出。' },
-      { name: 'Skid Steer Hitch', model: 'Skid Steer', image: pImg('hitch-skid'), description: '滑移装载机专用快换连接器，适配滑移机具安装。' },
+      { name: 'Single Pin Hitch', model: 'Single Pin', image: pImg('hitch-single'), description: 'Single pin quick hitch with a simple, fast and reliable connection.' },
+      { name: 'Double Pin Hitch', model: 'Double Pin', image: pImg('hitch-double'), description: 'Double pin quick hitch for higher load stability and heavy attachments.' },
+      { name: 'Double Pin Cradle Hitch', model: 'Double Pin Cradle', image: pImg('hitch-cradle'), description: 'Double pin cradle hitch with a larger support area for heavy shock loads.' },
+      { name: 'Skid Steer Hitch', model: 'Skid Steer', image: pImg('hitch-skid'), description: 'Quick hitch for skid steer loaders and their attachment mounting.' },
     ],
   },
   {
     slug: 'wear-parts',
     name: 'Wear Parts',
-    short: '耐磨部件',
+    short: 'Consumables',
     description:
-      '螺旋钻钻齿与钻头全套耐磨部件，采用耐磨合金材质，适配对应钻型，延长连续作业时间。',
+      'Complete set of auger teeth and pilots in wear-resistant alloys, matched to each auger type to extend continuous operation time.',
     image: pImg('wear-parts'),
     items: [
       {
@@ -186,7 +186,7 @@ export const categories: Category[] = [
         model: 'ADP2 / AOP3 / AOP4 · AOT2 / AOT3 / AOT4',
         image: pImg('teeth-pilots'),
         description:
-          '配套钻头与钻齿，包含 ADP2/AOP3/AOP4 钻头与 AOT2/AOT3/AOT4 钻齿，硬质合金耐磨抗冲击。',
+          'Matched pilots and teeth, including ADP2/AOP3/AOP4 pilots and AOT2/AOT3/AOT4 teeth, in wear-resistant alloy and tungsten carbide.',
         specs: [
           { label: 'Pilots', value: 'ADP2, AOP3, AOP4' },
           { label: 'Teeth', value: 'AOT2, AOT3, AOT4' },
@@ -198,9 +198,9 @@ export const categories: Category[] = [
   {
     slug: 'electric-coupler',
     name: 'Electric Coupler',
-    short: '电动快换',
+    short: 'Electric Coupler',
     description:
-      'HM 电动快换连接器，适配 5–9 吨挖掘机，电动驱动、三重自动锁止，无液压油泄漏风险。The Convenience of Automatic. The Reliability of Manual.',
+      'HM Electric Quick Coupler for 5-9 ton excavators with an electric drive system, triple auto-lock and manual backup. The convenience of automatic, the reliability of manual.',
     image: pImg('electric-coupler'),
     items: [
       {
@@ -208,7 +208,7 @@ export const categories: Category[] = [
         model: '5-9 ton excavator',
         image: pImg('electric-coupler-hm'),
         description:
-          '采用电动驱动系统替代液压回路，实现三重重自动锁止与手动备用模式，IP67 级防水，杜绝液压油泄漏。自动化的便捷 + 手动的可靠。',
+          'An electric drive system replaces the hydraulic circuit with triple auto-lock and manual backup mode. IP67 waterproof with no hydraulic oil leakage.',
         specs: [
           { label: 'For', value: '5-9 ton excavators' },
           { label: 'Drive', value: 'Electric drive system' },
@@ -223,23 +223,23 @@ export const categories: Category[] = [
   {
     slug: 'accessories',
     name: 'Accessories',
-    short: '配件',
+    short: 'Attachments',
     description:
-      '配套属具与工具，含劈木机、树桩刨、取芯钻筒与水泥搅拌器等轻量展示产品。',
+      'Complementary attachments and tools incl. log splitter, stump planer, core barrel and cement mixer.',
     image: pImg('accessories'),
     items: [
-      { name: 'Log Splitter', model: 'Log Splitter', image: pImg('acc-log-splitter'), description: '劈木机，用于木材劈分作业。' },
-      { name: 'Stump Planer', model: 'Stump Planer', image: pImg('acc-stump-planer'), description: '树桩刨，用于树桩铣削平整。' },
-      { name: 'Core Barrel', model: 'Core Barrel', image: pImg('acc-core-barrel'), description: '取芯钻筒，用于岩层取芯钻孔。' },
-      { name: 'Cement Mixer', model: 'Cement Mixer', image: pImg('acc-cement-mixer'), description: '水泥搅拌器，用于现场浆料搅拌。' },
+      { name: 'Log Splitter', model: 'Log Splitter', image: pImg('acc-log-splitter'), description: 'Log splitter attachment for splitting timber.' },
+      { name: 'Stump Planer', model: 'Stump Planer', image: pImg('acc-stump-planer'), description: 'Stump planer for milling and levelling tree stumps.' },
+      { name: 'Core Barrel', model: 'Core Barrel', image: pImg('acc-core-barrel'), description: 'Core barrel for rock coring and sampling.' },
+      { name: 'Cement Mixer', model: 'Cement Mixer', image: pImg('acc-cement-mixer'), description: 'Cement mixer attachment for on-site slurry mixing.' },
     ],
   },
   {
     slug: 'applications',
     name: 'Applications',
-    short: '应用场景',
+    short: 'Applications',
     description:
-      'HM Attachment 产品广泛应用于护栏打桩、园林绿化、植树、水井钻井、基础桩、杆塔及桅杆安装、螺旋桩、地源热泵、道路标牌、声屏障、太阳能与风力发电塔基等工程现场。',
+      'HM Attachment products serve fence piling, landscaping, tree planting, well boring, foundation piles, pole and mast installation, screw piles, ground source heat pumps, road signage, sound barriers, solar and wind turbine foundations.',
     image: pImg('applications'),
     items: [
       'Fence piling',
