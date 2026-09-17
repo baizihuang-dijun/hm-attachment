@@ -1,57 +1,34 @@
 import type { Metadata } from 'next';
+import { SiteNav, SiteFooter } from '@/components/site-nav';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: '新应用 | 扣子编程',
-    template: '%s | 扣子编程',
+    default: 'HM Attachment | Excavator Attachments & Drilling Equipment',
+    template: '%s | HM Attachment',
   },
   description:
-    '扣子编程是一款一站式云端 Vibe Coding 开发平台。通过对话轻松构建智能体、工作流和网站，实现从创意到上线的无缝衔接。',
+    'HM Attachment — Excavator Attachments & Drilling Equipment. 专业制造挖掘机螺旋钻动力头、钻杆钻头、快换连接器与耐磨件，服务全球基建、打桩与钻井现场。',
   keywords: [
-    '扣子编程',
-    'Coze Code',
-    'Vibe Coding',
-    'AI 编程',
-    '智能体搭建',
-    '工作流搭建',
-    '网站搭建',
-    '网站部署',
-    '全栈开发',
-    'AI 工程师',
+    'HM Attachment',
+    'Auger Drives',
+    'Earth Augers',
+    'Drilling Drives',
+    'Excavator Attachments',
+    'Drilling Equipment',
+    '螺旋钻动力头',
+    '挖掘机属具',
+    '钻探设备',
   ],
-  authors: [{ name: 'Coze Code Team', url: 'https://code.coze.cn' }],
-  generator: 'Coze Code',
-  // icons: {
-  //   icon: '',
-  // },
+  authors: [{ name: 'HM Attachment' }],
+  robots: { index: true, follow: true },
   openGraph: {
-    title: '扣子编程 | 你的 AI 工程师已就位',
+    title: 'HM Attachment | Excavator Attachments & Drilling Equipment',
     description:
-      '我正在使用扣子编程 Vibe Coding，让创意瞬间上线。告别拖拽，拥抱心流。',
-    url: 'https://code.coze.cn',
-    siteName: '扣子编程',
-    locale: 'zh_CN',
+      'Reliable excavator attachments & drilling equipment, built for global construction sites.',
+    siteName: 'HM Attachment',
+    locale: 'en_US',
     type: 'website',
-    // images: [
-    //   {
-    //     url: '',
-    //     width: 1200,
-    //     height: 630,
-    //     alt: '扣子编程 - 你的 AI 工程师',
-    //   },
-    // ],
-  },
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title: 'Coze Code | Your AI Engineer is Here',
-  //   description:
-  //     'Build and deploy full-stack applications through AI conversation. No env setup, just flow.',
-  //   // images: [''],
-  // },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -62,8 +39,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        {children}
+      <body className="antialiased">
+        <div className="flex min-h-screen flex-col">
+          <SiteNav />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

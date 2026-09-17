@@ -52,6 +52,17 @@
   --font-serif:
     'Noto Serif SC', 'Songti SC', 'SimSun', ui-serif, Georgia, Cambria,
     'Times New Roman', Times, serif;
+
+  /* HM Attachment 品牌深蓝工业色板 */
+  --color-hm: #0a2e5c;
+  --color-hm-dark: #072248;
+  --color-hm-bright: #2b6cb0;
+  --color-hm-bright-2: #3b82f6;
+  --color-ink: #14263d;
+  --color-inksoft: #5b6b7e;
+  --color-mist: #f4f6fa;
+  --color-line: #e3e8f0;
+  --color-deep: #06203f;
 }
 
 :root {
