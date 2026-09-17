@@ -33,7 +33,7 @@ export default function Home() {
           <div className="mt-12 grid max-w-2xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
             {homeStats.map((s) => (
               <div key={s.label}>
-                <p className="text-3xl font-extrabold text-white sm:text-4xl">{s.value}</p>
+                <p className="text-3xl font-extrabold text-hm-bright sm:text-4xl">{s.value}</p>
                 <p className="mt-1 text-xs uppercase tracking-wide text-white/60 sm:text-sm">
                   {s.label}
                 </p>

@@ -53,16 +53,16 @@
     'Noto Serif SC', 'Songti SC', 'SimSun', ui-serif, Georgia, Cambria,
     'Times New Roman', Times, serif;
 
-  /* HM Attachment brand deep-blue industrial palette */
-  --color-hm: #0a2e5c;
-  --color-hm-dark: #072248;
-  --color-hm-bright: #2b6cb0;
-  --color-hm-bright-2: #3b82f6;
-  --color-ink: #14263d;
-  --color-inksoft: #5b6b7e;
-  --color-mist: #f4f6fa;
-  --color-line: #e3e8f0;
-  --color-deep: #06203f;
+  /* HM Attachment brand red-black metal palette */
+  --color-hm: #c41e3a;
+  --color-hm-dark: #a3162f;
+  --color-hm-bright: #e11d48;
+  --color-hm-bright-2: #c41e3a;
+  --color-ink: #1a1a1a;
+  --color-inksoft: #6f6f6f;
+  --color-mist: #f5f5f5;
+  --color-line: #e5e5e5;
+  --color-deep: #141414;
 }
 
 :root {
