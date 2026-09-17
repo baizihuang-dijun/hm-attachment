@@ -539,12 +539,12 @@ export default function ElectricCouplerPage() {
                 Contact for pricing and specifications
               </h2>
               <p className="mt-1 text-white/75">
-                Email: bai@hmattachment.com
+                Email: hm@hmattachment.com
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
-                href={`mailto:bai@hmattachment.com`}
+                href={`mailto:hm@hmattachment.com`}
                 className="inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-hm transition-colors hover:bg-hm-bright-2 hover:text-white"
               >
                 Request a Quote

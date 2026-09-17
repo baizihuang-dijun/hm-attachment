@@ -108,7 +108,7 @@ export function SiteNav() {
                 {ddOpen && (
                   <div
                     role="menu"
-                    className="absolute left-0 top-full mt-2 w-60 rounded-lg border border-line bg-white p-2 shadow-lg"
+                    className="absolute left-0 top-full w-60 rounded-lg border border-line bg-white p-2 pt-3 shadow-lg"
                   >
                     {drillingItems.map((c) => (
                       <Link

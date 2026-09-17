@@ -64,7 +64,7 @@ export default function AboutPage() {
             </p>
             <h3 className="mt-2 text-2xl font-extrabold text-hm">We&apos;d love to hear from you</h3>
             <p className="mx-auto mt-3 max-w-md text-sm text-inksoft">
-              For model, spec and pricing enquiries, contact us at bai@hmattachment.com.
+              For model, spec and pricing enquiries, contact us at hm@hmattachment.com.
             </p>
           </div>
         </div>

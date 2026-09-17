@@ -26,7 +26,7 @@ export const brand = {
   name: 'HM Attachment',
   slogan: 'Excavator Attachments & Drilling Equipment',
   subtitle: 'Drilling Attachments | Electric Coupler',
-  email: 'bai@hmattachment.com',
+  email: 'hm@hmattachment.com',
   website: 'www.hmattachment.com',
   short:
     'HM Attachment manufactures excavator auger drives, drilling equipment and wear parts, delivering reliable power to construction, piling and drilling sites worldwide.',

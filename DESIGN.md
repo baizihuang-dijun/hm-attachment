@@ -4,7 +4,7 @@
 - 品牌：HM Attachment。
 - Slogan：Excavator Attachments & Drilling Equipment。副标题：Drilling Attachments | Electric Coupler。
 - 定位：面向全球施工/打桩/市政钻井场景的重型工程机械附件品牌。
-- 公司域名 www.hmattachment.com，联系邮箱 bai@hmattachment.com，与 HM Hydraulics (hmhydraulics.com) 相互独立、互不提及。
+- 公司域名 www.hmattachment.com，联系邮箱 hm@hmattachment.com，与 HM Hydraulics (hmhydraulics.com) 相互独立、互不提及。
 - 意象锚点：深海工业涂层与基建工地的冷冽金属——深蓝「HM 蓝」作为主视觉色（贴近重型机械漆面与深海钢构），白色大留白承接技术参数的冷峻秩序感。
 
 ## 视觉策略
