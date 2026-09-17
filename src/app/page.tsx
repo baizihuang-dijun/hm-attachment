@@ -71,18 +71,18 @@ export default function Home() {
           {[
             {
               icon: Grip,
-              title: 'Full Attachment Lineup',
-              desc: 'Auger drives, augers, drilling drives, hitches, wear parts and accessories — one-stop.',
+              title: 'Drilling-Focused Product Range',
+              desc: 'Auger drives, drilling drives, augers, hitches and wear parts engineered for bore work.',
             },
             {
               icon: Wrench,
               title: 'Rigorous Engineering',
-              desc: 'High-strength materials and precision drives for demanding job sites.',
+              desc: 'High-strength materials and precision drives built for demanding drilling job sites.',
             },
             {
               icon: ShieldCheck,
               title: 'Global Service',
-              desc: 'Stable supply and support for construction and drilling operations worldwide.',
+              desc: 'Reliable supply and support for contractors and drilling operators worldwide.',
             },
           ].map((f) => (
             <div key={f.title} className="flex gap-4 p-4 sm:border-r sm:border-line sm:last:border-0">
@@ -104,12 +104,12 @@ export default function Home() {
               Products
             </p>
             <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
-              Complete Range of Excavator Attachments
+              Drilling Attachments & Equipment
             </h2>
             <p className="mt-3 text-inksoft">
-              From auger drives, augers and drilling drives to quick couplers, wear
-              parts and electric couplers — covering the full range from municipal
-              drilling to large-scale piling.
+              From auger drives and drilling drives to augers, hitches, wear parts
+              and electric couplers — built for bore work from municipal drilling to
+              large-scale piling.
             </p>
           </div>
 

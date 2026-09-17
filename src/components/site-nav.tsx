@@ -3,16 +3,38 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { categories, brand } from '@/lib/products';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { categories, brand, getCategory } from '@/lib/products';
 import { cn } from '@/lib/utils';
 
 const mainNav = categories.filter((c) => c.slug !== 'about');
-const aboutCat = categories.find((c) => c.slug === 'about');
+
+// Top-level nav with a "Drilling" dropdown group
+const topNav = [
+  { label: 'Home', href: '/' },
+  { label: 'Drilling', dropdown: true },
+  { label: 'Electric Coupler', href: '/products/electric-coupler' },
+  { label: 'Accessories', href: '/products/accessories' },
+  { label: 'Applications', href: '/products/applications' },
+  { label: 'Contact', href: '/about' },
+];
+
+const drillingSlugs = ['auger-drives', 'earth-augers', 'drilling-drives', 'hitch', 'wear-parts'];
+const drillingItems = drillingSlugs
+  .map((s) => ({ slug: s, ...getCategory(s) }))
+  .filter((c) => c && c.slug) as { slug: string; name: string }[];
 
 export function SiteNav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [ddOpen, setDdOpen] = useState(false);
+  const [drillingOpen, setDrillingOpen] = useState(false);
+
+  const isDrillingActive = drillingItems.some(
+    (c) => pathname === `/products/${c.slug}`,
+  );
+
+  const isActive = (href?: string) => (href ? pathname === href : false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
@@ -33,84 +55,123 @@ export function SiteNav() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex">
-          <Link
-            href="/"
-            className={cn(
-              'rounded-md px-3 py-2 text-sm font-medium transition-colors',
-              pathname === '/'
-                ? 'text-hm-bright-2'
-                : 'text-ink hover:text-hm-bright-2',
-            )}
-          >
-            Home
-          </Link>
-          {mainNav.map((c) => (
-            <Link
-              key={c.slug}
-              href={`/products/${c.slug}`}
-              className={cn(
-                'rounded-md px-3 py-2 text-sm font-medium transition-colors',
-                pathname === `/products/${c.slug}`
-                  ? 'text-hm-bright-2'
-                  : 'text-ink hover:text-hm-bright-2',
-              )}
-            >
-              {c.name}
-            </Link>
-          ))}
-          <Link
-            href="/about"
-            className={cn(
-              'rounded-md px-3 py-2 text-sm font-medium transition-colors',
-              pathname === '/about'
-                ? 'text-hm-bright-2'
-                : 'text-ink hover:text-hm-bright-2',
-            )}
-          >
-            Contact
-          </Link>
+          {topNav.map((item) =>
+            item.dropdown ? (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => setDdOpen(true)}
+                onMouseLeave={() => setDdOpen(false)}
+              >
+                <button
+                  className={cn(
+                    'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                    isDrillingActive ? 'text-hm-bright-2' : 'text-ink hover:text-hm-bright-2',
+                  )}
+                >
+                  {item.label}
+                  <ChevronDown
+                    className={cn('h-4 w-4 transition-transform', ddOpen && 'rotate-180')}
+                  />
+                </button>
+                {ddOpen && (
+                  <div className="absolute left-0 top-full mt-2 w-60 rounded-lg border border-line bg-white p-2 shadow-lg">
+                    {drillingItems.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/products/${c.slug}`}
+                        className={cn(
+                          'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                          pathname === `/products/${c.slug}`
+                            ? 'bg-hm/5 text-hm-bright-2'
+                            : 'text-ink hover:bg-mist hover:text-hm-bright-2',
+                        )}
+                      >
+                        {c.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href!}
+                className={cn(
+                  'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                  isActive(item.href)
+                    ? 'text-hm-bright-2'
+                    : 'text-ink hover:text-hm-bright-2',
+                )}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <button
           className="inline-flex items-center justify-center rounded-md p-2 text-ink lg:hidden"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {/* Mobile nav */}
-      {open && (
+      {mobileOpen && (
         <nav className="max-h-[80vh] overflow-y-auto border-t border-line bg-white lg:hidden">
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
             <Link
               href="/"
-              onClick={() => setOpen(false)}
+              onClick={() => setMobileOpen(false)}
               className="block py-2 text-sm font-medium text-ink"
             >
               Home
             </Link>
-            {mainNav.map((c) => (
+
+            {/* Collapsible Drilling */}
+            <button
+              onClick={() => setDrillingOpen((v) => !v)}
+              className="flex w-full items-center justify-between py-2 text-sm font-medium text-ink"
+            >
+              Drilling
+              <ChevronDown
+                className={cn('h-4 w-4 transition-transform', drillingOpen && 'rotate-180')}
+              />
+            </button>
+            {drillingOpen && (
+              <div className="ml-3 border-l border-line pl-3">
+                {drillingItems.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/products/${c.slug}`}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-1.5 py-2 text-sm font-medium text-ink"
+                  >
+                    <ChevronRight className="h-3.5 w-3.5 text-hm-bright-2" />
+                    {c.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {[
+              { label: 'Electric Coupler', href: '/products/electric-coupler' },
+              { label: 'Accessories', href: '/products/accessories' },
+              { label: 'Applications', href: '/products/applications' },
+              { label: 'Contact', href: '/about' },
+            ].map((item) => (
               <Link
-                key={c.slug}
-                href={`/products/${c.slug}`}
-                onClick={() => setOpen(false)}
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
                 className="block py-2 text-sm font-medium text-ink"
               >
-                <span className="inline-flex items-center gap-2">
-                  {c.name}
-                  <span className="text-xs text-inksoft">{c.short}</span>
-                </span>
+                {item.label}
               </Link>
             ))}
-            <Link
-              href="/about"
-              onClick={() => setOpen(false)}
-              className="block py-2 text-sm font-medium text-ink"
-            >
-              Contact
-            </Link>
           </div>
         </nav>
       )}

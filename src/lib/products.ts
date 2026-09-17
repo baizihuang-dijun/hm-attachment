@@ -161,7 +161,7 @@ export const categories: Category[] = [
   },
   {
     slug: 'hitch',
-    name: 'Hitch',
+    name: 'Hitch & Connectors',
     short: 'Quick Couplers',
     description:
       'High-strength quick hitching systems including single pin, double pin, double pin cradle and skid steer configurations for fast, secure attachment changes.',
