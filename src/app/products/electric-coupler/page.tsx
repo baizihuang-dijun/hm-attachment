@@ -17,7 +17,7 @@ import { categories } from '@/lib/products';
 export const metadata: Metadata = {
   title: 'Electric Coupler',
   description:
-    'HM Electric Quick Coupler for 5-9 ton excavators — electric drive, triple auto-lock, manual backup, IP67. The speed of automatic, without the hydraulics.',
+    'HM Electric Quick Coupler for 5-9 ton excavators — electric drive, triple auto-lock, manual backup, IP67. Electric when you need speed. Manual when you need a backup.',
 };
 
 const lockTiers: {
@@ -246,11 +246,11 @@ export default function ElectricCouplerPage() {
             HM Electric Quick Coupler
           </h1>
           <p className="mt-3 text-lg text-hm-bright-2">
-            The speed of automatic. Without the hydraulics.
+            Electric when you need speed. Manual when you need a backup.
           </p>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
             Electric quick coupler for 5-9 ton excavators. Wireless control, triple
-            auto-lock, and no hydraulic connections required.
+            auto-lock. No hydraulic connections required.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
