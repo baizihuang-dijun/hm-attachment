@@ -73,7 +73,7 @@ const lockTiers: {
     points: [
       {
         label: 'Design',
-        text: 'Failsafe mechanism compliant with international safety standards.',
+        text: 'Failsafe mechanism designed to maintain positive locking.',
       },
       {
         label: 'Operation',
@@ -136,29 +136,6 @@ const installSteps = [
   },
 ];
 
-const strengthPoints = [
-  {
-    title: 'Integral Casting',
-    desc: 'Seamless single-piece design eliminates weld weak points.',
-    image: '[image-integral-casting]',
-  },
-  {
-    title: 'High-Strength Steel',
-    desc: 'Engineered for extreme load-bearing capacity.',
-    image: '[image-high-strength]',
-  },
-  {
-    title: 'Tri-Support Push Structure',
-    desc: 'Disperses 85% of impact force to housing.',
-    image: '[image-tri-support]',
-  },
-  {
-    title: 'Durability',
-    desc: 'Heat-treated to withstand 4x more impact than traditional couplers.',
-    image: '[image-durability-impact]',
-  },
-];
-
 const controllerPoints = [
   'Industrial-grade protection: shorts, overvoltage, overheating, phase loss.',
   'Diagnostic buzzer for instant error identification.',
@@ -190,23 +167,6 @@ const compatibilityPoints = [
   },
 ];
 
-const applications = [
-  'Excavation',
-  'Grading',
-  'Landscaping',
-  'Material Handling',
-  'Construction',
-  'Demolition',
-];
-
-const warrantyRows: { part: string; coverage: string }[] = [
-  { part: 'Cast Steel Housing', coverage: '12 months' },
-  { part: 'Brushless Motor', coverage: '12 months' },
-  { part: 'Self-Locking Screw & Clutch', coverage: '12 months' },
-  { part: 'Auto-Lock Block', coverage: 'Lifetime' },
-  { part: 'Wireless Controller', coverage: '12 months' },
-];
-
 const specRows: { label: string; ec02: string; ec04: string }[] = [
   { label: 'Pin Diameter', ec02: '45/50 mm', ec04: '45/50 mm' },
   { label: 'Length', ec02: '540±5 mm', ec04: '565±5 mm' },
@@ -218,7 +178,7 @@ const specRows: { label: string; ec02: string; ec04: string }[] = [
   { label: 'Vertical Offset', ec02: '172±2 mm', ec04: '178±2 mm' },
   { label: 'Coupler Weight', ec02: '65 kg', ec04: '67 kg' },
   { label: 'Operating Voltage', ec02: '12/24V', ec04: '12/24V' },
-  { label: 'Machine Weight', ec02: '5-7 Ton', ec04: '6-8 Ton' },
+  { label: 'Machine Weight', ec02: '5-7 Ton', ec04: '6-9 Ton' },
 ];
 
 export default function ElectricCouplerPage() {
@@ -251,6 +211,9 @@ export default function ElectricCouplerPage() {
           <p className="mt-4 max-w-2xl text-lg text-white/80">
             Electric quick coupler for 5-9 ton excavators. Wireless control, triple
             auto-lock. No hydraulic connections required.
+          </p>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+            CE Certified
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -357,27 +320,6 @@ export default function ElectricCouplerPage() {
         </div>
       </section>
 
-      {/* 4. MILITARY-GRADE STRUCTURAL STRENGTH */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">Strength</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
-            MILITARY-GRADE STRUCTURAL STRENGTH
-          </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {strengthPoints.map((s) => (
-              <div key={s.title} className="overflow-hidden rounded-lg border border-line bg-mist/40">
-                <ImagePlaceholder alt={s.title} label={s.image} className="h-40 w-full border-b border-line" />
-                <div className="p-6">
-                  <h3 className="font-bold text-hm">{s.title}</h3>
-                  <p className="mt-1 text-sm text-inksoft">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 5. KEY FEATURES */}
       <section className="bg-mist">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -430,7 +372,7 @@ export default function ElectricCouplerPage() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">Setup</p>
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
-            10-MINUTE INSTALLATION
+            SIMPLE INSTALLATION
           </h2>
           <p className="mt-3 text-inksoft">
             No hydraulic lines needed. Plug-and-play wireless controller.
@@ -588,54 +530,7 @@ export default function ElectricCouplerPage() {
         </div>
       </section>
 
-      {/* 13. APPLICATIONS */}
-      <section className="bg-mist">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">Applications</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
-            Applications
-          </h2>
-          <ImagePlaceholder
-            alt="Electric coupler applications"
-            label="[image-applications]"
-            className="mt-6 h-48 w-full rounded-lg border border-line"
-          />
-          <div className="mt-6 flex flex-wrap gap-3">
-            {applications.map((a) => (
-              <span
-                key={a}
-                className="inline-flex items-center gap-2 rounded-md border border-line bg-white px-4 py-2 text-sm font-medium text-ink"
-              >
-                <CheckCircle2 className="h-4 w-4 text-hm-bright-2" />
-                {a}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 14. WARRANTY */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">Warranty</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
-            Warranty Coverage
-          </h2>
-          <div className="mt-6 overflow-hidden rounded-lg border border-line bg-mist/40">
-            {warrantyRows.map((w, i) => (
-              <div
-                key={w.part}
-                className={`flex items-center justify-between gap-4 border-b border-line px-5 py-3 last:border-0 ${i % 2 ? 'bg-white' : 'bg-mist/40'}`}
-              >
-                <span className="text-sm font-medium text-ink">{w.part}</span>
-                <span className="text-sm font-semibold text-hm-bright-2">{w.coverage}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 15. CTA */}
+      {/* 14. CTA */}
       <section className="bg-hm text-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
