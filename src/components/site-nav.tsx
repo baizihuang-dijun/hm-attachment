@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { categories, brand, getCategory } from '@/lib/products';
 import { cn } from '@/lib/utils';
@@ -29,6 +29,28 @@ export function SiteNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [ddOpen, setDdOpen] = useState(false);
   const [drillingOpen, setDrillingOpen] = useState(false);
+  const [hoverMode, setHoverMode] = useState(false);
+  const drillingRef = useRef<HTMLDivElement>(null);
+
+  // Detect whether the primary input supports hover (mouse) vs touch-only.
+  useEffect(() => {
+    setHoverMode(window.matchMedia('(hover: hover)').matches);
+  }, []);
+
+  // Close the Drilling dropdown when clicking/tapping outside it.
+  useEffect(() => {
+    const onOutside = (e: MouseEvent | TouchEvent) => {
+      if (drillingRef.current && !drillingRef.current.contains(e.target as Node)) {
+        setDdOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onOutside);
+    document.addEventListener('touchstart', onOutside);
+    return () => {
+      document.removeEventListener('mousedown', onOutside);
+      document.removeEventListener('touchstart', onOutside);
+    };
+  }, []);
 
   const isDrillingActive = drillingItems.some(
     (c) => pathname === `/products/${c.slug}`,
@@ -59,11 +81,20 @@ export function SiteNav() {
             item.dropdown ? (
               <div
                 key={item.label}
+                ref={drillingRef}
                 className="relative"
-                onMouseEnter={() => setDdOpen(true)}
-                onMouseLeave={() => setDdOpen(false)}
+                onMouseEnter={hoverMode ? () => setDdOpen(true) : undefined}
+                onMouseLeave={hoverMode ? () => setDdOpen(false) : undefined}
               >
                 <button
+                  type="button"
+                  aria-expanded={ddOpen}
+                  aria-haspopup="menu"
+                  onClick={() => {
+                    // Touch: click toggles open/close. Mouse: hover controls opening,
+                    // click only closes (tapping an already-open item collapses it).
+                    if (!hoverMode || ddOpen) setDdOpen((v) => !v);
+                  }}
                   className={cn(
                     'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                     isDrillingActive ? 'text-hm-bright-2' : 'text-ink hover:text-hm-bright-2',
@@ -75,11 +106,16 @@ export function SiteNav() {
                   />
                 </button>
                 {ddOpen && (
-                  <div className="absolute left-0 top-full mt-2 w-60 rounded-lg border border-line bg-white p-2 shadow-lg">
+                  <div
+                    role="menu"
+                    className="absolute left-0 top-full mt-2 w-60 rounded-lg border border-line bg-white p-2 shadow-lg"
+                  >
                     {drillingItems.map((c) => (
                       <Link
                         key={c.slug}
                         href={`/products/${c.slug}`}
+                        role="menuitem"
+                        onClick={() => setDdOpen(false)}
                         className={cn(
                           'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
                           pathname === `/products/${c.slug}`
