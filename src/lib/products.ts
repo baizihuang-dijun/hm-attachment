@@ -200,7 +200,7 @@ export const categories: Category[] = [
     name: 'Electric Coupler',
     short: 'Electric Coupler',
     description:
-      'HM Electric Quick Coupler for 5-9 ton excavators with an electric drive system, triple auto-lock and manual backup. The convenience of automatic, the reliability of manual.',
+      'Electric quick coupler for 5-9 ton excavators. Dual operating modes — electric drive for daily work, manual backup to avoid downtime.',
     image: pImg('electric-coupler'),
     items: [
       {
