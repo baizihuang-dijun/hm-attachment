@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Grip, Wrench, ShieldCheck } from 'lucide-react';
-import { categories, brand } from '@/lib/products';
+import { categories, brand, homeStats } from '@/lib/products';
 
 const mainCats = categories.filter((c) => c.slug !== 'about');
 
@@ -26,16 +26,34 @@ export default function Home() {
             <span className="text-white/80">Drill the Future.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/75">
-            从液压螺旋钻动力头到耐磨件，HM Attachment 为挖掘机与钻井现场提供
-            全系列专业属具，让每一次成孔都稳定、高效、耐用。
+            {brand.subtitle}
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+
+          {/* 三个关键数字 */}
+          <div className="mt-12 grid max-w-2xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
+            {homeStats.map((s) => (
+              <div key={s.label}>
+                <p className="text-3xl font-extrabold text-white sm:text-4xl">{s.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-wide text-white/60 sm:text-sm">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/products/auger-drives"
               className="inline-flex items-center gap-2 rounded-md bg-hm-bright-2 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-hm-bright"
             >
               Explore Auger Drives
               <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/products/electric-coupler"
+              className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Electric Coupler
             </Link>
             <Link
               href="/about"
@@ -54,7 +72,7 @@ export default function Home() {
             {
               icon: Grip,
               title: 'Full Attachment Lineup',
-              desc: '动力头、钻杆钻头、快换、耐磨件一站式配套。',
+              desc: '动力头、钻杆钻头、连接器、耐磨件与配件一站式配套。',
             },
             {
               icon: Wrench,
@@ -89,7 +107,7 @@ export default function Home() {
               Complete Range of Excavator Attachments
             </h2>
             <p className="mt-3 text-inksoft">
-              覆盖螺旋钻动力头、钻杆钻头、钻探驱动、连接器、耐磨件与配套配件，
+              覆盖螺旋钻动力头、钻杆钻头、钻探驱动、连接器、耐磨件、电动快换与配件，
               满足从市政钻孔到大型桩基的全链条需求。
             </p>
           </div>

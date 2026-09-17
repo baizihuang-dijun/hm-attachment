@@ -3,7 +3,7 @@ export type SpecRow = { label: string; value: string };
 export type ProductItem = {
   name: string;
   model?: string;
-  image: string; // "[image]" 占位标记，后续替换为实拍图 URL
+  image: string; // "[image-xxx]" 占位标记，替换实拍图时指向真实图源
   description: string;
   specs?: SpecRow[];
 };
@@ -13,7 +13,7 @@ export type Category = {
   name: string;
   short: string;
   description: string;
-  image: string; // 分类占位图
+  image: string;
   items: ProductItem[];
   hasTable?: boolean;
   tableTitle?: string;
@@ -25,32 +25,37 @@ const pImg = (name: string) => `[image-${name}]`;
 export const brand = {
   name: 'HM Attachment',
   slogan: 'Excavator Attachments & Drilling Equipment',
+  subtitle: 'Drilling Attachments | Electric Coupler',
+  email: 'bai@hmattachment.com',
+  website: 'www.hmattachment.com',
   short:
-    '弈晨工程机械专业制造挖掘机钻机属具、钻探设备与耐磨部件，为全球基建、打桩与钻井现场提供可靠动力。',
+    'HM Attachment 专业制造挖掘机钻机属具、钻探设备与耐磨部件，为全球基建、打桩与钻井现场提供可靠动力。',
 };
 
-// 10 款 Auger Drives 参数表（按弈晨样册口径整理，参数字段为样例口径，实拍图待替换）
 const augerDrivesTable = {
   headers: [
     'Model',
-    'Excavator (ton)',
-    'Max Torque (N·m)',
-    'Max Auger Dia. (mm)',
-    'Rated Speed (rpm)',
-    'Drive Type',
-    'Weight (kg)',
+    'Excavator',
+    'Max Torque',
+    'Pressure',
+    'Oil Flow',
+    'Rated Power',
+    'Output Speed',
+    'Weight',
+    'Hose',
+    'Shaft',
   ] as string[],
   rows: [
-    ['HD-30', '3–5', '3000', '500', '45–90', 'Hydraulic', '160'],
-    ['HD-45', '5–7', '4500', '600', '40–80', 'Hydraulic', '210'],
-    ['HD-65', '7–9', '6500', '800', '36–72', 'Hydraulic', '285'],
-    ['HD-85', '9–12', '8500', '1000', '32–64', 'Hydraulic', '360'],
-    ['HD-110', '12–16', '11000', '1200', '28–56', 'Hydraulic', '470'],
-    ['HD-140', '16–20', '14000', '1400', '25–50', 'Hydraulic', '590'],
-    ['HD-180', '20–25', '18000', '1600', '22–44', 'Hydraulic', '740'],
-    ['HD-240', '25–32', '24000', '2000', '19–38', 'Hydraulic', '960'],
-    ['HD-300', '32–40', '30000', '2200', '16–32', 'Hydraulic', '1240'],
-    ['HD-380', '40+', '38000', '2500', '14–28', 'Hydraulic', '1580'],
+    ['YA-2000', '0.5-2 ton', '1,900 Nm', '70-240 bar', '27-75 LPM', '19 kW', '30-95 RPM', '41 kg', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['YA-3300', '1-3 ton', '3,000 Nm', '70-240 bar', '27-75 LPM', '24 kW', '35-100 RPM', '41 kg', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['YA-5000', '3-4.5 ton', '5,000 Nm', '90-240 bar', '50-95 LPM', '42 kW', '42-95 RPM', '66 kg', '1/2" BSP', '55mm round / 2" hex / 57mm square'],
+    ['YA-8000', '4-8 ton', '8,000 Nm', '140-260 bar', '60-135 LPM', '67 kW', '35-80 RPM', '124 kg', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
+    ['YA-10000', '5-10 ton', '10,000 Nm', '140-260 bar', '50-135 LPM', '80 kW', '35-80 RPM', '131 kg', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
+    ['YA-18000', '8-15 ton', '18,330 Nm', '160-240 bar', '80-170 LPM', '90 kW', '28-42 RPM', '155 kg', '3/4" BSP', '75mm square'],
+    ['YA-31000', '15-22 ton', '30,090 Nm', '160-250 bar', '80-170 LPM', '94 kW', '12-28 RPM', '255 kg', '1" BSP', '75mm square'],
+    ['YA-50000', '20-36 ton', '50,030 Nm', '220-350 bar', '100-300 LPM', '157 kW', '0-30 RPM', '460 kg', '1" BSP 1-1/4', '110mm square'],
+    ['YA-80000', '25-40 ton', '83,000 Nm', '220-350 bar', '200-630 LPM', '167 kW', '0-20 RPM', '770 kg', 'SAE FS-20 G1-1/4', '110mm square'],
+    ['YA-100000', '32-52 ton', '100,000 Nm', '250-350 bar', '300-477 LPM', '157 kW', '0-15 RPM', '1050 kg', 'SAE FS-20 G1-1/4', '110mm square'],
   ],
 };
 
@@ -60,24 +65,24 @@ export const categories: Category[] = [
     name: 'Auger Drives',
     short: '螺旋钻动力头',
     description:
-      '专为挖掘机配套的液压螺旋钻动力头，扭矩覆盖 3–38 kN·m，适配 3–40 吨级挖掘机，广泛用于建筑桩基、市政管道与通信杆塔钻孔。',
+      '液压螺旋钻动力头，扭矩覆盖 1,900–100,000 Nm，适配 0.5–52 吨级挖掘机，广泛用于桩基、护栏桩、杆塔与钻井作业。',
     image: pImg('auger-drives'),
     hasTable: true,
     tableTitle: 'Auger Drives 系列参数表 (10 Models)',
     table: augerDrivesTable,
     items: [
       {
-        name: 'HD Series Auger Drive',
-        model: 'HD-30 ~ HD-380',
-        image: pImg('auger-drive-hd'),
+        name: 'YA Series Auger Drive',
+        model: 'YA-2000 ~ YA-100000',
+        image: pImg('auger-drive-ya'),
         description:
-          '高速法向扭矩输出的液压螺旋钻动力头，齿轮减速箱 + 液压马达组合，结构紧凑、传动平稳，适合建筑桩基与钻孔作业。',
+          '液压马达 + 行星齿轮箱组合的螺旋钻动力头，10 款型号覆盖 0.5–52 吨挖掘机，扭矩最高达 100,000 Nm，结构紧凑、传动平稳，适合各类钻孔作业。',
         specs: [
-          { label: 'Model Range', value: 'HD-30 / HD-45 / HD-65 / HD-85 / HD-110 / HD-140 / HD-180 / HD-240 / HD-300 / HD-380' },
-          { label: 'Drive Type', value: 'Hydraulic motor + planetary gearbox' },
-          { label: 'Mount', value: 'Excavator 3–40 ton' },
-          { label: 'Torque Range', value: '3,000 – 38,000 N·m' },
-          { label: 'Optional', value: 'Auto torque limiter, PCD pilot version' },
+          { label: 'Range', value: 'YA-2000 / YA-3300 / YA-5000 / YA-8000 / YA-10000 / YA-18000 / YA-31000 / YA-50000 / YA-80000 / YA-100000' },
+          { label: 'Drive', value: 'Hydraulic motor + planetary gearbox' },
+          { label: 'Mount', value: 'Excavator 0.5-52 ton' },
+          { label: 'Torque', value: '1,900 – 100,000 N·m' },
+          { label: 'Shaft', value: 'Round / hex / square shank (configurable)' },
         ],
       },
     ],
@@ -87,30 +92,43 @@ export const categories: Category[] = [
     name: 'Earth Augers',
     short: '螺旋钻杆钻头',
     description:
-      '与动力头配套的螺旋钻杆、钻头与加长节，多种直径与螺距可选，适应不同地质的连续螺旋钻孔作业。',
+      '与动力头配套的整体螺旋钻杆与钻头，多种钻型适配不同地质，直径范围 150mm–2000mm。',
     image: pImg('earth-augers'),
     items: [
       {
-        name: 'Continous Flight Auger',
-        model: 'CFA-300 ~ CFA-1500',
-        image: pImg('cfa-auger'),
+        name: 'W2 Earth/Clay Auger',
+        model: 'W2',
+        image: pImg('auger-w2'),
         description:
-          '连续螺旋叶片钻杆，直径 300–1500mm，适用于黏土、砂土及一般土层的连续螺旋钻孔。',
+          '用于一般土质与黏土的整体螺旋钻，配备 ADP2 钻头与 AOT2 钻齿，常规钻孔用途。',
         specs: [
-          { label: 'Diameter', value: '300 / 400 / 500 / 600 / 800 / 1000 / 1250 / 1500 mm' },
-          { label: 'Flight', value: 'Single / double flight, hard-point pilot' },
-          { label: 'Connection', value: 'Hex / round shank (customizable)' },
+          { label: 'Ground', value: 'Earth / clay, general drilling' },
+          { label: 'Pilot', value: 'ADP2' },
+          { label: 'Teeth', value: 'AOT2' },
         ],
       },
       {
-        name: 'Pilot & Hard Rock Bits',
-        model: 'BP / HR series',
-        image: pImg('auger-bits'),
+        name: 'W3 Combination Auger',
+        model: 'W3',
+        image: pImg('auger-w3'),
         description:
-          '锥形感应钻头与硬质岩层破岩钻头，选配可换硬质合金齿，提升在砾石、风化岩层的钻进效率。',
+          '组合型整体螺旋钻，适应所有地质条件，采用锥形钻齿，配 AOP3 钻头与 AOT3 钻齿。',
         specs: [
-          { label: 'Type', value: 'Pilot bit, hard rock bit, wing bit' },
-          { label: 'Tooth', value: 'Tungsten carbide insert, replaceable' },
+          { label: 'Ground', value: 'Combination, all ground conditions' },
+          { label: 'Pilot', value: 'AOP3' },
+          { label: 'Teeth', value: 'AOT3, tapered teeth' },
+        ],
+      },
+      {
+        name: 'W4 Rock Auger',
+        model: 'W4',
+        image: pImg('auger-w4'),
+        description:
+          '重载型岩层螺旋钻，用于混凝土、页岩及可破碎岩石，配 AOP4 钻头与 AOT4 钻齿。',
+        specs: [
+          { label: 'Ground', value: 'Concrete / shale / fracturable rock' },
+          { label: 'Pilot', value: 'AOP4' },
+          { label: 'Teeth', value: 'AOT4, heavy duty' },
         ],
       },
     ],
@@ -118,89 +136,62 @@ export const categories: Category[] = [
   {
     slug: 'drilling-drives',
     name: 'Drilling Drives',
-    short: '钻探驱动装置',
+    short: '钻探驱动',
     description:
-      '面向大孔径与深孔钻探需求的双马达/大扭矩钻探驱动动力头，支持凯式与连续螺旋两种作业方式。',
+      '高速钻孔动力头与水平钻孔驱动装置，为高速成孔与水平钻进提供可靠动力输出。',
     image: pImg('drilling-drives'),
     items: [
       {
-        name: 'Kelly Bar Drilling Drive',
-        model: 'KD-160 / KD-240 / KD-380',
-        image: pImg('kelly-drive'),
+        name: 'High Speed Auger Drive',
+        model: 'HS series',
+        image: pImg('hs-drive'),
         description:
-          '凯式钻探动力头，配合伸缩式凯式钻杆，实现大直径灌注桩成孔作业，扭矩大、抗冲击能力突出。',
-        specs: [
-          { label: 'Torque', value: '160 / 240 / 380 kN·m' },
-          { label: 'Mode', value: 'Kelly drilling, rotary drilling' },
-          { label: 'Max Diameter', value: 'Up to 3000 mm' },
-        ],
+          '高输出转速螺旋钻动力头，适合小直径、高转速的快速钻孔需求，提升单位时间成孔效率。',
+        specs: [{ label: 'Output', value: 'High speed output for rapid drilling' }],
       },
       {
-        name: 'CFA Drilling Rig Drive',
-        model: 'RF series',
-        image: pImg('cfa-drive'),
+        name: 'Horizontal Drill Drive',
+        model: 'HDD series',
+        image: pImg('hd-drive'),
         description:
-          '长螺旋钻机配套钻探驱动，大通径中心可灌注混凝土，适配长螺旋压灌桩施工。',
-        specs: [
-          { label: 'Center Hole', value: 'Concrete pumping through shaft' },
-          { label: 'Application', value: 'CFA / long auger pile' },
-        ],
+          '水平钻孔驱动装置，用于水平定向钻孔与横向贯入作业，传动稳定、止转可靠。',
+        specs: [{ label: 'Mode', value: 'Horizontal / directional drilling' }],
       },
     ],
   },
   {
     slug: 'hitch',
     name: 'Hitch',
-    short: '快换连接器',
+    short: '连接器',
     description:
-      '高强度挖掘机连接器与快换接头，采用高锰钢/低合金钢铸造，强度高、更换属具快速可靠。',
+      '高强度快换连接器，覆盖单销、双销、双销摇篮及滑移装载机等多种接口形式，更换属具快速可靠。',
     image: pImg('hitch'),
     items: [
-      {
-        name: 'Hydraulic Quick Hitch',
-        model: 'HQ series',
-        image: pImg('hydraulic-hitch'),
-        description:
-          '液压快换连接器，驾驶室内一键切换属具，安全销联动锁止，适配主流挖掘机连接间距。',
-        specs: [
-          { label: 'Tonnage', value: 'Excavator 2–50 ton' },
-          { label: 'Lock', value: 'Hydraulic + mechanical safety pin' },
-          { label: 'Standard', value: 'Pin spacing per ISO (customizable)' },
-        ],
-      },
-      {
-        name: 'Mechanical Hitch',
-        model: 'MH series',
-        image: pImg('mechanical-hitch'),
-        description:
-          '经济型机械快换，手动销轴连接，结构简单、维护成本低。',
-        specs: [{ label: 'Tonnage', value: 'Excavator 2–30 ton' }],
-      },
+      { name: 'Single Pin Hitch', model: 'Single Pin', image: pImg('hitch-single'), description: '单销快换连接器，结构简单、连接快捷可靠。' },
+      { name: 'Double Pin Hitch', model: 'Double Pin', image: pImg('hitch-double'), description: '双销快换连接器，承载更稳定，适配重型属具。' },
+      { name: 'Double Pin Cradle Hitch', model: 'Double Pin Cradle', image: pImg('hitch-cradle'), description: '双销摇篮式连接器，支撑面大、抗冲击能力突出。' },
+      { name: 'Skid Steer Hitch', model: 'Skid Steer', image: pImg('hitch-skid'), description: '滑移装载机专用快换连接器，适配滑移机具安装。' },
     ],
   },
   {
     slug: 'wear-parts',
     name: 'Wear Parts',
-    short: '耐磨耐磨件',
+    short: '耐磨部件',
     description:
-      '钻齿、钻头、刀头、护套等高耐磨消耗部件，采用耐磨合金材质，延长设备连续作业时间。',
+      '螺旋钻钻齿与钻头全套耐磨部件，采用耐磨合金材质，适配对应钻型，延长连续作业时间。',
     image: pImg('wear-parts'),
     items: [
       {
-        name: 'Drill & Auger Teeth',
-        model: 'DT series',
-        image: pImg('drill-teeth'),
+        name: 'Auger Teeth & Pilots',
+        model: 'ADP2 / AOP3 / AOP4 · AOT2 / AOT3 / AOT4',
+        image: pImg('teeth-pilots'),
         description:
-          '硬质合金耐磨钻齿，适配不同型号动力头与钻头，耐磨抗冲击。',
-        specs: [{ label: 'Material', value: 'Tungsten carbide + alloy holder' }],
-      },
-      {
-        name: 'Wear Shroud / Guide',
-        model: 'WS series',
-        image: pImg('wear-shroud'),
-        description:
-          '钻杆护套与导向耐磨件，采用高铬耐磨钢板，防护钻进磨损。',
-        specs: [{ label: 'Material', value: 'High-chrome wear plate' }],
+          '配套钻头与钻齿，包含 ADP2/AOP3/AOP4 钻头与 AOT2/AOT3/AOT4 钻齿，硬质合金耐磨抗冲击。',
+        specs: [
+          { label: 'Pilots', value: 'ADP2, AOP3, AOP4' },
+          { label: 'Teeth', value: 'AOT2, AOT3, AOT4' },
+          { label: 'Material', value: 'Wear-resistant alloy + tungsten carbide' },
+        ],
       },
     ],
   },
@@ -209,18 +200,22 @@ export const categories: Category[] = [
     name: 'Electric Coupler',
     short: '电动快换',
     description:
-      '电动控制快换连接器，无需额外液压管路，电控锁止，安装便捷、适配电动与小型设备。',
+      'HM 电动快换连接器，适配 5–9 吨挖掘机，电动驱动、三重自动锁止，无液压油泄漏风险。The Convenience of Automatic. The Reliability of Manual.',
     image: pImg('electric-coupler'),
     items: [
       {
-        name: 'Electric Quick Coupler',
-        model: 'EQ series',
-        image: pImg('electric-coupler-eq'),
+        name: 'HM Electric Quick Coupler',
+        model: '5-9 ton excavator',
+        image: pImg('electric-coupler-hm'),
         description:
-          '电控快换连接器，低压电信号驱动锁止油缸，省去辅助液压回路，适合小型与新能源设备。',
+          '采用电动驱动系统替代液压回路，实现三重重自动锁止与手动备用模式，IP67 级防水，杜绝液压油泄漏。自动化的便捷 + 手动的可靠。',
         specs: [
-          { label: 'Tonnage', value: 'Excavator 2–13 ton' },
-          { label: 'Actuation', value: '12/24V electric signal drive' },
+          { label: 'For', value: '5-9 ton excavators' },
+          { label: 'Drive', value: 'Electric drive system' },
+          { label: 'Lock', value: 'Triple auto-lock' },
+          { label: 'Backup', value: 'Manual backup mode' },
+          { label: 'Leakage', value: 'No hydraulic oil leakage' },
+          { label: 'Rating', value: 'IP67 waterproof' },
         ],
       },
     ],
@@ -228,26 +223,15 @@ export const categories: Category[] = [
   {
     slug: 'accessories',
     name: 'Accessories',
-    short: '配套配件',
+    short: '配件',
     description:
-      '动力头、钻机配套的各类配件，包括延长节、稳定架、限位阀块、液压管路与密封件等。',
+      '配套属具与工具，含劈木机、树桩刨、取芯钻筒与水泥搅拌器等轻量展示产品。',
     image: pImg('accessories'),
     items: [
-      {
-        name: 'Extension & Stabilizer',
-        model: 'EX / ST series',
-        image: pImg('extensions'),
-        description:
-          '钻杆延长节与稳定架，保证深孔作业时的对中度与稳定性。',
-        specs: [{ label: 'Fit', value: '600–1500 mm auger' }],
-      },
-      {
-        name: 'Hydraulic Accessories',
-        model: 'ACC series',
-        image: pImg('hyd-accessories'),
-        description: '限位阀块、管路接头、密封件与油口适配件，保障系统联接可靠。',
-        specs: [{ label: 'Type', value: 'Valve block / hose / seal kit' }],
-      },
+      { name: 'Log Splitter', model: 'Log Splitter', image: pImg('acc-log-splitter'), description: '劈木机，用于木材劈分作业。' },
+      { name: 'Stump Planer', model: 'Stump Planer', image: pImg('acc-stump-planer'), description: '树桩刨，用于树桩铣削平整。' },
+      { name: 'Core Barrel', model: 'Core Barrel', image: pImg('acc-core-barrel'), description: '取芯钻筒，用于岩层取芯钻孔。' },
+      { name: 'Cement Mixer', model: 'Cement Mixer', image: pImg('acc-cement-mixer'), description: '水泥搅拌器，用于现场浆料搅拌。' },
     ],
   },
   {
@@ -255,31 +239,26 @@ export const categories: Category[] = [
     name: 'Applications',
     short: '应用场景',
     description:
-      'HM Attachment 产品广泛服务于建筑桩基、市政管网、通信电力、道路桥梁与钻井勘探等工程现场。',
+      'HM Attachment 产品广泛应用于护栏打桩、园林绿化、植树、水井钻井、基础桩、杆塔及桅杆安装、螺旋桩、地源热泵、道路标牌、声屏障、太阳能与风力发电塔基等工程现场。',
     image: pImg('applications'),
     items: [
-      { name: 'Building Pile Foundation', model: 'Piling', image: pImg('app-piling'), description: '承台桩、灌注桩成孔作业。' },
-      { name: 'Municipal & Utility Pipes', model: 'Utility', image: pImg('app-utility'), description: '市政管道、检查井、路灯基座钻孔。' },
-      { name: 'Telecom & Power Poles', model: 'Telecom', image: pImg('app-telecom'), description: '通信杆塔、电力杆塔基础钻孔。' },
-      { name: 'Road & Bridge Construction', model: 'Road', image: pImg('app-road'), description: '护栏桩、桥梁基础与防护桩施工。' },
-    ],
-  },
-  {
-    slug: 'about',
-    name: 'About / Contact',
-    short: '关于与联系',
-    description:
-      '弈晨工程机械专注挖掘机螺旋转机属具与钻探设备的研发制造，以可靠品质服务全球市场。',
-    image: pImg('about'),
-    items: [
-      {
-        name: 'About HM Attachment',
-        model: 'Company',
-        image: pImg('company'),
-        description:
-          '弈晨（HM Attachment）是专业的挖掘机属具与钻探设备制造商，产品涵盖螺旋钻动力头、钻杆钻头、快换连接器、耐磨件等品类，为全球施工与钻井现场提供稳定、高效、耐用的解决方案。',
-      },
-    ],
+      'Fence piling',
+      'Landscaping',
+      'Tree planting',
+      'Well boring',
+      'Foundation piles',
+      'Pole and mast installation',
+      'Screw pile installations',
+      'Ground source heat pumps',
+      'Road signage',
+      'Sound barriers',
+      'Solar energy installation',
+      'Wind turbine installation',
+    ].map((name): ProductItem => ({
+      name,
+      image: pImg('application'),
+      description: '',
+    })),
   },
 ];
 
@@ -290,3 +269,9 @@ export function getCategory(slug: string): Category | undefined {
 export function categoryItemsBySlug(slug: string): ProductItem[] | undefined {
   return getCategory(slug)?.items;
 }
+
+export const homeStats = [
+  { value: '10', label: 'Auger Drive Models' },
+  { value: '100K Nm', label: 'Max Torque' },
+  { value: '0.5-52T', label: 'Excavator Range' },
+];

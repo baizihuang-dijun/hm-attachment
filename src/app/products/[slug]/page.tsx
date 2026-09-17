@@ -31,7 +31,7 @@ function TableSection({ title, headers, rows }: { title: string; headers: string
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-2xl font-extrabold tracking-tight text-hm">{title}</h2>
           <span className="inline-flex items-center gap-1.5 rounded-md bg-hm px-3 py-1.5 text-xs font-semibold text-white">
-            <FileDown className="h-3.5 w-3.5" /> 数据按弈晨样册整理
+            <FileDown className="h-3.5 w-3.5" /> YA Series Spec Table
           </span>
         </div>
         <div className="overflow-x-auto rounded-lg border border-line bg-white">

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: '%s | HM Attachment',
   },
   description:
-    'HM Attachment — Excavator Attachments & Drilling Equipment. 专业制造挖掘机螺旋钻动力头、钻杆钻头、快换连接器与耐磨件，服务全球基建、打桩与钻井现场。',
+    'HM Attachment — Excavator Attachments & Drilling Equipment. 专业制造挖掘机螺旋钻动力头、钻杆钻头、连接器与耐磨件，服务全球基建、打桩与钻井现场。',
   keywords: [
     'HM Attachment',
     'Auger Drives',
