@@ -23,9 +23,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'HM Attachment' }],
   robots: { index: true, follow: true },
-  icons: {
-    icon: 'https://coze-coding-project.tos.coze.site/cli_attachment/2026-09-17/2750326345577628_5d4564c7c8cf4930abeb19ed244c09af_acd9f800e27d4a790aa21223964736e.png',
-  },
   openGraph: {
     title: 'HM Attachment | Excavator Attachments & Drilling Equipment',
     description:

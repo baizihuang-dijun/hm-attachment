@@ -1,15 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { categories, brand, getCategory } from '@/lib/products';
 import { cn } from '@/lib/utils';
-
-const LOGO_URL =
-  'https://coze-coding-project.tos.coze.site/cli_attachment/2026-09-17/2750326345577628_5d4564c7c8cf4930abeb19ed244c09af_acd9f800e27d4a790aa21223964736e.png';
 
 const mainNav = categories.filter((c) => c.slug !== 'about');
 
@@ -41,15 +37,20 @@ export function SiteNav() {
   const isActive = (href?: string) => (href ? pathname === href : false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-deep text-white">
+    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={LOGO_URL}
-            alt="HM Attachment"
-            className="h-10 w-auto object-contain"
-          />
+        <Link href="/" className="flex items-center gap-2">
+          <span className="flex h-9 w-9 items-center justify-center rounded bg-hm text-sm font-black text-white">
+            H
+          </span>
+          <span className="leading-tight">
+            <span className="block text-base font-extrabold tracking-tight text-hm">
+              HM {''}Attachment
+            </span>
+            <span className="block text-[10px] uppercase tracking-widest text-inksoft">
+              Drilling Equipment
+            </span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -65,7 +66,7 @@ export function SiteNav() {
                 <button
                   className={cn(
                     'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
-                    isDrillingActive ? 'text-hm-bright-2' : 'text-white/75 hover:text-hm-bright-2',
+                    isDrillingActive ? 'text-hm-bright-2' : 'text-ink hover:text-hm-bright-2',
                   )}
                 >
                   {item.label}
@@ -74,7 +75,7 @@ export function SiteNav() {
                   />
                 </button>
                 {ddOpen && (
-                  <div className="absolute left-0 top-full mt-2 w-60 rounded-lg border border-white/10 bg-deep p-2 shadow-xl">
+                  <div className="absolute left-0 top-full mt-2 w-60 rounded-lg border border-line bg-white p-2 shadow-lg">
                     {drillingItems.map((c) => (
                       <Link
                         key={c.slug}
@@ -82,8 +83,8 @@ export function SiteNav() {
                         className={cn(
                           'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
                           pathname === `/products/${c.slug}`
-                            ? 'bg-white/10 text-hm-bright-2'
-                            : 'text-white/75 hover:bg-white/10 hover:text-hm-bright-2',
+                            ? 'bg-hm/5 text-hm-bright-2'
+                            : 'text-ink hover:bg-mist hover:text-hm-bright-2',
                         )}
                       >
                         {c.name}
@@ -100,7 +101,7 @@ export function SiteNav() {
                   'rounded-md px-3 py-2 text-sm font-medium transition-colors',
                   isActive(item.href)
                     ? 'text-hm-bright-2'
-                    : 'text-white/75 hover:text-hm-bright-2',
+                    : 'text-ink hover:text-hm-bright-2',
                 )}
               >
                 {item.label}
@@ -110,7 +111,7 @@ export function SiteNav() {
         </nav>
 
         <button
-          className="inline-flex items-center justify-center rounded-md p-2 text-white lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-ink lg:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -120,12 +121,12 @@ export function SiteNav() {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <nav className="max-h-[80vh] overflow-y-auto border-t border-white/10 bg-deep lg:hidden">
+        <nav className="max-h-[80vh] overflow-y-auto border-t border-line bg-white lg:hidden">
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
             <Link
               href="/"
               onClick={() => setMobileOpen(false)}
-              className="block py-2 text-sm font-medium text-white/80"
+              className="block py-2 text-sm font-medium text-ink"
             >
               Home
             </Link>
@@ -133,7 +134,7 @@ export function SiteNav() {
             {/* Collapsible Drilling */}
             <button
               onClick={() => setDrillingOpen((v) => !v)}
-              className="flex w-full items-center justify-between py-2 text-sm font-medium text-white/80"
+              className="flex w-full items-center justify-between py-2 text-sm font-medium text-ink"
             >
               Drilling
               <ChevronDown
@@ -141,13 +142,13 @@ export function SiteNav() {
               />
             </button>
             {drillingOpen && (
-              <div className="ml-3 border-l border-white/10 pl-3">
+              <div className="ml-3 border-l border-line pl-3">
                 {drillingItems.map((c) => (
                   <Link
                     key={c.slug}
                     href={`/products/${c.slug}`}
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-1.5 py-2 text-sm font-medium text-white/75"
+                    className="flex items-center gap-1.5 py-2 text-sm font-medium text-ink"
                   >
                     <ChevronRight className="h-3.5 w-3.5 text-hm-bright-2" />
                     {c.name}
@@ -166,7 +167,7 @@ export function SiteNav() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-2 text-sm font-medium text-white/80"
+                className="block py-2 text-sm font-medium text-ink"
               >
                 {item.label}
               </Link>
@@ -181,18 +182,18 @@ export function SiteNav() {
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-line bg-deep text-white">
+    <footer className="border-t border-deep bg-deep text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={LOGO_URL}
-              alt="HM Attachment"
-              className="h-10 w-auto object-contain"
-            />
-            <p className="mt-4 max-w-md text-sm text-white/60">
-              {brand.slogan}. {brand.short}
+            <div className="flex items-center gap-2">
+              <span className="flex h-9 w-9 items-center justify-center rounded bg-white/15 text-sm font-black text-white">
+                H
+              </span>
+              <span className="text-base font-extrabold">{brand.name}</span>
+            </div>
+            <p className="mt-3 max-w-md text-sm text-white/70">
+              {brand.slogan}。{brand.short}
             </p>
           </div>
           <div>
@@ -204,7 +205,7 @@ export function SiteFooter() {
                 <li key={c.slug}>
                   <Link
                     href={`/products/${c.slug}`}
-                    className="text-sm text-white/70 hover:text-hm-bright-2"
+                    className="text-sm text-white/80 hover:text-white"
                   >
                     {c.name}
                   </Link>
@@ -218,12 +219,12 @@ export function SiteFooter() {
             </h4>
             <ul className="mt-3 space-y-2">
               <li>
-                <Link href="/products/applications" className="text-sm text-white/70 hover:text-hm-bright-2">
+                <Link href="/products/applications" className="text-sm text-white/80 hover:text-white">
                   Applications
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm text-white/70 hover:text-hm-bright-2">
+                <Link href="/about" className="text-sm text-white/80 hover:text-white">
                   About / Contact
                 </Link>
               </li>
