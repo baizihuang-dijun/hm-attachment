@@ -346,7 +346,31 @@ export default function EarthAugersPage() {
         </div>
       </section>
 
-      {/* Section 5 - Pilot and Teeth */}
+      {/* Section 5 - Auger Extension */}
+      <section id="extension" className="bg-white scroll-mt-20">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+            Auger Extension
+          </span>
+          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
+            Auger Extension
+          </h2>
+          <div className="mt-6 grid items-start gap-8 lg:grid-cols-2">
+            <div className="h-60 w-full rounded-lg border border-line bg-white">
+              <img alt="Auger extension" src="/products-img/earth-auger-extension.png" className="h-full w-full object-contain" />
+            </div>
+            <div className="space-y-4 text-ink">
+              <p>
+                Extend the working depth of your auger with a customizable auger extension,
+                matched to your drive shank and auger diameter.
+              </p>
+              <p>Customization available. Contact HM Attachment for models, lengths and specifications.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6 - Pilot and Teeth */}
       <section id="teeth" className="bg-white scroll-mt-20">
         <div className="mx-auto max-w-7xl border-t border-line px-4 py-14 sm:px-6 lg:px-8">
           <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">

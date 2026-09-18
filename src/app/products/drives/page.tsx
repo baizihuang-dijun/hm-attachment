@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/site-nav';
 import { augerDrivesTable } from '@/lib/products';
 
 export const metadata: Metadata = {
-  title: 'Drilling Drives | HM Attachment',
+  title: 'Auger Drives | HM Attachment',
   description:
     'Standard, high speed and horizontal auger drives. YA series from 1,900 N·m to 100,000 N·m for 0.5-52 ton excavators.',
 };
@@ -46,8 +46,8 @@ export default function DrivesPage() {
   return (
     <div>
       <PageHeader
-        kicker="HM Attachment / Products / Drives"
-        title="Drilling Drives"
+        kicker="HM Attachment / Products / Auger Drives"
+        title="Auger Drives"
         subtitle="Standard, high speed and horizontal auger drives built for reliable rotational power across 0.5-52 ton excavators."
       />
 
@@ -60,7 +60,7 @@ export default function DrivesPage() {
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/products" className="hover:text-hm-bright-2">Products</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-hm">Drives</span>
+            <span className="text-hm">Auger Drives</span>
           </nav>
         </div>
       </section>

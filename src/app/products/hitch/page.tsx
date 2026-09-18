@@ -4,9 +4,8 @@ import { ChevronRight } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
 
 export const metadata: Metadata = {
-  title: 'Hitch & Extension | HM Attachment',
-  description:
-    'Four hitch connector types for all excavator ranges, plus customizable auger extensions.',
+  title: 'Hitch | HM Attachment',
+  description: 'Four hitch connector types for all excavator ranges.',
 };
 
 const hitchTypes = [
@@ -40,9 +39,9 @@ export default function HitchPage() {
   return (
     <div>
       <PageHeader
-        kicker="HM Attachment / Products / Hitch & Extension"
-        title="Hitch & Extension"
-        subtitle="Four hitch connector types to match any excavator range, plus customizable auger extensions."
+        kicker="HM Attachment / Products / Hitch"
+        title="Hitch"
+        subtitle="Four hitch connector types to match any excavator range."
       />
 
       <section className="bg-white">
@@ -53,7 +52,7 @@ export default function HitchPage() {
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/products" className="hover:text-hm-bright-2">Products</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-hm">Hitch & Extension</span>
+            <span className="text-hm">Hitch</span>
           </nav>
         </div>
       </section>
@@ -94,30 +93,6 @@ export default function HitchPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Auger Extension */}
-      <section id="extension" className="bg-white scroll-mt-20">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-            Auger Extension
-          </span>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
-            Auger Extension
-          </h2>
-          <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <div className="h-60 w-full rounded-lg border border-line bg-white">
-              <img alt="Auger extension" src="/products-img/earth-auger-extension.png" className="h-full w-full object-contain" />
-            </div>
-            <div className="space-y-4 text-ink">
-              <p>
-                Extend the working depth of your auger with a customizable auger extension,
-                matched to your drive shank and auger diameter.
-              </p>
-              <p>Customization available. Contact HM Attachment for models, lengths and specifications.</p>
-            </div>
           </div>
         </div>
       </section>

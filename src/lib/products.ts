@@ -63,8 +63,8 @@ export const augerDrivesTable = {
 export const categories: Category[] = [
   {
     slug: 'drives',
-    name: 'Drives',
-    short: 'Drilling Drives',
+    name: 'Auger Drives',
+    short: 'Auger Drives',
     description:
       'Standard, high speed and horizontal auger drives. YA series from 1,900 N·m to 100,000 N·m for 0.5-52 ton excavators.',
     image: pImg('drives'),
@@ -89,10 +89,10 @@ export const categories: Category[] = [
   },
   {
     slug: 'hitch',
-    name: 'Hitch & Extension',
-    short: 'Hitch / Extension',
+    name: 'Hitch',
+    short: 'Hitch',
     description:
-      'Four hitch connector types for all excavator ranges, plus customizable auger extensions.',
+      'Four hitch connector types for all excavator ranges.',
     image: pImg('hitch'),
     items: [
       { name: 'Single Pin Hitch', image: pImg('hitch-single'), description: 'Lightweight, non-bulky and economical.' },

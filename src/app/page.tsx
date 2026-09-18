@@ -43,7 +43,7 @@ export default function Home() {
               href="/products/drives"
               className="inline-flex items-center gap-2 rounded-md bg-hm-bright-2 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-hm-bright"
             >
-              Explore Drives
+              Auger Drives
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
