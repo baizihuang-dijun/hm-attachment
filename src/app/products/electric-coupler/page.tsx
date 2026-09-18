@@ -235,7 +235,7 @@ export default function ElectricCouplerPage() {
               Dual Operating Modes
             </p>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0F1B2D] sm:text-4xl">
-              Two operating modes. One goal: keep the machine working.
+              Two operating modes. One coupler.
             </h2>
           </div>
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
