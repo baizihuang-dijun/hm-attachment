@@ -183,30 +183,32 @@ export default function ElectricCouplerPage() {
               <div
                 id="ec-hero-float"
                 className="animate-ec-float relative mx-auto w-full"
-                style={{ marginBottom: '-2vh' }}
+                style={{ marginBottom: '-4vh' }}
               >
                 <img
                   id="ec-hero-product"
                   src="/products/electric-coupler-hero.png"
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
-                  className="relative z-10 mx-auto block h-auto object-contain"
+                  className="relative z-10 mx-auto block h-auto max-w-full object-contain"
                   style={{ filter: 'drop-shadow(0 0 30px rgba(59,130,246,0.35))' }}
                 />
                 <style>{`
+                  /* Mobile (below lg): full-width stack, centered, ~420px max, height auto */
                   #ec-hero-product {
-                    width: auto;
+                    width: min(80vw, 420px);
                     height: auto;
-                    max-width: min(80vw, 560px);
-                    max-height: 46vh;
+                    max-width: 100%;
                   }
                   #ec-hero-float {
                     margin-bottom: -2vh;
                   }
+                  /* Desktop (lg and up): scale with viewport width */
                   @media (min-width: 1024px) {
                     #ec-hero-product {
-                      max-width: min(50vw, 640px);
-                      max-height: 56vh;
+                      width: min(50vw, 640px);
+                      height: auto;
+                      max-width: 100%;
                     }
                     #ec-hero-float {
                       margin-bottom: -4vh;
