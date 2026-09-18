@@ -180,13 +180,29 @@ export default function ElectricCouplerPage() {
                   filter: 'blur(18px)',
                 }}
               />
-              <div className="animate-ec-float relative mx-auto">
+              <div
+                id="ec-hero-float"
+                className="animate-ec-float relative mx-auto w-full"
+                style={{ marginBottom: '-2vh' }}
+              >
                 <img
+                  id="ec-hero-product"
                   src="/products/electric-coupler-hero.png"
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
-                  className="relative z-10 mx-auto block h-auto w-[min(80vw,560px)] object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] -mb-2 lg:w-[min(42vw,560px)] lg:-mb-[4vh]"
+                  className="relative z-10 mx-auto block h-auto object-contain"
+                  style={{
+                    width: 'min(80vw, 560px)',
+                    maxWidth: '100%',
+                    filter: 'drop-shadow(0 0 30px rgba(59,130,246,0.35))',
+                  }}
                 />
+                <style>{`
+                  @media (min-width: 1024px) {
+                    #ec-hero-product { width: min(42vw, 560px); }
+                    #ec-hero-float { margin-bottom: -4vh; }
+                  }
+                `}</style>
                 <div
                   aria-hidden
                   className="pointer-events-none absolute bottom-[-14px] left-1/2 h-6 w-4/5 -translate-x-1/2 rounded-[50%]"
