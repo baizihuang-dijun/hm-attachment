@@ -195,16 +195,18 @@ export default function ElectricCouplerPage() {
                 />
                 <style>{`
                   #ec-hero-product {
-                    width: min(80vw, 560px);
-                    max-width: 100%;
+                    width: auto;
+                    height: auto;
+                    max-width: min(80vw, 560px);
+                    max-height: 46vh;
                   }
                   #ec-hero-float {
                     margin-bottom: -2vh;
                   }
                   @media (min-width: 1024px) {
                     #ec-hero-product {
-                      width: min(42vw, 560px);
-                      max-width: 100%;
+                      max-width: min(42vw, 560px);
+                      max-height: 50vh;
                     }
                     #ec-hero-float {
                       margin-bottom: -4vh;
