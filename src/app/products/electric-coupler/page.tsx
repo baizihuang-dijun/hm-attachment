@@ -29,19 +29,19 @@ const lockTiers: {
   {
     tag: 'Lock 01',
     title: 'The Self-Locking Screw',
-    desc: '42CrMo alloy steel with proprietary self-locking thread. Horizontal-push design isolates the screw to pure axial loads — full-thread engagement, helps prevent loosening under vibration.',
+    desc: '42CrMo alloy steel with proprietary self-locking thread. Horizontal-push design isolates the screw to pure axial loads — full-thread engagement, designed to resist loosening under vibration.',
     image: '/products/lock-power-screw.png',
   },
   {
     tag: 'Lock 02',
     title: 'The Auto-Lock Clutch',
-    desc: 'Advanced planetary ratchet with full-tooth disc engagement. Automatic engagement mechanism — carburized alloy steel designed for high-impact durability.',
+    desc: 'Advanced planetary ratchet. Automatic locking with full-tooth disc engagement — carburized alloy steel designed for high-impact durability.',
     image: '/products/lock-auto-clutch.png',
   },
   {
     tag: 'Lock 03',
     title: 'The Safety Lock Block',
-    desc: 'Failsafe mechanism synchronized with the movable jaw, helping maintain positive locking during operation.',
+    desc: 'Failsafe mechanism synchronized with the movable jaw, providing an additional level of locking protection.',
     image: '/products/lock-safety-block.png',
   },
 ];
@@ -50,7 +50,7 @@ const keyFeatures = [
   {
     icon: Zap,
     title: 'Electric Drive System',
-    text: 'No hydraulic connection required — no oil contamination risk, no added heat load on the hydraulic circuit.',
+    text: 'No hydraulic connection required, simplifying installation and eliminating the need for hydraulic lines.',
   },
   {
     icon: ShieldCheck,
@@ -132,7 +132,7 @@ export default function ElectricCouplerPage() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 lg:px-8 lg:pb-12 lg:pt-16">
-          <div className="grid items-center gap-8 lg:grid-cols-[45fr_55fr]">
+          <div className="grid items-center gap-8 lg:grid-cols-[42fr_58fr]">
             {/* Left: copy */}
             <div className="animate-ec-in">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-hm-bright-2">
@@ -180,12 +180,12 @@ export default function ElectricCouplerPage() {
                   filter: 'blur(18px)',
                 }}
               />
-              <div className="animate-ec-float relative lg:-mb-12 lg:mr-[-1.5rem]">
+              <div className="animate-ec-float relative lg:-mb-16 lg:mr-[-1.5rem]">
                 <img
                   src="/products/electric-coupler-hero.png"
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
-                  className="relative z-10 block h-auto max-h-[64vh] w-48 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-56 lg:h-[clamp(300px,44vh,560px)] lg:w-auto lg:max-h-[72vh] xl:max-w-[540px]"
+                  className="relative z-10 block h-auto max-h-[64vh] w-48 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-56 lg:h-auto lg:w-[clamp(420px,46vw,640px)] lg:max-h-[76vh] xl:max-w-[640px]"
                 />
                 <div
                   aria-hidden
