@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Grip, Wrench, ShieldCheck } from 'lucide-react';
-import { brand, homeProductGroups, homeStats } from '@/lib/products';
-import { ImagePlaceholder } from '@/components/image-placeholder';
+import { ArrowRight } from 'lucide-react';
+import { brand, homeStats } from '@/lib/products';
 import { EcoExplorer } from '@/components/eco-explorer';
 
 export default function Home() {
@@ -65,92 +65,18 @@ export default function Home() {
       {/* YA Series Auger Drill Ecosystem — interactive explorer (1:1 port) */}
       <EcoExplorer />
 
-      {/* Feature highlights */}
-      <section className="border-b border-line bg-mist">
-        <div className="mx-auto grid max-w-7xl gap-px px-4 py-10 sm:grid-cols-3 sm:px-6 lg:px-8">
-          {[
-            {
-              icon: Grip,
-              title: 'Drilling-Focused Product Range',
-              desc: 'Drives, augers, hitches, helical piles and tools engineered for bore work.',
-            },
-            {
-              icon: Wrench,
-              title: 'Rigorous Engineering',
-              desc: 'High-strength materials and precision drives built for demanding drilling job sites.',
-            },
-            {
-              icon: ShieldCheck,
-              title: 'Global Service',
-              desc: 'Reliable supply and support for contractors and drilling operators worldwide.',
-            },
-          ].map((f) => (
-            <div key={f.title} className="flex gap-4 p-4 sm:border-r sm:border-line sm:last:border-0">
-              <f.icon className="h-8 w-8 shrink-0 text-hm-bright-2" />
-              <div>
-                <h3 className="font-semibold text-hm">{f.title}</h3>
-                <p className="mt-1 text-sm text-inksoft">{f.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Products: 18 sub-product cards in 5 groups */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
-              Products
-            </p>
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
-              Drilling Attachments & Equipment
-            </h2>
-            <p className="mt-3 text-inksoft">
-              From drives and earth augers to hitches, helical piles and tools — built for
-              bore work from municipal drilling to large-scale piling.
-            </p>
-          </div>
-
-          {homeProductGroups.map((group) => (
-            <div key={group.title} className="mt-12">
-              <div className="flex items-center gap-3">
-                <span className="h-5 w-1 rounded bg-hm-bright-2" />
-                <h3 className="text-xl font-extrabold tracking-tight text-hm">{group.title}</h3>
-              </div>
-              <div className="mt-5 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                {group.cards.map((card) => (
-                  <Link
-                    key={card.title}
-                    href={card.href}
-                    className="group flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-all hover:-translate-y-1 hover:border-hm-bright-2 hover:shadow-lg"
-                  >
-                    <ImagePlaceholder alt={card.title} label={card.image} className="h-32 w-full border-b border-line sm:h-40" />
-                    <div className="flex flex-1 flex-col p-4">
-                      {card.badge && (
-                        <span className="inline-block self-start rounded bg-hm/10 px-2 py-0.5 text-xs font-semibold text-hm">
-                          {card.badge}
-                        </span>
-                      )}
-                      <h4 className="mt-2 text-sm font-bold text-hm sm:text-base">{card.title}</h4>
-                      <p className="mt-1 text-xs text-inksoft sm:text-sm">{card.tagline}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Electric Coupler independent block */}
       <section className="border-t border-line bg-mist">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <ImagePlaceholder
-            alt="Electric coupler"
-            label="[image-electric-coupler-hm]"
-            className="h-64 w-full rounded-lg border border-line"
-          />
+          <div className="relative h-64 w-full overflow-hidden rounded-lg border border-line bg-white">
+            <Image
+              src="/images/coupler-compact-render.png"
+              alt="HM Electric Quick Coupler render"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
           <div>
             <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
               Electric Coupler

@@ -189,61 +189,6 @@ export function categoryItemsBySlug(slug: string): ProductItem[] | undefined {
   return getCategory(slug)?.items;
 }
 
-// Home page 18-product-card data grouped by 5 product families
-export type HomeProductCard = {
-  title: string;
-  tagline: string;
-  href: string;
-  image: string;
-  badge?: string;
-};
-
-export const homeProductGroups: { title: string; cards: HomeProductCard[] }[] = [
-  {
-    title: 'Drives',
-    cards: [
-      { title: 'Standard Auger Drive', tagline: '10 models, 1900-100000 Nm, 0.5-52T', href: '/products/drives', image: pImg('auger-drive-ya'), badge: 'YA Series' },
-      { title: 'High Speed Auger Drive', tagline: 'High-speed, customizable', href: '/products/drives#high-speed', image: pImg('hs-drive') },
-      { title: 'Horizontal Drill Auger Drive', tagline: 'Horizontal drilling', href: '/products/drives#horizontal', image: pImg('hd-drive') },
-    ],
-  },
-  {
-    title: 'Earth Augers',
-    cards: [
-      { title: 'W2 Earth Auger', tagline: 'All-purpose general drilling', href: '/products/earth-augers', image: pImg('auger-w2') },
-      { title: 'W3 Combination Auger', tagline: 'Taper teeth, rock and earth', href: '/products/earth-augers', image: pImg('auger-w3') },
-      { title: 'W4 Rock Auger', tagline: 'Heavy-duty rock drilling', href: '/products/earth-augers', image: pImg('auger-w4') },
-      { title: 'Pilot and Teeth', tagline: 'Tungsten carbide, 3 configs', href: '/products/earth-augers#teeth', image: pImg('teeth-pilots') },
-    ],
-  },
-  {
-    title: 'Hitch and Extension',
-    cards: [
-      { title: 'Hitch', tagline: '4 types for all excavators', href: '/products/hitch', image: pImg('hitch-single') },
-      { title: 'Auger Extension', tagline: 'Customizable length', href: '/products/hitch#extension', image: pImg('auger-extension') },
-    ],
-  },
-  {
-    title: 'Helical Piles',
-    cards: [
-      { title: 'Helical Piles', tagline: 'AP series, 18-46 ton', href: '/products/helical-piles', image: pImg('helical-pile') },
-      { title: 'Angle Indicator', tagline: 'AAS-360, wireless, IP66', href: '/products/helical-piles#sensors', image: pImg('angle-indicator') },
-      { title: 'In-cab Monitor', tagline: 'EM-10W, 10.1in, IP67', href: '/products/helical-piles#sensors', image: pImg('in-cab-monitor') },
-      { title: 'Torque Indicator', tagline: 'ATS series, up to 100000 Nm', href: '/products/helical-piles#sensors', image: pImg('torque-indicator') },
-    ],
-  },
-  {
-    title: 'Tools',
-    cards: [
-      { title: 'Log Splitter', tagline: 'ALS-180, 1-5T', href: '/products/tools', image: pImg('tool-log-splitter') },
-      { title: 'Stump Planer', tagline: 'ASP series, 250-350mm', href: '/products/tools', image: pImg('tool-stump-planer') },
-      { title: 'Core Barrel', tagline: 'ACB series, 350-1200mm', href: '/products/tools', image: pImg('tool-core-barrel') },
-      { title: 'Cement Mixer Bowl', tagline: 'ACM series, 180L', href: '/products/tools', image: pImg('tool-cement-mixer') },
-      { title: 'Hole Cleaner', tagline: 'Pre-pile cleaning', href: '/products/tools', image: pImg('tool-hole-cleaner') },
-    ],
-  },
-];
-
 export const homeStats = [
   { value: '10', label: 'Auger Drive Models' },
   { value: '100K Nm', label: 'Max Torque' },
