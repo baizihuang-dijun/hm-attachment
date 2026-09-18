@@ -96,10 +96,13 @@ export default function HelicalPilesPage() {
       <ProductHero
         image="/hero/helical-piles.png"
         alt="Helical pile installation with auger drive and monitoring"
-        kicker="HM Attachment / Products / Helical Piles"
         title="Helical Piles"
         subtitle="AP series screw piles from 18-46 ton capacity, with installation system and torque sensing accessories."
-        current="Helical Piles"
+        trail={[
+          { label: 'HM Attachment', href: '/' },
+          { label: 'Products', href: '/products' },
+          { label: 'Helical Piles' },
+        ]}
       />
 
       {/* Section 1 - Helical Piles */}

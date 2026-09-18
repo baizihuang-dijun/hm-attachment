@@ -1,66 +1,78 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
-interface ProductHeroProps {
-  image: string;
-  kicker: string;
-  title: string;
-  subtitle?: string;
-  current: string;
-  /** Alt text for the background image */
-  alt: string;
+interface Crumb {
+  label: string;
+  href?: string;
 }
 
-export function ProductHero({ image, kicker, title, subtitle, current, alt }: ProductHeroProps) {
+interface ProductHeroProps {
+  image: string;
+  alt: string;
+  title: string;
+  subtitle?: string;
+  /** Breadcrumb segments in order. The last one (no href) is the current page. */
+  trail: Crumb[];
+}
+
+export function ProductHero({ image, alt, title, subtitle, trail }: ProductHeroProps) {
   return (
     <section
-      className="relative isolate flex min-h-[300px] items-center overflow-hidden bg-deep sm:min-h-[360px]"
+      className="relative isolate aspect-[8/3] max-sm:aspect-auto max-sm:h-[620px] overflow-hidden bg-deep"
       aria-label={title}
     >
-      {/* Background image: pre-cropped 2400x900, subject biased right, clear space on the left */}
+      {/* Background photo: pre-cropped 8:3, subject fixed at 72% horizontally on every viewport */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={image}
         alt={alt}
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-[72%_50%]"
       />
-      {/* Left-to-right deep-blue scrim for white text legibility */}
+      {/* Left deep-blue to transparent scrim for white text legibility */}
       <div
         className="absolute inset-0 -z-10"
         style={{
           background:
-            'linear-gradient(90deg, rgba(8,30,61,0.88) 0%, rgba(8,30,61,0.64) 42%, rgba(8,30,61,0.18) 100%)',
+            'linear-gradient(90deg, rgba(8,32,61,0.90) 0%, rgba(8,32,61,0.60) 40%, rgba(8,32,61,0.10) 78%, rgba(8,32,61,0) 100%)',
         }}
       />
-      {/* Subtle top scrim to keep the header lower edge clean */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-16 bg-gradient-to-b from-[#06203f]/55 to-transparent" />
+      {/* Subtle bottom-up darken so text stays readable on phones */}
+      <div
+        className="absolute inset-0 -z-10"
+        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.28), transparent)' }}
+      />
 
-      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <p className="text-xs font-bold uppercase tracking-widest text-hm-bright-2 sm:text-sm">
-          {kicker}
-        </p>
-        <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-            {subtitle}
+      {/* Text layer */}
+      <div className="absolute inset-0 flex items-center">
+        <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-hm-bright-2 sm:text-sm">
+            {trail.map((c) => c.label).join(' / ')}
           </p>
-        )}
-        <nav
-          aria-label="Breadcrumb"
-          className="mt-7 flex items-center gap-1.5 text-sm text-white/70"
-        >
-          <Link href="/" className="transition-colors hover:text-white">
-            Home
-          </Link>
-          <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-          <Link href="/products" className="transition-colors hover:text-white">
-            Products
-          </Link>
-          <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-          <span className="font-medium text-white">{current}</span>
-        </nav>
+          <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
+              {subtitle}
+            </p>
+          )}
+          <nav aria-label="Breadcrumb" className="mt-6 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-white/70">
+            {trail.map((c, i) =>
+              c.href ? (
+                <span key={i} className="flex items-center gap-x-1.5">
+                  <Link href={c.href} className="transition-colors hover:text-white">
+                    {c.label}
+                  </Link>
+                  <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+              ) : (
+                <span key={i} className="font-medium text-white">
+                  {c.label}
+                </span>
+              )
+            )}
+          </nav>
+        </div>
       </div>
     </section>
   );

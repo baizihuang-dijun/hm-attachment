@@ -9,6 +9,22 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden bg-deep text-white">
+        {/* Photo background: subject fixed at 72% horizontally */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/hero/home.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover object-[72%_50%]"
+        />
+        {/* Left deep-blue scrim for white text legibility */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(8,32,61,0.92) 0%, rgba(8,32,61,0.62) 40%, rgba(8,32,61,0.12) 78%, rgba(8,32,61,0) 100%)',
+          }}
+        />
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{

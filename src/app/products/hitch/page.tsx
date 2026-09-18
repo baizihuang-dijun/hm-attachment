@@ -39,10 +39,13 @@ export default function HitchPage() {
       <ProductHero
         image="/hero/hitch.png"
         alt="Excavator hitch connectors"
-        kicker="HM Attachment / Products / Hitch"
         title="Hitch"
         subtitle="Four hitch connector types to match any excavator range."
-        current="Hitch"
+        trail={[
+          { label: 'HM Attachment', href: '/' },
+          { label: 'Products', href: '/products' },
+          { label: 'Hitch' },
+        ]}
       />
 
       {/* 4 Hitch Types */}

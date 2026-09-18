@@ -77,10 +77,13 @@ export default function ToolsPage() {
       <ProductHero
         image="/hero/tools.png"
         alt="Auger drive work tools — log splitter, core barrel and mixing bowl"
-        kicker="HM Attachment / Products / Tools"
         title="Tools"
         subtitle="Log splitters, stump planers, core barrels, cement mixer bowls and hole cleaners for ground and drilling work."
-        current="Tools"
+        trail={[
+          { label: 'HM Attachment', href: '/' },
+          { label: 'Products', href: '/products' },
+          { label: 'Tools' },
+        ]}
       />
 
       <section className="bg-mist">

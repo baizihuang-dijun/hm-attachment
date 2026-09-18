@@ -76,13 +76,13 @@ export const categories: Category[] = [
   },
   {
     slug: 'earth-augers',
-    name: 'Earth Augers',
+    name: 'Augers',
     short: 'Soil Augers',
     description:
       'W2, W3 and W4 augers plus pilots and teeth for general, combination and rock drilling. Diameter from 150mm to 2000mm.',
     image: pImg('earth-augers'),
     items: [
-      { name: 'W2 Earth Auger', model: 'W2', image: pImg('auger-w2'), description: 'All-purpose earth auger for general drilling in earth, clay, shale and soft rock. Multi-faced tungsten.' },
+      { name: 'W2 Auger', model: 'W2', image: pImg('auger-w2'), description: 'All-purpose earth auger for general drilling in earth, clay, shale and soft rock. Multi-faced tungsten.' },
       { name: 'W3 Combination Auger', model: 'W3', image: pImg('auger-w3'), description: 'Cost effective taper teeth for ripping in fracturable rock, permafrost and general earth.' },
       { name: 'W4 Rock Auger', model: 'W4', image: pImg('auger-w4'), description: 'Heavy duty rock auger with high efficiency cutting heads and quality wear parts.' },
     ],

@@ -40,16 +40,108 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
   );
 }
 
+const DRILL_DIAMS = ['300mm', '450mm', '600mm'];
+
+const DRILL_GROUPS: { key: string; label: string; diams: string[] }[] = [
+  { key: 'soft', label: 'Soft Ground', diams: DRILL_DIAMS },
+  { key: 'medium', label: 'Medium Ground', diams: DRILL_DIAMS },
+  { key: 'hard', label: 'Hard Ground', diams: DRILL_DIAMS },
+];
+
+type ThreeVals = (number | null)[];
+
+const depthRows: { model: string; soft: ThreeVals; medium: ThreeVals; hard: ThreeVals }[] = [
+  {
+    model: 'YA-2000',
+    soft: [2.5, null, null],
+    medium: [2.4, null, null],
+    hard: [2.2, null, null],
+  },
+  {
+    model: 'YA-3000',
+    soft: [2.5, 1.7, null],
+    medium: [2.4, 1.6, null],
+    hard: [2.2, 1.5, null],
+  },
+  {
+    model: 'YA-5000',
+    soft: [4.5, 3.0, 1.7],
+    medium: [4.2, 2.8, 1.6],
+    hard: [3.5, 2.5, 1.4],
+  },
+  {
+    model: 'YA-8000',
+    soft: [6.5, 4.0, 3.6],
+    medium: [5.5, 3.7, 3.5],
+    hard: [5.0, 3.5, 3.0],
+  },
+  {
+    model: 'YA-10000',
+    soft: [6.5, 4.0, 3.6],
+    medium: [5.5, 3.7, 3.5],
+    hard: [5.0, 3.5, 3.0],
+  },
+  {
+    model: 'YA-18000',
+    soft: [7.0, 6.0, 5.3],
+    medium: [6.2, 5.3, 4.6],
+    hard: [5.5, 4.8, 4.3],
+  },
+  {
+    model: 'YA-30000',
+    soft: [8.6, 8.0, 6.5],
+    medium: [7.7, 7.3, 6.0],
+    hard: [7.0, 6.6, 5.3],
+  },
+  {
+    model: 'YA-50000',
+    soft: [12, 11, 9],
+    medium: [11, 10, 7],
+    hard: [8, 7, 6],
+  },
+  {
+    model: 'YA-80000',
+    soft: [15, 14, 10],
+    medium: [11, 10, 8],
+    hard: [8, 7, 6],
+  },
+  {
+    model: 'YA-100000',
+    soft: [null, null, null],
+    medium: [null, null, null],
+    hard: [null, null, null],
+  },
+];
+
+function DepthCell({ v }: { v: number | null }) {
+  const empty = v === null;
+  return (
+    <td
+      className={`whitespace-nowrap border-b border-line px-2 py-1.5 text-center text-sm ${
+        empty ? 'text-[#a6b0bf]' : 'text-ink'
+      }`}
+    >
+      {empty ? '–' : v}
+    </td>
+  );
+}
+
+const headerBlue = 'bg-[#0A2E5C] text-white';
+const subBlue = 'bg-[#123a6d] text-white';
+
 export default function DrivesPage() {
   return (
     <div>
       <ProductHero
         image="/hero/drives.png"
         alt="YA series hydraulic auger drive on site"
-        kicker="HM Attachment / Products / Auger Drives"
         title="Auger Drives"
         subtitle="Standard, high speed and horizontal auger drives built for reliable rotational power across 0.5-52 ton excavators."
-        current="Auger Drives"
+        trail={[
+          { label: 'HM Attachment', href: '/' },
+          { label: 'Products', href: '/products' },
+          { label: 'Auger Drives' },
+        ]}
       />
 
       {/* Section 1 - Standard Auger Drive */}
@@ -124,6 +216,77 @@ export default function DrivesPage() {
 
           <h3 className="mt-10 mb-3 text-xl font-bold text-hm">Specification (10 Models)</h3>
           <Table headers={augerDrivesTable.headers} rows={augerDrivesTable.rows} />
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl border-t border-line px-4 py-14 sm:px-6 lg:px-8">
+          <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+            Drilling Performance
+          </span>
+          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
+            Maximum Drilling Depth Reference
+          </h2>
+          <p className="mt-2 text-sm text-inksoft">
+            Maximum drilling depth by model, ground type, and auger diameter (meters)
+          </p>
+          <div className="mt-6 overflow-x-auto rounded-xl border border-line shadow-sm">
+            <table className="w-full min-w-[680px] border-collapse text-sm">
+              <thead>
+                <tr>
+                  <th
+                    rowSpan={2}
+                    className={`sticky left-0 z-20 border-b-2 border-r border-white/20 px-3 py-2.5 text-left font-semibold ${headerBlue}`}
+                  >
+                    Model
+                  </th>
+                  {DRILL_GROUPS.map((g) => (
+                    <th
+                      key={g.key}
+                      colSpan={3}
+                      className={`border-b border-r border-white/20 px-2 py-2 text-center font-semibold ${headerBlue}`}
+                    >
+                      {g.label}
+                    </th>
+                  ))}
+                </tr>
+                <tr>
+                  {DRILL_GROUPS.map((g) =>
+                    g.diams.map((mm) => (
+                      <th
+                        key={`${g.key}-${mm}`}
+                        className={`whitespace-nowrap border-b-2 border-r border-white/15 px-2 py-1.5 text-center text-xs font-medium ${subBlue}`}
+                      >
+                        {mm}
+                      </th>
+                    ))
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {depthRows.map((d, idx) => {
+                  const zebra = idx % 2 === 0;
+                  const rowBg = zebra ? 'bg-white' : 'bg-[#F4F6FA]';
+                  const cellTd = zebra ? 'bg-white' : 'bg-[#F4F6FA]';
+                  const modelTd = `sticky left-0 z-10 border-b border-r border-line px-3 py-2 text-left font-semibold text-hm ${cellTd}`;
+                  return (
+                    <tr key={d.model} className={rowBg}>
+                      <td className={modelTd}>{d.model}</td>
+                      {[...d.soft, ...d.medium, ...d.hard].map((v, i) => (
+                        <DepthCell key={i} v={v} />
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-inksoft">
+            Values shown are indicative maximum drilling depths (meters) for popular auger
+            diameters. Your results may vary based on soil composition, moisture content, and
+            machine configuration. Contact us for application-specific recommendations.
+            &ldquo;&ndash;&rdquo; indicates this drive model does not support that diameter.
+          </p>
         </div>
       </section>
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords: [
     'HM Attachment',
     'Auger Drives',
-    'Earth Augers',
+    'Augers',
     'Drilling Drives',
     'Electric Coupler',
     'Excavator Attachments',
