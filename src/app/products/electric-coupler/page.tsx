@@ -185,7 +185,7 @@ export default function ElectricCouplerPage() {
   return (
     <div>
       {/* 1. Hero */}
-      <section className="relative overflow-hidden bg-deep text-white">
+      <section className="relative z-10 overflow-hidden bg-deep text-white">
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
@@ -193,42 +193,81 @@ export default function ElectricCouplerPage() {
               'radial-gradient(circle at 15% 20%, rgba(43,108,176,0.5), transparent 50%), radial-gradient(circle at 85% 85%, rgba(6,32,63,0.9), transparent 60%)',
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <ImagePlaceholder
-            alt="HM Electric Quick Coupler"
-            label="[image-hero]"
-            className="h-56 w-full rounded-lg border border-white/15 sm:h-72"
-          />
-          <p className="mt-8 text-sm font-bold uppercase tracking-[0.3em] text-hm-bright-2">
-            HM Attachment / Electric Coupler
-          </p>
-          <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-            HM Electric Quick Coupler
-          </h1>
-          <p className="mt-3 text-lg text-hm-bright-2">
-            Electric when you need speed. Manual when you need a backup.
-          </p>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            Electric quick coupler for 5-9 ton excavators. Wireless control, triple
-            auto-lock. No hydraulic connections required.
-          </p>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
-            CE Certified
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#specs"
-              className="inline-flex items-center gap-2 rounded-md bg-hm-bright-2 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-hm-bright"
-            >
-              View Specifications
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Request a Quote
-            </Link>
+        <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-12 sm:px-6 lg:px-8 lg:pb-2 lg:pt-16">
+          <div className="grid items-end gap-8 lg:grid-cols-[1.05fr_1fr]">
+            {/* Left: copy */}
+            <div className="animate-ec-in">
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-hm-bright-2">
+                HM Attachment / Electric Coupler
+              </p>
+              <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+                HM Electric Quick Coupler
+              </h1>
+              <p className="mt-3 text-lg text-hm-bright-2">
+                Electric when you need speed. Manual when you need a backup.
+              </p>
+              <p className="mt-4 max-w-2xl text-lg text-white/80">
+                Electric quick coupler for 5-9 ton excavators. Wireless control,
+                triple auto-lock. No hydraulic connections required.
+              </p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+                CE Certified
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#specs"
+                  className="inline-flex items-center gap-2 rounded-md bg-hm-bright-2 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-hm-bright"
+                >
+                  View Specifications
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                >
+                  Request a Quote
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: transparent PNG + CSS naked-eye 3D */}
+            <div className="relative mx-auto flex h-64 w-full items-end justify-center lg:h-[440px] lg:justify-end">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    'radial-gradient(circle at 50% 32%, rgba(59,130,246,0.3), transparent 62%)',
+                  filter: 'blur(18px)',
+                }}
+              />
+              <div className="animate-ec-float relative">
+                <img
+                  src="/products/electric-coupler-hero.png"
+                  alt="HM Electric Quick Coupler – real product on excavator arm"
+                  draggable={false}
+                  className="relative z-10 block h-auto max-h-full w-64 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-72 lg:w-[400px] lg:-mr-10"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute bottom-[-14px] left-1/2 h-6 w-4/5 -translate-x-1/2 rounded-[50%]"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(0,0,0,0.6), transparent 70%)',
+                    filter: 'blur(5px)',
+                  }}
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute bottom-[-6px] left-1/2 h-6 w-3/4 -translate-x-1/2 rounded-[50%] opacity-40"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(59,130,246,0.4), transparent 70%)',
+                    filter: 'blur(4px)',
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
