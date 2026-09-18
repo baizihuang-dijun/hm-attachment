@@ -2,13 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Grip, Wrench, ShieldCheck } from 'lucide-react';
 import { brand, homeProductGroups, homeStats } from '@/lib/products';
 import { ImagePlaceholder } from '@/components/image-placeholder';
-
-const ecosystem = [
-  { label: 'HITCH', tag: 'Hitch & Extension', field: 'top-0' },
-  { label: 'SENSOR', tag: 'Indicators', field: 'top-0' },
-  { label: 'TOOL', tag: 'Drilling Tools', field: 'top-0' },
-  { label: 'AUGER', tag: 'Earth Augers', field: 'top-0' },
-];
+import { EcoExplorer } from '@/components/eco-explorer';
 
 export default function Home() {
   return (
@@ -68,43 +62,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ecosystem Overview (below Hero) */}
-      <section className="border-b border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-bold uppercase tracking-widest text-hm-bright-2">
-            Product Ecosystem
-          </p>
-          <h2 className="mt-2 text-center text-3xl font-extrabold tracking-tight text-hm">
-            One Drive. Every Drilling Attachment.
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-inksoft">
-            HM Attachment&apos;s hydraulic auger drive sits at the center of the ecosystem —
-            hitches, earth augers, tools and torque sensors all mount to or measure on it.
-          </p>
-
-          <div className="relative mx-auto mt-12 max-w-4xl">
-            {/* connecting lines */}
-            <div className="pointer-events-none absolute inset-x-16 top-1/2 hidden h-px bg-line lg:block" />
-            {/* center auger drive */}
-            <div className="relative z-10 mx-auto flex w-56 flex-col items-center">
-              <ImagePlaceholder alt="Auger drive" label="[image-auger-drive-ya]" className="h-40 w-40 rounded-full border-4 border-hm-bright-2" />
-              <p className="mt-3 text-center text-sm font-bold uppercase tracking-wider text-hm">
-                Auger Drive
-              </p>
-            </div>
-
-            {/* four labeled attachments */}
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {ecosystem.map((e) => (
-                <div key={e.label} className="rounded-lg border border-line bg-mist p-4 text-center">
-                  <p className="text-sm font-extrabold tracking-widest text-hm-bright-2">{e.label}</p>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-inksoft">{e.tag}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* YA Series Auger Drill Ecosystem — interactive explorer (1:1 port) */}
+      <EcoExplorer />
 
       {/* Feature highlights */}
       <section className="border-b border-line bg-mist">

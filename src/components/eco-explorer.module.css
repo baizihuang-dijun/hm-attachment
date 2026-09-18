@@ -1,0 +1,416 @@
+/* HM Attachment — YA Series Auger Drill Ecosystem explorer.
+   Ported 1:1 from the signed-off static prototype (theme.css).
+   All tokens are scoped to .section so they never leak into global Tailwind. */
+
+.section {
+  /* prototype tokens */
+  --color-primary: #1f6feb;
+  --color-background: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-text: #0f1b2d;
+  --color-muted-text: #6b7686;
+  --color-border: #e4e8ee;
+  --color-focus: #0a3d8f;
+
+  --ink: #0f1b2d;
+  --ink-2: #3a4759;
+  --muted: #6b7686;
+  --line: #e4e8ee;
+  --line-2: #eef1f5;
+  --surface: #ffffff;
+  --surface-2: #f5f7fa;
+  --canvas: #ffffff;
+  --accent: #1f6feb;
+  --accent-soft: #eaf2fe;
+  --accent-line: #c7ddfb;
+  --focus: #0a3d8f;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow-sm: 0 1px 2px rgba(15, 27, 45, 0.06), 0 2px 8px rgba(15, 27, 45, 0.05);
+  --shadow-md: 0 10px 30px rgba(15, 27, 45, 0.1), 0 2px 8px rgba(15, 27, 45, 0.06);
+  --shadow-lg: 0 24px 60px rgba(15, 27, 45, 0.2);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.section *,
+.section *::before,
+.section *::after {
+  box-sizing: border-box;
+}
+
+.section img {
+  display: block;
+  max-width: 100%;
+}
+
+.section button {
+  font: inherit;
+}
+
+.wrap {
+  width: min(1320px, 100% - 40px);
+  margin-inline: auto;
+}
+
+.header {
+  padding: clamp(2rem, 4vw, 3.2rem) 0 0.2rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.title {
+  font-size: clamp(1.7rem, 1.1rem + 2.4vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.lede {
+  color: var(--ink-2);
+  font-size: clamp(1rem, 0.96rem + 0.3vw, 1.1rem);
+  max-width: 64ch;
+  margin: 0;
+}
+
+/* ---------- Explorer ---------- */
+.eco {
+  margin-top: 2.2rem;
+  padding-bottom: clamp(2rem, 4vw, 3.2rem);
+}
+
+.ecoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 272px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Stage */
+.stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  background: var(--canvas);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  outline: none;
+}
+
+.stageLayer {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  transition: transform 0.62s var(--ease);
+}
+
+.ecoPart {
+  position: absolute;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  opacity: 0.94;
+  filter: saturate(0.97);
+  transition: opacity 0.4s var(--ease), filter 0.4s var(--ease);
+  cursor: pointer;
+}
+
+.ecoPart:hover {
+  opacity: 1;
+}
+
+.stage.focusing .ecoPart {
+  opacity: 0.1;
+  filter: saturate(0.4);
+}
+
+.stage.focusing .ecoPart.isActive {
+  opacity: 1;
+  filter: none;
+  z-index: 4;
+}
+
+.stageSpot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.42s var(--ease);
+  background: radial-gradient(
+    circle at 50% 38%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(13, 26, 48, 0.38) 44%,
+    rgba(13, 26, 48, 0.62) 72%
+  );
+  z-index: 3;
+}
+
+.stage.focusing .stageSpot {
+  opacity: 1;
+}
+
+.stageHint {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 5;
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s;
+}
+
+.stageHint.hide {
+  opacity: 0;
+}
+
+/* Hover card — roomy, fixed in lower zone */
+.hcard {
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  z-index: 6;
+  width: min(440px, 86%);
+  transform: translate(-50%, 14px);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow-lg);
+  padding: 20px 22px 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.hcard.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.hcTag {
+  margin: 0 0 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.hcName {
+  margin: 0 0 6px;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+
+.hcDesc {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.hcSpecs {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line-2);
+  display: grid;
+  gap: 8px;
+}
+
+.hcSpecs li {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 0.86rem;
+}
+
+.hcSpecs span {
+  color: var(--muted);
+}
+
+.hcSpecs b {
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: right;
+}
+
+.hcCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.hcCta:hover {
+  color: var(--focus);
+}
+
+/* ---------- Right: always-open parts list ---------- */
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.rail {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.railSec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 0;
+  padding: 2px 0;
+}
+
+.railGroup {
+  margin: 4px 6px 6px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.railItems {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.railLead,
+.railItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 7px 9px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.25;
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+
+.railLead {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  margin-bottom: 4px;
+  flex: 0 0 auto;
+}
+
+.rlGo {
+  margin-left: auto;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.railLead img,
+.railItem img {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  object-fit: contain;
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.rlName {
+  min-width: 0;
+}
+
+.railLead:hover,
+.railItem:hover {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+
+.railLead.on,
+.railItem.on {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+.controlNote {
+  font-size: 0.73rem;
+  color: var(--muted);
+  margin: 2px 2px 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+  .ecoGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .stage {
+    max-width: 680px;
+    margin-inline: auto;
+    width: 100%;
+  }
+  .control {
+    position: static;
+    order: 2;
+    max-width: 680px;
+    margin-inline: auto;
+    width: 100%;
+  }
+  .rail {
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section *,
+  .section *::before,
+  .section *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
