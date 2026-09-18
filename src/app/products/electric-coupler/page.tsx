@@ -93,7 +93,7 @@ const keyFeatures = [
   {
     icon: Zap,
     title: 'Electric Drive System',
-    text: 'No hydraulic connection required for coupler operation.',
+    text: 'No hydraulic connection required for coupler operation. No hydraulic oil contamination and no added heat load on the hydraulic circuit.',
   },
   {
     icon: ShieldCheck,
@@ -146,25 +146,6 @@ const compactPoints = [
   '30% smaller than hydraulic couplers.',
   'Compatible with major brands (CAT, Komatsu, Volvo).',
   'Circuit protection: Phase Loss + Short Circuit + Overload + Overvoltage + Overheat.',
-];
-
-const compatibilityPoints = [
-  {
-    label: 'Excavator range',
-    text: '5-9 ton excavators',
-  },
-  {
-    label: 'Pin diameter',
-    text: 'Determined by the excavator pin size',
-  },
-  {
-    label: 'Center distance',
-    text: 'Must fit the excavator pin spacing',
-  },
-  {
-    label: 'Attachment compatibility',
-    text: 'Depends on attachment geometry and coupler interface',
-  },
 ];
 
 const specRows: { label: string; ec02: string; ec04: string }[] = [
@@ -273,37 +254,37 @@ export default function ElectricCouplerPage() {
       </section>
 
       {/* 2. DUAL OPERATING MODES */}
-      <section className="bg-hm text-white">
+      <section className="bg-gradient-to-b from-white to-[#F8FAFC] text-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#2F6BFF]">
               Dual Operating Modes
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0F1B2D] sm:text-4xl">
               Two operating modes. One goal: keep the machine working.
             </h2>
           </div>
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            <div className="rounded-lg border border-hm-bright/40 bg-deep p-8">
+            <div className="rounded-[18px] border border-[#E5EAF1] bg-white p-8 shadow-sm">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-md bg-hm-bright-2/20">
-                  <Zap className="h-6 w-6 text-hm-bright-2" />
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#EAF1FF]">
+                  <Zap className="h-6 w-6 text-[#2F6BFF]" />
                 </span>
-                <h3 className="text-xl font-bold">Electric Mode</h3>
+                <h3 className="text-xl font-bold text-[#0F1B2D]">Electric Mode</h3>
               </div>
-              <p className="mt-4 text-white/80">
+              <p className="mt-4 text-[#475569]">
                 Normal operation with electric actuation and wireless control. Change
                 attachments efficiently during daily operations.
               </p>
             </div>
-            <div className="rounded-lg border border-white/15 bg-white/5 p-8">
+            <div className="rounded-[18px] border border-[#E5EAF1] bg-white p-8 shadow-sm">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white/10">
-                  <Wrench className="h-6 w-6 text-hm-bright-2" />
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#E9F8F0]">
+                  <Wrench className="h-6 w-6 text-[#16A34A]" />
                 </span>
-                <h3 className="text-xl font-bold">Manual Backup Mode</h3>
+                <h3 className="text-xl font-bold text-[#0F1B2D]">Manual Backup Mode</h3>
               </div>
-              <p className="mt-4 text-white/80">
+              <p className="mt-4 text-[#475569]">
                 If the electrical system fails, the coupler can be operated manually.
                 No need to stop the excavator or wait for a service call — keep the
                 machine working and avoid unnecessary downtime.
@@ -436,49 +417,6 @@ export default function ElectricCouplerPage() {
                 <p className="mt-1 text-sm text-inksoft">{step.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. BROAD COMPATIBILITY */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">Compatibility</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
-            BROAD COMPATIBILITY
-          </h2>
-          <p className="mt-3 max-w-2xl text-inksoft">
-            Designed for 5-9 ton excavators. Compatibility depends on pin diameter,
-            center distance, and attachment geometry.
-          </p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {compatibilityPoints.map((c) => (
-              <div key={c.label} className="rounded-lg border border-line bg-mist/40 p-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-hm-bright-2">{c.label}</p>
-                <p className="mt-2 font-semibold text-hm">{c.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 9. WHY ELECTRIC */}
-      <section className="bg-hm text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
-            Why Electric?
-          </p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">No Hydraulic Connection</h2>
-          <div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-start">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10">
-              <Droplets className="h-6 w-6 text-hm-bright-2" />
-            </div>
-            <p className="max-w-3xl text-lg text-white/85">
-              The HM Electric Quick Coupler operates through its own sealed electric
-              drive system, eliminating the need to connect the coupler to the
-              excavator&apos;s hydraulic circuit. No hydraulic oil contamination. No
-              additional heat load on the hydraulic system.
-            </p>
           </div>
         </div>
       </section>
