@@ -193,7 +193,7 @@ export default function ElectricCouplerPage() {
               'radial-gradient(circle at 15% 20%, rgba(43,108,176,0.5), transparent 50%), radial-gradient(circle at 85% 85%, rgba(6,32,63,0.9), transparent 60%)',
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-12 sm:px-6 lg:px-8 lg:pb-2 lg:pt-16">
+        <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 lg:px-8 lg:pb-12 lg:pt-16">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr]">
             {/* Left: copy */}
             <div className="animate-ec-in">
@@ -231,7 +231,7 @@ export default function ElectricCouplerPage() {
             </div>
 
             {/* Right: transparent PNG + CSS naked-eye 3D */}
-            <div className="relative z-20 mx-auto flex h-72 w-full items-center justify-center lg:h-[clamp(340px,34vw,540px)] lg:justify-end">
+            <div className="relative z-20 mx-auto flex h-auto w-full items-center justify-center lg:justify-end">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0"
@@ -241,12 +241,12 @@ export default function ElectricCouplerPage() {
                   filter: 'blur(18px)',
                 }}
               />
-              <div className="animate-ec-float relative lg:-mb-10 lg:mr-[-1.5rem]">
+              <div className="animate-ec-float relative lg:-mb-8 lg:mr-[-1.5rem]">
                 <img
                   src="/products/electric-coupler-hero.png"
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
-                  className="relative z-10 block h-auto max-h-full w-64 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-72 lg:w-[clamp(320px,30vw,480px)] xl:max-w-[460px]"
+                  className="relative z-10 block h-auto max-h-[64vh] w-48 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-56 lg:h-[clamp(280px,42vh,540px)] lg:w-auto lg:max-h-[72vh] xl:max-w-[420px]"
                 />
                 <div
                   aria-hidden
