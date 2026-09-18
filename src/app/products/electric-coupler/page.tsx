@@ -29,19 +29,19 @@ const lockTiers: {
   {
     tag: 'Lock 01',
     title: 'The Self-Locking Screw',
-    desc: '42CrMo alloy steel with proprietary self-locking thread. Horizontal-push design isolates the screw to pure axial loads — full-thread engagement, zero loosening under vibration.',
+    desc: '42CrMo alloy steel with proprietary self-locking thread. Horizontal-push design isolates the screw to pure axial loads — full-thread engagement, helps prevent loosening under vibration.',
     image: '/products/lock-power-screw.png',
   },
   {
     tag: 'Lock 02',
     title: 'The Auto-Lock Clutch',
-    desc: 'Advanced planetary ratchet with full-tooth disc engagement. Instantaneous automatic lock, zero manual intervention — carburized alloy steel endures 300+ N·m impacts.',
+    desc: 'Advanced planetary ratchet with full-tooth disc engagement. Automatic engagement mechanism — carburized alloy steel designed for high-impact durability.',
     image: '/products/lock-auto-clutch.png',
   },
   {
     tag: 'Lock 03',
     title: 'The Safety Lock Block',
-    desc: 'Failsafe mechanism synchronized with the movable jaw. Positively locks both main spindles simultaneously for 99.9% operational safety.',
+    desc: 'Failsafe mechanism synchronized with the movable jaw, helping maintain positive locking during operation.',
     image: '/products/lock-safety-block.png',
   },
 ];
@@ -50,7 +50,7 @@ const keyFeatures = [
   {
     icon: Zap,
     title: 'Electric Drive System',
-    text: 'No hydraulic connection. Zero oil contamination, no heat load.',
+    text: 'No hydraulic connection required — no oil contamination risk, no added heat load on the hydraulic circuit.',
   },
   {
     icon: ShieldCheck,
@@ -96,12 +96,12 @@ const installSteps = [
 const controllerPoints = [
   'Industrial-grade protection: shorts, overvoltage, overheating, phase loss.',
   'Diagnostic buzzer for instant error identification.',
-  'IP67 waterproof, universal 12-24V compatibility.',
+  'IP67 waterproof, 12-24V compatibility.',
 ];
 
 const compactPoints = [
-  '30% smaller than hydraulic couplers.',
-  'Compatible with major brands (CAT, Komatsu, Volvo).',
+  'Compact design for easier installation and handling.',
+  'Designed for compatibility with common excavator mounting configurations.',
   'Circuit protection: Phase Loss + Short Circuit + Overload + Overvoltage + Overheat.',
 ];
 
@@ -132,7 +132,7 @@ export default function ElectricCouplerPage() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 lg:px-8 lg:pb-12 lg:pt-16">
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr]">
+          <div className="grid items-center gap-8 lg:grid-cols-[45fr_55fr]">
             {/* Left: copy */}
             <div className="animate-ec-in">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-hm-bright-2">
@@ -145,8 +145,9 @@ export default function ElectricCouplerPage() {
                 Electric when you need speed. Manual when you need a backup.
               </p>
               <p className="mt-4 max-w-2xl text-lg text-white/80">
-                Electric quick coupler for 5-9 ton excavators. Wireless control,
-                triple auto-lock. No hydraulic connections required.
+                Electric quick coupler for 5–9 ton excavators, with wireless
+                control, triple auto-lock, and manual backup operation. No
+                hydraulic connection required.
               </p>
               <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
                 CE Certified
@@ -179,12 +180,12 @@ export default function ElectricCouplerPage() {
                   filter: 'blur(18px)',
                 }}
               />
-              <div className="animate-ec-float relative lg:-mb-8 lg:mr-[-1.5rem]">
+              <div className="animate-ec-float relative lg:-mb-12 lg:mr-[-1.5rem]">
                 <img
                   src="/products/electric-coupler-hero.png"
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
-                  className="relative z-10 block h-auto max-h-[64vh] w-48 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-56 lg:h-[clamp(280px,42vh,540px)] lg:w-auto lg:max-h-[72vh] xl:max-w-[420px]"
+                  className="relative z-10 block h-auto max-h-[64vh] w-48 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-56 lg:h-[clamp(300px,44vh,560px)] lg:w-auto lg:max-h-[72vh] xl:max-w-[540px]"
                 />
                 <div
                   aria-hidden
@@ -242,9 +243,9 @@ export default function ElectricCouplerPage() {
                 <h3 className="text-xl font-bold text-[#0F1B2D]">Manual Backup Mode</h3>
               </div>
               <p className="mt-4 text-[#475569]">
-                If the electrical system fails, the coupler can be operated manually.
-                No need to stop the excavator or wait for a service call — keep the
-                machine working and avoid unnecessary downtime.
+                If the electrical system fails, the coupler can still be operated
+                manually, providing a practical backup and helping reduce
+                unnecessary downtime.
               </p>
             </div>
           </div>
@@ -336,7 +337,7 @@ export default function ElectricCouplerPage() {
         </div>
       </section>
 
-      {/* 7. 10-MINUTE INSTALLATION */}
+      {/* 7. SIMPLE INSTALLATION */}
       <section className="bg-mist">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">Setup</p>
@@ -344,10 +345,10 @@ export default function ElectricCouplerPage() {
             SIMPLE INSTALLATION
           </h2>
           <p className="mt-3 text-inksoft">
-            No hydraulic lines needed. Plug-and-play wireless controller.
+            Designed for straightforward installation without hydraulic connections.
           </p>
           <ImagePlaceholder
-            alt="10-minute installation"
+            alt="Simple installation"
             label="[image-installation]"
             className="mt-8 h-48 w-full rounded-lg border border-line"
           />
