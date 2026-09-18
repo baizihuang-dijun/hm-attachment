@@ -231,7 +231,7 @@ export default function ElectricCouplerPage() {
             </div>
 
             {/* Right: transparent PNG + CSS naked-eye 3D */}
-            <div className="relative z-20 mx-auto flex h-72 w-full items-center justify-center lg:h-[480px] lg:justify-end">
+            <div className="relative z-20 mx-auto flex h-72 w-full items-center justify-center lg:h-[clamp(340px,34vw,540px)] lg:justify-end">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0"
@@ -241,12 +241,12 @@ export default function ElectricCouplerPage() {
                   filter: 'blur(18px)',
                 }}
               />
-              <div className="animate-ec-float relative lg:-mb-28 lg:mr-[-1.5rem]">
+              <div className="animate-ec-float relative lg:-mb-10 lg:mr-[-1.5rem]">
                 <img
                   src="/products/electric-coupler-hero.png"
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
-                  className="relative z-10 block h-auto max-h-full w-64 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-72 lg:w-[440px]"
+                  className="relative z-10 block h-auto max-h-full w-64 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-72 lg:w-[clamp(320px,30vw,480px)] xl:max-w-[460px]"
                 />
                 <div
                   aria-hidden
@@ -274,7 +274,7 @@ export default function ElectricCouplerPage() {
 
       {/* 2. DUAL OPERATING MODES */}
       <section className="bg-hm text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:pr-24">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
               Dual Operating Modes
@@ -338,31 +338,15 @@ export default function ElectricCouplerPage() {
                 </div>
                 <div className="mt-4 grid items-center gap-6 lg:grid-cols-2">
                   <div
-                    className={`relative overflow-hidden rounded-2xl border border-white/10 ${
+                    className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${
                       i % 2 === 1 ? 'lg:order-last' : 'lg:order-first'
                     }`}
-                    style={{
-                      background:
-                        'radial-gradient(circle at 50% 28%, #123A6D 0%, #0A2E5C 45%, #050B18 100%)',
-                      boxShadow:
-                        'inset 0 1px 0 rgba(255,255,255,0.10), 0 12px 32px rgba(2,8,22,0.45)',
-                    }}
                   >
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 opacity-60"
-                      style={{
-                        background:
-                          i % 2 === 1
-                            ? 'radial-gradient(circle at 72% 18%, rgba(239,68,68,0.16), transparent 55%)'
-                            : 'radial-gradient(circle at 70% 20%, rgba(59,130,246,0.18), transparent 55%)',
-                      }}
-                    />
                     <img
                       src={t.image}
                       alt={t.title}
                       draggable={false}
-                      className="relative z-10 mx-auto block h-56 w-full object-contain p-5 drop-shadow-[0_0_18px_rgba(59,130,246,0.25)]"
+                      className="relative z-10 mx-auto block h-56 w-full object-contain p-6"
                     />
                   </div>
                   <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
