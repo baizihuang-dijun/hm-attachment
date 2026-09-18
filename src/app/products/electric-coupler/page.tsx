@@ -23,68 +23,25 @@ export const metadata: Metadata = {
 const lockTiers: {
   tag: string;
   title: string;
-  points: { label: string; text: string }[];
-  variant: string;
+  desc: string;
   image: string;
 }[] = [
   {
     tag: 'Lock 01',
     title: 'The Self-Locking Screw',
-    points: [
-      {
-        label: 'Material',
-        text: '42CrMo alloy steel, specialized heat treatment.',
-      },
-      {
-        label: 'Design',
-        text: 'Horizontal-push design isolates the screw to pure axial loads, with full-thread engagement regardless of center distance.',
-      },
-      {
-        label: 'Performance',
-        text: 'Proprietary thread profile delivers self-locking capability and withstands intense vibration without loosening.',
-      },
-    ],
-    variant: 'border-t-hm',
+    desc: '42CrMo alloy steel with proprietary self-locking thread. Horizontal-push design isolates the screw to pure axial loads — full-thread engagement, zero loosening under vibration.',
     image: '/products/lock-power-screw.png',
   },
   {
     tag: 'Lock 02',
     title: 'The Auto-Lock Clutch',
-    points: [
-      {
-        label: 'Function',
-        text: 'Instantaneous automatic engagement, zero manual intervention.',
-      },
-      {
-        label: 'Mechanism',
-        text: 'Advanced planetary ratchet system with full-tooth disc engagement.',
-      },
-      {
-        label: 'Durability',
-        text: 'High-strength carburized alloy steel endures 300+ N·m motor impacts.',
-      },
-    ],
-    variant: 'border-t-hm-bright',
+    desc: 'Advanced planetary ratchet with full-tooth disc engagement. Instantaneous automatic lock, zero manual intervention — carburized alloy steel endures 300+ N·m impacts.',
     image: '/products/lock-auto-clutch.png',
   },
   {
     tag: 'Lock 03',
     title: 'The Safety Lock Block',
-    points: [
-      {
-        label: 'Design',
-        text: 'Failsafe mechanism designed to maintain positive locking.',
-      },
-      {
-        label: 'Operation',
-        text: 'Synchronizes with the movable jaw to positively lock both main spindles simultaneously.',
-      },
-      {
-        label: 'Result',
-        text: 'Triple-redundant system achieves 99.9% operational safety.',
-      },
-    ],
-    variant: 'border-t-hm-dark',
+    desc: 'Failsafe mechanism synchronized with the movable jaw. Positively locks both main spindles simultaneously for 99.9% operational safety.',
     image: '/products/lock-safety-block.png',
   },
 ];
@@ -93,7 +50,7 @@ const keyFeatures = [
   {
     icon: Zap,
     title: 'Electric Drive System',
-    text: 'No hydraulic connection required for coupler operation. No hydraulic oil contamination and no added heat load on the hydraulic circuit.',
+    text: 'No hydraulic connection. Zero oil contamination, no heat load.',
   },
   {
     icon: ShieldCheck,
@@ -305,40 +262,27 @@ export default function ElectricCouplerPage() {
             Three independent locking systems work together to keep every single
             attachment change positively locked.
           </p>
-          <div className="mt-8 grid gap-4">
-            {lockTiers.map((t, i) => (
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {lockTiers.map((t) => (
               <div
                 key={t.tag}
-                className={`rounded-lg border-l-4 border-t border-line bg-white p-6 ${t.variant}`}
+                className="flex flex-col items-center rounded-2xl border border-[#E5EAF1] bg-white p-6 text-center shadow-sm"
               >
-                <div className="flex items-center gap-3">
-                  <span className="rounded bg-hm/10 px-2 py-0.5 text-xs font-bold uppercase tracking-wide text-hm">
-                    {t.tag}
-                  </span>
-                  <h3 className="text-lg font-bold text-hm">{t.title}</h3>
+                <span className="rounded bg-hm/10 px-2 py-0.5 text-xs font-bold uppercase tracking-wide text-hm">
+                  {t.tag}
+                </span>
+                <h3 className="mt-3 text-lg font-bold text-hm">{t.title}</h3>
+                <div className="mt-4 w-4/5 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                  <img
+                    src={t.image}
+                    alt={t.title}
+                    draggable={false}
+                    className="mx-auto block w-full object-contain"
+                  />
                 </div>
-                <div className="mt-4 grid items-center gap-6 lg:grid-cols-2">
-                  <div
-                    className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${
-                      i % 2 === 1 ? 'lg:order-last' : 'lg:order-first'
-                    }`}
-                  >
-                    <img
-                      src={t.image}
-                      alt={t.title}
-                      draggable={false}
-                      className="relative z-10 mx-auto block h-56 w-full object-contain p-6"
-                    />
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                    {t.points.map((p) => (
-                      <div key={p.label}>
-                        <p className="text-xs font-bold uppercase tracking-wide text-inksoft">{p.label}</p>
-                        <p className="mt-1 text-sm text-ink">{p.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <p className="mt-5 text-sm leading-relaxed text-[#475569]">
+                  {t.desc}
+                </p>
               </div>
             ))}
           </div>
