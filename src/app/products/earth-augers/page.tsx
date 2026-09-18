@@ -38,12 +38,6 @@ const augerTypes = [
   },
 ];
 
-const combos = [
-  { pair: 'ADP2 + AOT2', use: 'for W2 Auger' },
-  { pair: 'AOP3 + AOT3', use: 'for W3 Combination Auger' },
-  { pair: 'AOP4 + AOT4', use: 'for W4 Rock Auger' },
-];
-
 export default function EarthAugersPage() {
   return (
     <div>
@@ -160,19 +154,19 @@ export default function EarthAugersPage() {
             ))}
           </div>
 
-          {/* Face detail */}
-          <h3 className="mt-10 mb-3 text-xl font-bold text-hm">Cutting Faces</h3>
+          {/* Cutting faces, pilot & teeth */}
+          <h3 className="mt-10 mb-3 text-xl font-bold text-hm">Cutting Faces, Pilot &amp; Teeth</h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {[
-              ['W2 Face', 'earth-auger-w2-face'],
-              ['W3 Face', 'earth-auger-w3-face'],
-              ['W4 Face', 'earth-auger-w4-face'],
-            ].map(([label, img]) => (
-              <div key={img} className="flex flex-col items-center justify-center rounded-lg border border-line bg-white p-3">
-                <div className="h-24 w-full">
-                  <img alt={label} src={`/products-img/${img}.png`} className="h-full w-full object-contain" />
+            {['W2', 'W3', 'W4'].map((label) => (
+              <div key={label} className="flex flex-col rounded-lg border border-line bg-white p-3">
+                <div className="aspect-[16/9] w-full">
+                  <img
+                    alt={`${label} cutting face, pilot and teeth`}
+                    src={`/products-img/cutting-${label.toLowerCase()}.png`}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
-                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-hm">{label}</span>
+                <span className="mt-2 self-center text-xs font-semibold uppercase tracking-wide text-hm">{label}</span>
               </div>
             ))}
           </div>
@@ -203,42 +197,6 @@ export default function EarthAugersPage() {
         </div>
       </section>
 
-      {/* Section 6 - Pilot and Teeth */}
-      <section id="teeth" className="bg-white scroll-mt-20">
-        <div className="mx-auto max-w-7xl border-t border-line px-4 py-14 sm:px-6 lg:px-8">
-          <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-            Pilot & Teeth
-          </span>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
-            Tungsten Carbide Pilot and Teeth
-          </h2>
-          <div className="mt-6 grid items-start gap-8 lg:grid-cols-2">
-            <div className="h-60 w-full rounded-lg border border-line bg-white">
-                  <img
-                    alt="Pilot and teeth"
-                    src="/products-img/wear-pilot-a0p4.png"
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-            <div className="space-y-4 text-ink">
-              <p>
-                Yichen auger pilot and teeth are all equipped with tungsten carbide tips,
-                giving the auger excellent cutting performance, wear resistance and corrosion
-                resistance. It can maximize the service life of your auger and reduce usage
-                costs.
-              </p>
-              <ul className="grid gap-3">
-                {combos.map((c) => (
-                  <li key={c.pair} className="rounded-lg border border-line bg-mist p-4">
-                    <span className="font-semibold text-hm">{c.pair}</span>
-                    <p className="mt-1 text-sm text-inksoft">{c.use}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
   );
 }
