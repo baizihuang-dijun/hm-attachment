@@ -191,16 +191,24 @@ export default function ElectricCouplerPage() {
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
                   className="relative z-10 mx-auto block h-auto object-contain"
-                  style={{
-                    width: 'min(80vw, 560px)',
-                    maxWidth: '100%',
-                    filter: 'drop-shadow(0 0 30px rgba(59,130,246,0.35))',
-                  }}
+                  style={{ filter: 'drop-shadow(0 0 30px rgba(59,130,246,0.35))' }}
                 />
                 <style>{`
+                  #ec-hero-product {
+                    width: min(80vw, 560px);
+                    max-width: 100%;
+                  }
+                  #ec-hero-float {
+                    margin-bottom: -2vh;
+                  }
                   @media (min-width: 1024px) {
-                    #ec-hero-product { width: min(42vw, 560px); }
-                    #ec-hero-float { margin-bottom: -4vh; }
+                    #ec-hero-product {
+                      width: min(42vw, 560px);
+                      max-width: 100%;
+                    }
+                    #ec-hero-float {
+                      margin-bottom: -4vh;
+                    }
                   }
                 `}</style>
                 <div
