@@ -11,7 +11,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
-import { ImagePlaceholder } from '@/components/image-placeholder';
+
 import { categories } from '@/lib/products';
 
 export const metadata: Metadata = {
@@ -354,11 +354,13 @@ export default function ElectricCouplerPage() {
                 </li>
               ))}
             </ul>
-            <ImagePlaceholder
-              alt="Intelligent controller"
-              label="[image-controller]"
-              className="h-56 w-full rounded-lg border border-white/15"
-            />
+            <div className="h-56 w-full overflow-hidden rounded-lg bg-white">
+              <img
+                src="/images/coupler-xray-render.png"
+                alt="Intelligent controller"
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -373,11 +375,13 @@ export default function ElectricCouplerPage() {
           <p className="mt-3 text-inksoft">
             Designed for straightforward installation without hydraulic connections.
           </p>
-          <ImagePlaceholder
-            alt="Simple installation"
-            label="[image-installation]"
-            className="mt-8 h-48 w-full rounded-lg border border-line"
-          />
+          <div className="mt-8 h-48 w-full overflow-hidden rounded-lg border border-line bg-white">
+            <img
+              src="/images/installation-scene.jpg"
+              alt="Simple installation"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {installSteps.map((step, i) => (
               <div key={step.title} className="rounded-lg border border-line bg-white p-6 transition-all hover:-translate-y-1 hover:border-hm-bright-2 hover:shadow-md">
@@ -414,11 +418,13 @@ export default function ElectricCouplerPage() {
                 ))}
               </ul>
             </div>
-            <ImagePlaceholder
-              alt="All-weather durability"
-              label="[image-durability]"
-              className="h-72 w-full rounded-lg border border-line"
-            />
+            <div className="h-72 w-full overflow-hidden rounded-lg border border-line bg-white">
+              <img
+                src="/images/jobsite-breaking.jpg"
+                alt="All-weather durability"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -460,11 +466,13 @@ export default function ElectricCouplerPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <ImagePlaceholder
-              alt="Compact design"
-              label="[image-compact]"
-              className="h-72 w-full rounded-lg border border-line"
-            />
+            <div className="h-72 w-full overflow-hidden rounded-lg border border-line bg-white">
+              <img
+                src="/images/coupler-compact-render.png"
+                alt="Compact design"
+                className="h-full w-full object-contain"
+              />
+            </div>
             <div>
               <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">Compact</p>
               <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-hm">
