@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
-import { ImagePlaceholder } from '@/components/image-placeholder';
 
 export const metadata: Metadata = {
   title: 'Helical Piles | HM Attachment',
@@ -104,7 +103,7 @@ export default function HelicalPilesPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <ImagePlaceholder alt="Helical piles" label="[image-helical-piles-hero]" className="h-64 w-full rounded-lg border border-line" />
+          <img alt="Helical piles" src="/fullbleed/helical-pile-banner.png" className="h-64 w-full rounded-lg border border-line object-cover" />
           <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
             <Link href="/" className="hover:text-hm-bright-2">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -125,7 +124,9 @@ export default function HelicalPilesPage() {
             Helical Piles (AP Series)
           </h2>
           <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <ImagePlaceholder alt="Helical pile" label="[image-helical-pile]" className="h-60 w-full rounded-lg border border-line" />
+            <div className="h-60 w-full rounded-lg border border-line bg-white">
+              <img alt="Helical pile" src="/products-img/helical-pile.png" className="h-full w-full object-contain" />
+            </div>
             <div className="space-y-4 text-ink">
               <p>
                 Screw piles installed by auger drive torque, offered in galvanized, bare or
@@ -136,6 +137,19 @@ export default function HelicalPilesPage() {
 
           <h3 className="mt-8 mb-3 text-xl font-bold text-hm">Specification (AP Series)</h3>
           <Table headers={pileHeaders} rows={pileRows} />
+
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {['helical-pile-1', 'helical-pile-2', 'helical-pile-3', 'helical-pile'].map((p) => (
+              <div key={p} className="flex flex-col items-center justify-center rounded-lg border border-line bg-white p-3">
+                <div className="h-24 w-full">
+                  <img alt={p} src={`/products-img/${p}.png`} className="h-full w-full object-contain" />
+                </div>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-hm">
+                  {p.replace('helical-pile', 'AP') === 'AP' ? 'AP Series' : p.replace('helical-pile-', 'AP-')}
+                </span>
+              </div>
+            ))}
+          </div>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <div>
@@ -172,7 +186,9 @@ export default function HelicalPilesPage() {
             Installation System
           </h2>
           <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <ImagePlaceholder alt="Installation system" label="[image-installation-system]" className="h-60 w-full rounded-lg border border-line" />
+            <div className="h-60 w-full overflow-hidden rounded-lg border border-line">
+              <img alt="Installation system" src="/fullbleed/helical-pile-app.png" className="h-full w-full object-cover" />
+            </div>
             <div className="space-y-4 text-ink">
               <p>
                 Wireless data transmission between components delivers real-time data to the
@@ -206,7 +222,9 @@ export default function HelicalPilesPage() {
 
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             <div className="flex flex-col overflow-hidden rounded-lg border border-line bg-white">
-              <ImagePlaceholder alt="Angle indicator" label="[image-angle-indicator]" className="h-44 w-full border-b border-line" />
+              <div className="h-44 w-full border-b border-line bg-white">
+                <img alt="Angle indicator" src="/products-img/sensor-angle-indicator.png" className="h-full w-full object-contain" />
+              </div>
               <div className="flex flex-1 flex-col p-5">
                 <span className="inline-block self-start rounded bg-hm/10 px-2 py-0.5 text-xs font-semibold text-hm">AAS-360</span>
                 <h3 className="mt-2 text-lg font-bold text-hm">Angle Indicator</h3>
@@ -222,7 +240,9 @@ export default function HelicalPilesPage() {
             </div>
 
             <div className="flex flex-col overflow-hidden rounded-lg border border-line bg-white">
-              <ImagePlaceholder alt="In-cab monitor" label="[image-in-cab-monitor]" className="h-44 w-full border-b border-line" />
+              <div className="h-44 w-full border-b border-line bg-white">
+                <img alt="In-cab monitor" src="/products-img/sensor-incab-monitor.png" className="h-full w-full object-contain" />
+              </div>
               <div className="flex flex-1 flex-col p-5">
                 <span className="inline-block self-start rounded bg-hm/10 px-2 py-0.5 text-xs font-semibold text-hm">EM-10W</span>
                 <h3 className="mt-2 text-lg font-bold text-hm">In-Cab Monitor</h3>
@@ -237,7 +257,9 @@ export default function HelicalPilesPage() {
             </div>
 
             <div className="flex flex-col overflow-hidden rounded-lg border border-line bg-white">
-              <ImagePlaceholder alt="Torque indicator" label="[image-torque-indicator]" className="h-44 w-full border-b border-line" />
+              <div className="h-44 w-full border-b border-line bg-white">
+                <img alt="Torque indicator" src="/products-img/sensor-torque-indicator.png" className="h-full w-full object-contain" />
+              </div>
               <div className="flex flex-1 flex-col p-5">
                 <span className="inline-block self-start rounded bg-hm/10 px-2 py-0.5 text-xs font-semibold text-hm">ATS Series</span>
                 <h3 className="mt-2 text-lg font-bold text-hm">Torque Indicator</h3>

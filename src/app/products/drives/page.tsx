@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
-import { ImagePlaceholder } from '@/components/image-placeholder';
 import { augerDrivesTable } from '@/lib/products';
 
 export const metadata: Metadata = {
@@ -55,7 +54,7 @@ export default function DrivesPage() {
       {/* Hero image */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <ImagePlaceholder alt="Drilling drives" label="[image-drives-hero]" className="h-64 w-full rounded-lg border border-line" />
+          <img alt="Drilling drives" src="/fullbleed/auger-drive-banner.png" className="h-64 w-full rounded-lg border border-line object-cover" />
           <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
             <Link href="/" className="hover:text-hm-bright-2">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -76,7 +75,9 @@ export default function DrivesPage() {
             Standard Auger Drive
           </h2>
           <div className="mt-4 grid items-start gap-8 lg:grid-cols-[320px_1fr]">
-            <ImagePlaceholder alt="Standard auger drive" label="[image-standard-drive]" className="h-56 w-full rounded-lg border border-line" />
+            <div className="h-56 w-full rounded-lg border border-line bg-white">
+              <img alt="Standard auger drive" src="/products-img/auger-drive.png" className="h-full w-full object-contain" />
+            </div>
             <div className="space-y-4 text-ink">
               <p>
                 The YA series hydraulic auger drive couples a hydraulic motor with a
@@ -106,6 +107,34 @@ export default function DrivesPage() {
             </div>
           </div>
 
+          <h3 className="mt-10 mb-3 text-xl font-bold text-hm">Model Range (10 Models)</h3>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {[
+              'ya-2000',
+              'ya-3000',
+              'ya-5000',
+              'ya-8000',
+              'ya-10000',
+              'ya-18000',
+              'ya-30000',
+              'ya-50000',
+              'ya-80000',
+              'ya-100000',
+            ].map((m) => (
+              <div
+                key={m}
+                className="flex flex-col items-center justify-center rounded-lg border border-line bg-white p-3"
+              >
+                <div className="h-24 w-full">
+                  <img alt={m} src={`/products-img/${m}.png`} className="h-full w-full object-contain" />
+                </div>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-hm">
+                  {m.toUpperCase()}
+                </span>
+              </div>
+            ))}
+          </div>
+
           <h3 className="mt-10 mb-3 text-xl font-bold text-hm">Specification (10 Models)</h3>
           <Table headers={augerDrivesTable.headers} rows={augerDrivesTable.rows} />
         </div>
@@ -121,7 +150,9 @@ export default function DrivesPage() {
             High Speed Auger Drive
           </h2>
           <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <ImagePlaceholder alt="High speed auger drive" label="[image-high-speed-drive]" className="h-60 w-full rounded-lg border border-line" />
+            <div className="h-60 w-full rounded-lg border border-line bg-white">
+              <img alt="High speed auger drive" src="/products-img/high-speed-auger-drive.png" className="h-full w-full object-contain" />
+            </div>
             <div className="space-y-4 text-ink">
               <p>
                 Specially designed for high-speed applications, the high speed auger drive
@@ -151,7 +182,9 @@ export default function DrivesPage() {
             Horizontal Drill Auger Drive
           </h2>
           <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <ImagePlaceholder alt="Horizontal drill auger drive" label="[image-horizontal-drive]" className="h-60 w-full rounded-lg border border-line" />
+            <div className="h-60 w-full rounded-lg border border-line bg-white">
+              <img alt="Horizontal drill auger drive" src="/products-img/horizontal-auger-drive.png" className="h-full w-full object-contain" />
+            </div>
             <div className="space-y-4 text-ink">
               <p>
                 Designed for horizontal drilling and foundation penetrations, this drive

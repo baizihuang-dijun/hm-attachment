@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
-import { ImagePlaceholder } from '@/components/image-placeholder';
 
 export const metadata: Metadata = {
   title: 'Earth Augers | HM Attachment',
@@ -91,7 +90,7 @@ const augerTypes = [
     geology: 'Earth, clay, shale, soft rocks',
     pilot: 'ADP2',
     teeth: 'AOT2',
-    image: '[image-auger-w2]',
+    image: '/products-img/earth-auger-w2.png',
   },
   {
     name: 'W3 Combination Auger',
@@ -100,7 +99,7 @@ const augerTypes = [
     geology: 'Fracturable rock, permafrost, general earth',
     pilot: 'AOP3',
     teeth: 'AOT3',
-    image: '[image-auger-w3]',
+    image: '/products-img/earth-auger-w3.png',
   },
   {
     name: 'W4 Rock Auger',
@@ -109,7 +108,7 @@ const augerTypes = [
     geology: 'Concrete, shale, fracturable rock',
     pilot: 'AOP4',
     teeth: 'AOT4',
-    image: '[image-auger-w4]',
+    image: '/products-img/earth-auger-w4.png',
   },
 ];
 
@@ -146,7 +145,7 @@ export default function EarthAugersPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <ImagePlaceholder alt="Earth augers" label="[image-earth-augers-hero]" className="h-64 w-full rounded-lg border border-line" />
+          <img alt="Earth augers" src="/fullbleed/auger-drive-scene.png" className="h-64 w-full rounded-lg border border-line object-cover" />
           <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
             <Link href="/" className="hover:text-hm-bright-2">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -180,7 +179,9 @@ export default function EarthAugersPage() {
                 best materials. Can effectively improve your production efficiency.
               </p>
             </div>
-            <ImagePlaceholder alt="Auger introduction" label="[image-auger-intro]" className="h-64 w-full rounded-lg border border-line" />
+            <div className="h-64 w-full overflow-hidden rounded-lg border border-line">
+              <img alt="Auger introduction" src="/fullbleed/auger-app.png" className="h-full w-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
@@ -205,7 +206,9 @@ export default function EarthAugersPage() {
                 toughness and drilling accuracy.
               </p>
             </div>
-            <ImagePlaceholder alt="Auger features" label="[image-auger-features]" className="h-60 w-full rounded-lg border border-line" />
+            <div className="h-60 w-full overflow-hidden rounded-lg border border-line">
+              <img alt="Auger features" src="/fullbleed/auger-drive-app-1.png" className="h-full w-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
@@ -297,7 +300,9 @@ export default function EarthAugersPage() {
                 key={a.name}
                 className="flex flex-col overflow-hidden rounded-lg border border-line bg-white"
               >
-                <ImagePlaceholder alt={a.name} label={a.image} className="h-44 w-full border-b border-line" />
+                <div className="h-44 w-full border-b border-line bg-white">
+                  <img alt={a.name} src={a.image} className="h-full w-full object-contain" />
+                </div>
                 <div className="flex flex-1 flex-col p-5">
                   <span className="inline-block self-start rounded bg-hm/10 px-2 py-0.5 text-xs font-semibold text-hm">
                     {a.tag}
@@ -321,6 +326,23 @@ export default function EarthAugersPage() {
               </div>
             ))}
           </div>
+
+          {/* Face detail */}
+          <h3 className="mt-10 mb-3 text-xl font-bold text-hm">Cutting Faces</h3>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              ['W2 Face', 'earth-auger-w2-face'],
+              ['W3 Face', 'earth-auger-w3-face'],
+              ['W4 Face', 'earth-auger-w4-face'],
+            ].map(([label, img]) => (
+              <div key={img} className="flex flex-col items-center justify-center rounded-lg border border-line bg-white p-3">
+                <div className="h-24 w-full">
+                  <img alt={label} src={`/products-img/${img}.png`} className="h-full w-full object-contain" />
+                </div>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-hm">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -334,7 +356,13 @@ export default function EarthAugersPage() {
             Tungsten Carbide Pilot and Teeth
           </h2>
           <div className="mt-6 grid items-start gap-8 lg:grid-cols-2">
-            <ImagePlaceholder alt="Pilot and teeth" label="[image-pilot-teeth]" className="h-60 w-full rounded-lg border border-line" />
+            <div className="h-60 w-full rounded-lg border border-line bg-white">
+                  <img
+                    alt="Pilot and teeth"
+                    src="/products-img/wear-pilot-a0p4.png"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
             <div className="space-y-4 text-ink">
               <p>
                 Yichen auger pilot and teeth are all equipped with tungsten carbide tips,

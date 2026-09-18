@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
-import { ImagePlaceholder } from '@/components/image-placeholder';
 
 export const metadata: Metadata = {
   title: 'Hitch & Extension | HM Attachment',
@@ -15,25 +14,25 @@ const hitchTypes = [
     name: 'Single Pin Hitch',
     desc: 'Lightweight, non-bulky and easy to transport.',
     points: ['Lightweight, non-bulky', 'Easy transport', 'Economical'],
-    image: '[image-hitch-single]',
+    image: '/products-img/hitch-single-pin.png',
   },
   {
     name: 'Double Pin Hitch',
     desc: 'Loose and fixed pin design, available in standard and quick hitch types.',
     points: ['Loose and fixed pin', 'Standard and quick hitch', 'All Yichen drive ranges'],
-    image: '[image-hitch-double]',
+    image: '/products-img/hitch-double-pin.png',
   },
   {
     name: 'Double Pin Cradle Hitch',
     desc: 'Cradle hitch for the YA2000-YA100000 drive range.',
     points: ['For YA2000-YA100000', 'Eliminates auger swing', 'Safe transport'],
-    image: '[image-hitch-cradle]',
+    image: '/products-img/hitch-double-pin-cradle.png',
   },
   {
     name: 'Skid Steer Loader Frame',
     desc: 'Slide operation hitch for skid steer loaders.',
     points: ['Slide operation', 'For YA2000-YA5000'],
-    image: '[image-hitch-skid]',
+    image: '/products-img/hitch-skid-steer-frame.png',
   },
 ];
 
@@ -48,7 +47,7 @@ export default function HitchPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <ImagePlaceholder alt="Hitch" label="[image-hitch-hero]" className="h-64 w-full rounded-lg border border-line" />
+          <img alt="Hitch" src="/fullbleed/app-general-scene.png" className="h-64 w-full rounded-lg border border-line object-cover" />
           <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
             <Link href="/" className="hover:text-hm-bright-2">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -78,7 +77,9 @@ export default function HitchPage() {
                 key={h.name}
                 className="flex flex-col overflow-hidden rounded-lg border border-line bg-white sm:flex-row"
               >
-                <ImagePlaceholder alt={h.name} label={h.image} className="h-40 w-full shrink-0 sm:h-auto sm:w-44" />
+                <div className="h-40 w-full shrink-0 bg-white sm:h-auto sm:w-44">
+                  <img alt={h.name} src={h.image} className="h-full w-full object-contain" />
+                </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="text-lg font-bold text-hm">{h.name}</h3>
                   <p className="mt-1 text-sm text-inksoft">{h.desc}</p>
@@ -107,7 +108,9 @@ export default function HitchPage() {
             Auger Extension
           </h2>
           <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <ImagePlaceholder alt="Auger extension" label="[image-auger-extension]" className="h-60 w-full rounded-lg border border-line" />
+            <div className="h-60 w-full rounded-lg border border-line bg-white">
+              <img alt="Auger extension" src="/products-img/earth-auger-extension.png" className="h-full w-full object-contain" />
+            </div>
             <div className="space-y-4 text-ink">
               <p>
                 Extend the working depth of your auger with a customizable auger extension,

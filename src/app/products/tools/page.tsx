@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
-import { ImagePlaceholder } from '@/components/image-placeholder';
 
 export const metadata: Metadata = {
   title: 'Tools | HM Attachment',
@@ -14,7 +13,7 @@ const tools = [
   {
     name: 'Log Splitter',
     model: 'ALS-180',
-    image: '[image-tool-log-splitter]',
+    image: '/products-img/tool-log-splitter.png',
     desc: 'Self-guiding log splitter with a replaceable hardened cone tip.',
     params: [
       ['Machine', '1-5 T'],
@@ -28,7 +27,7 @@ const tools = [
   {
     name: 'Stump Planer',
     model: 'ASP series',
-    image: '[image-tool-stump-planer]',
+    image: '/products-img/tool-stump-planer.png',
     desc: 'Z-shaped blade stump planer with two-stage cutting and replaceable tips.',
     params: [
       ['APS-250', '1-5T / 250mm / 25kg / YA3000-5000'],
@@ -39,7 +38,7 @@ const tools = [
   {
     name: 'Core Barrel',
     model: 'ACB series',
-    image: '[image-tool-core-barrel]',
+    image: '/products-img/tool-core-barrel.png',
     desc: 'Rotating pick core barrel for rock coring and trench work.',
     params: [
       ['Cutting dia', '350-1200mm'],
@@ -55,7 +54,7 @@ const tools = [
   {
     name: 'Cement Mixer Bowl',
     model: 'ACM series',
-    image: '[image-tool-cement-mixer]',
+    image: '/products-img/tool-cement-mixer-bowl.png',
     desc: 'Concrete mixing bowl for on-site slurry and mix preparation.',
     params: [
       ['ACM-18065', 'YA2000-5000 / 1-8T / 180L / 65 Round / 38kg'],
@@ -66,7 +65,7 @@ const tools = [
   {
     name: 'Hole Cleaner',
     model: 'Pre-pile',
-    image: '[image-tool-hole-cleaner]',
+    image: '/products-img/tool-hole-cleaner.png',
     desc: 'Pre-pile hole cleaning tool for clearing bore holes before piling.',
     params: [['Use', 'Pre-pile hole cleaning']],
     features: ['Clears loose spoil', 'Prepares bore for piling'],
@@ -84,7 +83,7 @@ export default function ToolsPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <ImagePlaceholder alt="Tools" label="[image-tools-hero]" className="h-64 w-full rounded-lg border border-line" />
+          <img alt="Tools" src="/fullbleed/app-general-scene.png" className="h-64 w-full rounded-lg border border-line object-cover" />
           <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
             <Link href="/" className="hover:text-hm-bright-2">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -103,7 +102,9 @@ export default function ToolsPage() {
                 key={t.name}
                 className="flex flex-col overflow-hidden rounded-lg border border-line bg-white"
               >
-                <ImagePlaceholder alt={t.name} label={t.image} className="h-44 w-full border-b border-line" />
+                <div className="h-44 w-full border-b border-line bg-white">
+                  <img alt={t.name} src={t.image} className="h-full w-full object-contain" />
+                </div>
                 <div className="flex flex-1 flex-col p-5">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold text-hm">{t.name}</h3>
