@@ -132,7 +132,7 @@ export default function ElectricCouplerPage() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 lg:px-8 lg:pb-12 lg:pt-16">
-          <div className="grid items-center gap-8 lg:grid-cols-[42fr_58fr]">
+          <div className="grid items-center gap-8 lg:grid-cols-[45fr_55fr]">
             {/* Left: copy */}
             <div className="animate-ec-in">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-hm-bright-2">
@@ -180,12 +180,12 @@ export default function ElectricCouplerPage() {
                   filter: 'blur(18px)',
                 }}
               />
-              <div className="animate-ec-float relative lg:-mb-16 lg:mr-[-1.5rem]">
+              <div className="animate-ec-float relative mx-auto">
                 <img
                   src="/products/electric-coupler-hero.png"
                   alt="HM Electric Quick Coupler – real product on excavator arm"
                   draggable={false}
-                  className="relative z-10 block h-auto max-h-[64vh] w-48 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] sm:w-56 lg:h-auto lg:w-[clamp(420px,46vw,640px)] lg:max-h-[76vh] xl:max-w-[640px]"
+                  className="relative z-10 mx-auto block h-auto w-[min(80vw,560px)] object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] -mb-2 lg:w-[min(42vw,560px)] lg:-mb-[4vh]"
                 />
                 <div
                   aria-hidden
