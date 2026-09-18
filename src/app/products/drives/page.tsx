@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
-import { PageHeader } from '@/components/site-nav';
+import { ProductHero } from '@/components/product-hero';
 import { augerDrivesTable } from '@/lib/products';
 
 export const metadata: Metadata = {
@@ -45,25 +43,14 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
 export default function DrivesPage() {
   return (
     <div>
-      <PageHeader
+      <ProductHero
+        image="/hero/drives.png"
+        alt="YA series hydraulic auger drive on site"
         kicker="HM Attachment / Products / Auger Drives"
         title="Auger Drives"
         subtitle="Standard, high speed and horizontal auger drives built for reliable rotational power across 0.5-52 ton excavators."
+        current="Auger Drives"
       />
-
-      {/* Hero image */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <img alt="Drilling drives" src="/fullbleed/auger-drive-banner.png" className="h-64 w-full rounded-lg border border-line object-cover" />
-          <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
-            <Link href="/" className="hover:text-hm-bright-2">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/products" className="hover:text-hm-bright-2">Products</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-hm">Auger Drives</span>
-          </nav>
-        </div>
-      </section>
 
       {/* Section 1 - Standard Auger Drive */}
       <section id="standard" className="bg-mist scroll-mt-20">

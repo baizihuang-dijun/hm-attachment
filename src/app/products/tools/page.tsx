@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
-import { PageHeader } from '@/components/site-nav';
+import { ProductHero } from '@/components/product-hero';
 
 export const metadata: Metadata = {
   title: 'Tools | HM Attachment',
@@ -75,24 +74,14 @@ const tools = [
 export default function ToolsPage() {
   return (
     <div>
-      <PageHeader
+      <ProductHero
+        image="/hero/tools.png"
+        alt="Auger drive work tools — log splitter, core barrel and mixing bowl"
         kicker="HM Attachment / Products / Tools"
         title="Tools"
         subtitle="Log splitters, stump planers, core barrels, cement mixer bowls and hole cleaners for ground and drilling work."
+        current="Tools"
       />
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <img alt="Tools" src="/fullbleed/app-general-scene.png" className="h-64 w-full rounded-lg border border-line object-cover" />
-          <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
-            <Link href="/" className="hover:text-hm-bright-2">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/products" className="hover:text-hm-bright-2">Products</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-hm">Tools</span>
-          </nav>
-        </div>
-      </section>
 
       <section className="bg-mist">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">

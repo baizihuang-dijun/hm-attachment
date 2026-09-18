@@ -375,12 +375,14 @@ export default function ElectricCouplerPage() {
           <p className="mt-3 text-inksoft">
             Designed for straightforward installation without hydraulic connections.
           </p>
-          <div className="mt-8 h-48 w-full overflow-hidden rounded-lg border border-line bg-white">
-            <img
-              src="/images/installation-scene.jpg"
-              alt="Simple installation"
-              className="h-full w-full object-cover object-center"
-            />
+          <div className="mt-8 w-full max-w-md overflow-hidden rounded-lg border border-line bg-white">
+            <div className="aspect-[3/4] w-full">
+              <img
+                src="/images/installation-scene.jpg"
+                alt="Simple installation"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
           </div>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {installSteps.map((step, i) => (
@@ -418,12 +420,14 @@ export default function ElectricCouplerPage() {
                 ))}
               </ul>
             </div>
-            <div className="h-72 w-full overflow-hidden rounded-lg border border-line bg-white">
-              <img
-                src="/images/jobsite-breaking.jpg"
-                alt="All-weather durability"
-                className="h-full w-full object-cover object-center"
-              />
+            <div className="w-full overflow-hidden rounded-lg border border-line bg-white">
+              <div className="aspect-[3/4] w-full">
+                <img
+                  src="/images/jobsite-breaking.jpg"
+                  alt="All-weather durability"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </div>

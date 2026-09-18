@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
-import { PageHeader } from '@/components/site-nav';
+import { ProductHero } from '@/components/product-hero';
 
 export const metadata: Metadata = {
   title: 'Hitch | HM Attachment',
@@ -38,24 +36,14 @@ const hitchTypes = [
 export default function HitchPage() {
   return (
     <div>
-      <PageHeader
+      <ProductHero
+        image="/hero/hitch.png"
+        alt="Excavator hitch connectors"
         kicker="HM Attachment / Products / Hitch"
         title="Hitch"
         subtitle="Four hitch connector types to match any excavator range."
+        current="Hitch"
       />
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <img alt="Hitch" src="/fullbleed/app-general-scene.png" className="h-64 w-full rounded-lg border border-line object-cover" />
-          <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
-            <Link href="/" className="hover:text-hm-bright-2">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/products" className="hover:text-hm-bright-2">Products</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-hm">Hitch</span>
-          </nav>
-        </div>
-      </section>
 
       {/* 4 Hitch Types */}
       <section className="bg-mist">

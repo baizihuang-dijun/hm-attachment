@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
-import { PageHeader } from '@/components/site-nav';
+import { ProductHero } from '@/components/product-hero';
 
 export const metadata: Metadata = {
   title: 'Earth Augers | HM Attachment',
@@ -137,24 +135,14 @@ const subBlue = 'bg-[#123a6d] text-white';
 export default function EarthAugersPage() {
   return (
     <div>
-      <PageHeader
+      <ProductHero
+        image="/hero/earth-augers.png"
+        alt="Earth augers drilling with auger drive"
         kicker="HM Attachment / Products / Earth Augers"
         title="Earth Augers"
         subtitle="Augers matched to your ground conditions — from general earth and clay to concrete and fracturable rock."
+        current="Earth Augers"
       />
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <img alt="Earth augers" src="/fullbleed/auger-drive-scene.png" className="h-64 w-full rounded-lg border border-line object-cover" />
-          <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
-            <Link href="/" className="hover:text-hm-bright-2">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/products" className="hover:text-hm-bright-2">Products</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-hm">Earth Augers</span>
-          </nav>
-        </div>
-      </section>
 
       {/* Section 1 - Product Introduction */}
       <section className="bg-white">
@@ -179,8 +167,8 @@ export default function EarthAugersPage() {
                 best materials. Can effectively improve your production efficiency.
               </p>
             </div>
-            <div className="h-64 w-full overflow-hidden rounded-lg border border-line">
-              <img alt="Auger introduction" src="/fullbleed/auger-app.png" className="h-full w-full object-cover" />
+            <div className="aspect-[16/8] w-full overflow-hidden rounded-lg border border-line">
+              <img alt="Auger introduction" src="/fullbleed/auger-app.png" className="h-full w-full object-cover object-center" />
             </div>
           </div>
         </div>
@@ -206,8 +194,8 @@ export default function EarthAugersPage() {
                 toughness and drilling accuracy.
               </p>
             </div>
-            <div className="h-60 w-full overflow-hidden rounded-lg border border-line">
-              <img alt="Auger features" src="/fullbleed/auger-drive-app-1.png" className="h-full w-full object-cover" />
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-lg border border-line">
+              <img alt="Auger features" src="/fullbleed/auger-drive-app-1.png" className="h-full w-full object-cover object-center" />
             </div>
           </div>
         </div>

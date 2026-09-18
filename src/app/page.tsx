@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { brand, homeStats } from '@/lib/products';
-import { EcoExplorer } from '@/components/eco-explorer';
+import EcoExplorer from '@/components/eco-explorer';
 
 export default function Home() {
   return (
@@ -63,18 +63,34 @@ export default function Home() {
       </section>
 
       {/* YA Series Auger Drill Ecosystem — interactive explorer (1:1 port) */}
-      <EcoExplorer />
+      <section className="border-b border-line bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <header className="mb-6 text-center">
+            <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
+              One system, every attachment
+            </p>
+            <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-hm sm:text-4xl">
+              The YA Series Auger Drill Ecosystem
+            </h1>
+            <p className="mx-auto mt-3 max-w-2xl text-inksoft">
+              One drive unit becomes a full working system. Hover any part — on the diagram or in
+              the list — to spotlight it. Click to open its product family.
+            </p>
+          </header>
+          <EcoExplorer />
+        </div>
+      </section>
 
       {/* Electric Coupler independent block */}
       <section className="border-t border-line bg-mist">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div className="relative h-64 w-full overflow-hidden rounded-lg border border-line bg-white">
+          <div className="relative h-64 w-full overflow-hidden rounded-lg border border-line bg-white p-4">
             <Image
               src="/images/coupler-compact-render.png"
               alt="HM Electric Quick Coupler render"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'contain' }}
             />
           </div>
           <div>

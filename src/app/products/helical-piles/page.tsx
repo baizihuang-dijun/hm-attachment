@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
-import { PageHeader } from '@/components/site-nav';
+import { ProductHero } from '@/components/product-hero';
 
 export const metadata: Metadata = {
   title: 'Helical Piles | HM Attachment',
@@ -95,24 +93,14 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
 export default function HelicalPilesPage() {
   return (
     <div>
-      <PageHeader
+      <ProductHero
+        image="/hero/helical-piles.png"
+        alt="Helical pile installation with auger drive and monitoring"
         kicker="HM Attachment / Products / Helical Piles"
         title="Helical Piles"
         subtitle="AP series screw piles from 18-46 ton capacity, with installation system and torque sensing accessories."
+        current="Helical Piles"
       />
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <img alt="Helical piles" src="/fullbleed/helical-pile-banner.png" className="h-64 w-full rounded-lg border border-line object-cover" />
-          <nav className="mt-4 flex items-center gap-1.5 text-sm text-inksoft">
-            <Link href="/" className="hover:text-hm-bright-2">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/products" className="hover:text-hm-bright-2">Products</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-hm">Helical Piles</span>
-          </nav>
-        </div>
-      </section>
 
       {/* Section 1 - Helical Piles */}
       <section className="bg-mist">
@@ -186,8 +174,8 @@ export default function HelicalPilesPage() {
             Installation System
           </h2>
           <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <div className="h-60 w-full overflow-hidden rounded-lg border border-line">
-              <img alt="Installation system" src="/fullbleed/helical-pile-app.png" className="h-full w-full object-cover" />
+            <div className="aspect-[2/3] w-full overflow-hidden rounded-lg border border-line">
+              <img alt="Installation system" src="/fullbleed/helical-pile-app.png" className="h-full w-full object-cover object-center" />
             </div>
             <div className="space-y-4 text-ink">
               <p>
