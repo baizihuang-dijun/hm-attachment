@@ -4,24 +4,38 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
-import { categories, brand, getCategory } from '@/lib/products';
+import { categories, brand } from '@/lib/products';
 import { cn } from '@/lib/utils';
 
 const mainNav = categories.filter((c) => c.slug !== 'about');
 
-// Top-level nav with a "Drilling" dropdown group
+// Products dropdown, grouped. Group labels are inert section headings (not links).
+const productGroups = [
+  {
+    label: 'Drilling Equipment',
+    items: [
+      { slug: 'drives', name: 'Auger Drives' },
+      { slug: 'earth-augers', name: 'Augers' },
+      { slug: 'hitch', name: 'Hitch' },
+      { slug: 'helical-piles', name: 'Helical Piles' },
+      { slug: 'tools', name: 'Tools' },
+    ],
+  },
+  {
+    label: 'Quick Coupler',
+    items: [{ slug: 'electric-coupler', name: 'Electric Coupler' }],
+  },
+];
+
+const flattened = productGroups.flatMap((g) => g.items);
+
+// Top-level nav: Home | Products (dropdown) | Applications | Contact
 const topNav = [
   { label: 'Home', href: '/' },
-  { label: 'Drilling', dropdown: true },
-  { label: 'Electric Coupler', href: '/products/electric-coupler' },
+  { label: 'Products', dropdown: true },
   { label: 'Applications', href: '/products/applications' },
   { label: 'Contact', href: '/about' },
 ];
-
-const drillingSlugs = ['drives', 'earth-augers', 'hitch', 'helical-piles', 'tools'];
-const drillingItems = drillingSlugs
-  .map((s) => ({ slug: s, ...getCategory(s) }))
-  .filter((c) => c && c.slug) as { slug: string; name: string }[];
 
 export function SiteNav() {
   const pathname = usePathname();
@@ -29,17 +43,17 @@ export function SiteNav() {
   const [ddOpen, setDdOpen] = useState(false);
   const [drillingOpen, setDrillingOpen] = useState(false);
   const [hoverMode, setHoverMode] = useState(false);
-  const drillingRef = useRef<HTMLDivElement>(null);
+  const productsRef = useRef<HTMLDivElement>(null);
 
   // Detect whether the primary input supports hover (mouse) vs touch-only.
   useEffect(() => {
     setHoverMode(window.matchMedia('(hover: hover)').matches);
   }, []);
 
-  // Close the Drilling dropdown when clicking/tapping outside it.
+  // Close the Products dropdown when clicking/tapping outside it.
   useEffect(() => {
     const onOutside = (e: MouseEvent | TouchEvent) => {
-      if (drillingRef.current && !drillingRef.current.contains(e.target as Node)) {
+      if (productsRef.current && !productsRef.current.contains(e.target as Node)) {
         setDdOpen(false);
       }
     };
@@ -51,9 +65,9 @@ export function SiteNav() {
     };
   }, []);
 
-  const isDrillingActive = drillingItems.some(
-    (c) => pathname === `/products/${c.slug}`,
-  );
+  const isProductsActive =
+    pathname === '/products' ||
+    flattened.some((c) => pathname === `/products/${c.slug}`);
 
   const isActive = (href?: string) => (href ? pathname === href : false);
 
@@ -80,7 +94,7 @@ export function SiteNav() {
             item.dropdown ? (
               <div
                 key={item.label}
-                ref={drillingRef}
+                ref={productsRef}
                 className="relative"
                 onMouseEnter={hoverMode ? () => setDdOpen(true) : undefined}
                 onMouseLeave={hoverMode ? () => setDdOpen(false) : undefined}
@@ -96,7 +110,7 @@ export function SiteNav() {
                   }}
                   className={cn(
                     'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
-                    isDrillingActive ? 'text-hm-bright-2' : 'text-ink hover:text-hm-bright-2',
+                    isProductsActive ? 'text-hm-bright-2' : 'text-ink hover:text-hm-bright-2',
                   )}
                 >
                   {item.label}
@@ -107,23 +121,46 @@ export function SiteNav() {
                 {ddOpen && (
                   <div
                     role="menu"
-                    className="absolute left-0 top-full w-60 rounded-lg border border-line bg-white p-2 pt-3 shadow-lg"
+                    className="absolute left-0 top-full w-60 rounded-lg border border-line bg-white p-2 shadow-lg"
                   >
-                    {drillingItems.map((c) => (
-                      <Link
-                        key={c.slug}
-                        href={`/products/${c.slug}`}
-                        role="menuitem"
-                        onClick={() => setDdOpen(false)}
-                        className={cn(
-                          'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
-                          pathname === `/products/${c.slug}`
-                            ? 'bg-hm/5 text-hm-bright-2'
-                            : 'text-ink hover:bg-mist hover:text-hm-bright-2',
-                        )}
-                      >
-                        {c.name}
-                      </Link>
+                    <Link
+                      href="/products"
+                      role="menuitem"
+                      onClick={() => setDdOpen(false)}
+                      className={cn(
+                        'block rounded-md px-3 py-2 text-sm font-semibold transition-colors',
+                        pathname === '/products'
+                          ? 'bg-hm/5 text-hm-bright-2'
+                          : 'text-hm hover:bg-mist hover:text-hm-bright-2',
+                      )}
+                    >
+                      All Products
+                    </Link>
+                    {productGroups.map((group) => (
+                      <div key={group.label} role="presentation">
+                        <div
+                          className="px-3 pb-1 pt-3 text-[11px] font-bold uppercase tracking-wider text-inksoft"
+                          aria-hidden="true"
+                        >
+                          {group.label}
+                        </div>
+                        {group.items.map((c) => (
+                          <Link
+                            key={c.slug}
+                            href={`/products/${c.slug}`}
+                            role="menuitem"
+                            onClick={() => setDdOpen(false)}
+                            className={cn(
+                              'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                              pathname === `/products/${c.slug}`
+                                ? 'bg-hm/5 text-hm-bright-2'
+                                : 'text-ink hover:bg-mist hover:text-hm-bright-2',
+                            )}
+                          >
+                            {c.name}
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                   </div>
                 )}
@@ -166,34 +203,47 @@ export function SiteNav() {
               Home
             </Link>
 
-            {/* Collapsible Drilling */}
+            {/* Collapsible Products */}
             <button
               onClick={() => setDrillingOpen((v) => !v)}
               className="flex w-full items-center justify-between py-2 text-sm font-medium text-ink"
             >
-              Drilling
+              Products
               <ChevronDown
                 className={cn('h-4 w-4 transition-transform', drillingOpen && 'rotate-180')}
               />
             </button>
             {drillingOpen && (
               <div className="ml-3 border-l border-line pl-3">
-                {drillingItems.map((c) => (
-                  <Link
-                    key={c.slug}
-                    href={`/products/${c.slug}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-1.5 py-2 text-sm font-medium text-ink"
-                  >
-                    <ChevronRight className="h-3.5 w-3.5 text-hm-bright-2" />
-                    {c.name}
-                  </Link>
+                <Link
+                  href="/products"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-2 text-sm font-semibold text-hm"
+                >
+                  All Products
+                </Link>
+                {productGroups.map((group) => (
+                  <div key={group.label} className="mt-1">
+                    <div className="pt-2 text-[11px] font-bold uppercase tracking-wider text-inksoft">
+                      {group.label}
+                    </div>
+                    {group.items.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/products/${c.slug}`}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center gap-1.5 py-2 text-sm font-medium text-ink"
+                      >
+                        <ChevronRight className="h-3.5 w-3.5 text-hm-bright-2" />
+                        {c.name}
+                      </Link>
+                    ))}
+                  </div>
                 ))}
               </div>
             )}
 
             {[
-              { label: 'Electric Coupler', href: '/products/electric-coupler' },
               { label: 'Applications', href: '/products/applications' },
               { label: 'Contact', href: '/about' },
             ].map((item) => (
