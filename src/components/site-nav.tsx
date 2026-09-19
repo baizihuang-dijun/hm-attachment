@@ -118,11 +118,13 @@ export function SiteNav() {
                     className={cn('h-4 w-4 transition-transform', ddOpen && 'rotate-180')}
                   />
                 </button>
-                {ddOpen && (
-                  <div
-                    role="menu"
-                    className="absolute left-0 top-full w-60 rounded-lg border border-line bg-white p-2 shadow-lg"
-                  >
+                <div
+                  role="menu"
+                  className={cn(
+                    'absolute left-0 top-full w-60 rounded-lg border border-line bg-white p-2 shadow-lg transition-opacity',
+                    ddOpen ? 'visible opacity-100' : 'invisible opacity-0',
+                  )}
+                >
                     <Link
                       href="/products"
                       role="menuitem"
@@ -136,6 +138,7 @@ export function SiteNav() {
                     >
                       All Products
                     </Link>
+                    <div className="mx-1 my-1 border-t border-line" aria-hidden="true" />
                     {productGroups.map((group) => (
                       <div key={group.label} role="presentation">
                         <div
@@ -163,7 +166,6 @@ export function SiteNav() {
                       </div>
                     ))}
                   </div>
-                )}
               </div>
             ) : (
               <Link
@@ -192,8 +194,12 @@ export function SiteNav() {
       </div>
 
       {/* Mobile nav */}
-      {mobileOpen && (
-        <nav className="max-h-[80vh] overflow-y-auto border-t border-line bg-white lg:hidden">
+      <nav
+        className={cn(
+          'max-h-[80vh] overflow-y-auto border-t border-line bg-white lg:hidden',
+          mobileOpen ? 'block' : 'hidden',
+        )}
+      >
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
             <Link
               href="/"
@@ -222,6 +228,7 @@ export function SiteNav() {
                 >
                   All Products
                 </Link>
+                <div className="my-1 border-t border-line" aria-hidden="true" />
                 {productGroups.map((group) => (
                   <div key={group.label} className="mt-1">
                     <div className="pt-2 text-[11px] font-bold uppercase tracking-wider text-inksoft">
@@ -258,7 +265,6 @@ export function SiteNav() {
             ))}
           </div>
         </nav>
-      )}
     </header>
   );
 }
