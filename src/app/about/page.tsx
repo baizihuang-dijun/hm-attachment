@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Mail, Phone, MapPin, Globe, Clock } from 'lucide-react';
+import { Building2, Mail, MessageCircle, MapPin, Globe, Clock } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
 import { brand } from '@/lib/products';
 
@@ -8,10 +8,30 @@ export const metadata: Metadata = {
   description: 'About HM Attachment company and contact information.',
 };
 
-const contacts = [
-  { icon: Mail, label: 'Email', value: brand.email },
-  { icon: Phone, label: 'Phone', value: '+86 000-0000-0000' },
-  { icon: MapPin, label: 'Address', value: 'China (exact address per catalog)' },
+type ContactItem = {
+  icon: typeof Mail;
+  label: string;
+  value: string;
+  href?: string;
+  blank?: boolean;
+};
+
+const contacts: ContactItem[] = [
+  { icon: Building2, label: 'Company', value: brand.name },
+  { icon: MapPin, label: 'Location', value: 'Qingdao, China' },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'hm@hmattachment.com',
+    href: 'mailto:hm@hmattachment.com',
+  },
+  {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    value: '+86 157 1272 9989',
+    href: 'https://wa.me/8615712729989',
+    blank: true,
+  },
   { icon: Globe, label: 'Website', value: brand.website },
   { icon: Clock, label: 'Service', value: 'Mon–Sat 9:00–18:00 (GMT+8)' },
 ];
@@ -51,21 +71,51 @@ export default function AboutPage() {
                   <c.icon className="mt-0.5 h-5 w-5 text-hm-bright-2" />
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-inksoft">{c.label}</p>
-                    <p className="mt-0.5 text-sm font-medium text-hm">{c.value}</p>
+                    {c.href ? (
+                      <a
+                        href={c.href}
+                        target={c.blank ? '_blank' : undefined}
+                        rel={c.blank ? 'noreferrer' : undefined}
+                        className="mt-0.5 block text-sm font-medium text-hm underline-offset-2 hover:underline"
+                      >
+                        {c.value}
+                      </a>
+                    ) : (
+                      <p className="mt-0.5 text-sm font-medium text-hm">{c.value}</p>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col justify-center rounded-lg border border-dashed border-line bg-mist/60 p-8 text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
-              Get in Touch
-            </p>
-            <h3 className="mt-2 text-2xl font-extrabold text-hm">We&apos;d love to hear from you</h3>
-            <p className="mx-auto mt-3 max-w-md text-sm text-inksoft">
-              For model, spec and pricing enquiries, contact us at hm@hmattachment.com.
-            </p>
+          <div className="flex flex-col justify-center gap-6">
+            <div className="rounded-lg border border-dashed border-line bg-mist/60 p-8 text-center">
+              <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
+                Get in Touch
+              </p>
+              <h3 className="mt-2 text-2xl font-extrabold text-hm">We&apos;d love to hear from you</h3>
+              <p className="mx-auto mt-3 max-w-md text-sm text-inksoft">
+                For model, spec and pricing enquiries, contact us at hm@hmattachment.com.
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-line bg-white p-8">
+              <h4 className="text-base font-extrabold tracking-tight text-hm">
+                Useful information to include
+              </h4>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink">
+                <li>Your excavator make, model and operating tonnage (or hydraulic pressure and oil flow)</li>
+                <li>Ground conditions (earth, clay, shale or rock)</li>
+                <li>Required auger diameter and drilling depth</li>
+                <li>Existing part number or drive/brand model to match</li>
+                <li>Hitch type and output shaft (round, hex or square)</li>
+                <li>Quantity and expected annual demand</li>
+              </ul>
+              <p className="mt-4 text-xs leading-relaxed text-inksoft">
+                Don&apos;t have all the details? Send what you have - we&apos;ll help fill in the gaps.
+              </p>
+            </div>
           </div>
         </div>
       </section>
