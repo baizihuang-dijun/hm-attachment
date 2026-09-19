@@ -42,7 +42,7 @@
   box-shadow:var(--shadow-lg);padding:20px 22px 18px;
   opacity:0;pointer-events:none;
   transition:opacity .3s var(--ease),transform .3s var(--ease);
-}.ya-eco .hcard.show {opacity:1;transform:translate(-50%,0);pointer-events:auto}.ya-eco .hc-tag {margin:0 0 4px;font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--color-primary)}.ya-eco .hc-name {margin:0 0 6px;font-size:1.22rem;line-height:1.2;letter-spacing:-.015em;color:var(--color-text)}.ya-eco .hc-desc {margin:0 0 12px;color:var(--muted);font-size:.92rem;line-height:1.5}.ya-eco .hc-specs {list-style:none;margin:0 0 14px;padding:12px 0 0;border-top:1px solid var(--line-2);display:grid;gap:8px}.ya-eco .hc-specs li {display:flex;justify-content:space-between;gap:14px;font-size:.86rem}.ya-eco .hc-specs span {color:var(--muted)}.ya-eco .hc-specs b {font-weight:700;color:var(--color-text);text-align:right}.ya-eco .hc-cta {display:inline-flex;align-items:center;gap:.35rem;color:var(--color-primary);font-weight:700;font-size:.92rem;cursor:pointer}.ya-eco .hc-cta:hover {color:var(--focus)}.ya-eco /* ---------- Right: always-open parts list ---------- */
+}.ya-eco .hcard.show {opacity:1;transform:translate(-50%,0);pointer-events:none}.ya-eco .hc-tag {margin:0 0 4px;font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--color-primary)}.ya-eco .hc-name {margin:0 0 6px;font-size:1.22rem;line-height:1.2;letter-spacing:-.015em;color:var(--color-text)}.ya-eco .hc-desc {margin:0 0 12px;color:var(--muted);font-size:.92rem;line-height:1.5}.ya-eco .hc-specs {list-style:none;margin:0 0 14px;padding:12px 0 0;border-top:1px solid var(--line-2);display:grid;gap:8px}.ya-eco .hc-specs li {display:flex;justify-content:space-between;gap:14px;font-size:.86rem}.ya-eco .hc-specs span {color:var(--muted)}.ya-eco .hc-specs b {font-weight:700;color:var(--color-text);text-align:right}.ya-eco .hc-cta {display:inline-flex;align-items:center;gap:.35rem;color:var(--color-primary);font-weight:700;font-size:.92rem;cursor:pointer}.ya-eco .hc-cta:hover {color:var(--focus)}.ya-eco /* ---------- Right: always-open parts list ---------- */
 .control {display:flex;flex-direction:column;gap:8px;min-width:0}.ya-eco .rail {
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   box-shadow:var(--shadow-sm);padding:12px;
@@ -74,3 +74,8 @@
 .ya-eco .hc-back:hover{color:var(--ink);border-color:var(--accent-line);background:var(--accent-soft)}
 .ya-eco .stage.highlighting:not(.focusing) .eco-part{opacity:.45;filter:saturate(.75)}
 .ya-eco .eco-part.is-active{opacity:1!important;filter:none!important;z-index:4}
+/* card is pointer-transparent in browse (.show, not focused) so pointer can reach
+   the bottom-row parts (auger-w4, auger-extension, tool-stump-planer, ...); in the
+   focused state it becomes clickable again for "Open family" and the Back button */
+.ya-eco .hcard.focused.show{pointer-events:auto}
+.ya-eco .stage-hint{pointer-events:none}
