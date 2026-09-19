@@ -14,15 +14,15 @@ const pileHeaders = [
   'Helices',
   'Pitch',
   'Coating',
-  'Compression Capacity',
-  'Tension Capacity',
+  'Compression Capacity (Ultimate / Allowable, tons)',
+  'Tension Capacity (Ultimate / Allowable, tons)',
 ];
 
 const pileRows: string[][] = [
-  ['AP-18', "2.875 x 0.217", '0.875"', '0.375-0.5in thick, 8-16in dia', '3in', 'Galvanized / Bare / Epoxy', '36T / 18T', '32T / 16T'],
-  ['AP-22', "3.5 x 0.3", '0.875"', '0.375-0.5in thick, 8-16in dia', '3in', 'Galvanized / Bare / Epoxy', '44T / 22T', '36T / 18T'],
-  ['AP-36', "4.5 x 0.337", '1"', '0.375-0.5in thick, 8-16in dia', '3in', 'Galvanized / Bare / Epoxy', '72T / 36T', '62T / 31T'],
-  ['AP-46', "5.5 x 0.361", '1"', '0.375-0.5in thick, 8-16in dia', '3in', 'Galvanized / Bare / Epoxy', '92T / 46T', '78T / 39T'],
+  ['AP-18', "2.875 x 0.217", '0.875"', '0.375" thick · 8/10/12/14/16" dia', '3in', 'Galvanized / Bare / Epoxy', 'Ultimate 36 / Allowable 18', 'Ultimate 32 / Allowable 16'],
+  ['AP-22', "3.5 x 0.3", '0.875"', '0.5" thick · 8/10/12/14/16" dia', '3in', 'Galvanized / Bare / Epoxy', 'Ultimate 44 / Allowable 22', 'Ultimate 36 / Allowable 18'],
+  ['AP-36', "4.5 x 0.337", '1"', '0.5" thick · 10/12/14/16" dia', '3in', 'Galvanized / Bare / Epoxy', 'Ultimate 72 / Allowable 36', 'Ultimate 62 / Allowable 31'],
+  ['AP-46', "5.5 x 0.361", '1"', '0.5" thick · 10/12/14/16" dia', '3in', 'Galvanized / Bare / Epoxy', 'Ultimate 92 / Allowable 46', 'Ultimate 78 / Allowable 39'],
 ];
 
 const pileAdvantages = [

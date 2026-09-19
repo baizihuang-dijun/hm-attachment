@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Fragment } from 'react';
 import { ProductHero } from '@/components/product-hero';
 import { augerDrivesTable } from '@/lib/products';
 
@@ -40,94 +41,146 @@ function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
   );
 }
 
-const DRILL_DIAMS = ['300mm', '450mm', '600mm'];
+type DepthRow = { diam: string; soft: number; medium: number; hard: number };
 
-const DRILL_GROUPS: { key: string; label: string; diams: string[] }[] = [
-  { key: 'soft', label: 'Soft Ground', diams: DRILL_DIAMS },
-  { key: 'medium', label: 'Medium Ground', diams: DRILL_DIAMS },
-  { key: 'hard', label: 'Hard Ground', diams: DRILL_DIAMS },
-];
-
-type ThreeVals = (number | null)[];
-
-const depthRows: { model: string; soft: ThreeVals; medium: ThreeVals; hard: ThreeVals }[] = [
+const depthTable: { model: string; rows: DepthRow[] }[] = [
   {
     model: 'YA-2000',
-    soft: [2.5, null, null],
-    medium: [2.4, null, null],
-    hard: [2.2, null, null],
+    rows: [
+      { diam: '150 mm', soft: 3.5, medium: 3.5, hard: 3.0 },
+      { diam: '200 mm', soft: 3.0, medium: 3.0, hard: 3.0 },
+      { diam: '250 mm', soft: 2.5, medium: 2.4, hard: 2.2 },
+      { diam: '300 mm', soft: 2.5, medium: 2.4, hard: 2.2 },
+      { diam: '350 mm', soft: 2.4, medium: 2.2, hard: 2.0 },
+      { diam: '400 mm', soft: 2.0, medium: 1.8, hard: 1.5 },
+    ],
   },
   {
     model: 'YA-3000',
-    soft: [2.5, 1.7, null],
-    medium: [2.4, 1.6, null],
-    hard: [2.2, 1.5, null],
+    rows: [
+      { diam: '150 mm', soft: 3.5, medium: 3.5, hard: 3.0 },
+      { diam: '200 mm', soft: 3.0, medium: 3.0, hard: 3.0 },
+      { diam: '250 mm', soft: 2.5, medium: 2.4, hard: 2.2 },
+      { diam: '300 mm', soft: 2.5, medium: 2.4, hard: 2.2 },
+      { diam: '350 mm', soft: 2.4, medium: 2.2, hard: 2.0 },
+      { diam: '400 mm', soft: 2.0, medium: 1.8, hard: 1.5 },
+      { diam: '450 mm', soft: 1.7, medium: 1.6, hard: 1.5 },
+      { diam: '500 mm', soft: 1.5, medium: 1.4, hard: 1.3 },
+    ],
   },
   {
     model: 'YA-5000',
-    soft: [4.5, 3.0, 1.7],
-    medium: [4.2, 2.8, 1.6],
-    hard: [3.5, 2.5, 1.4],
+    rows: [
+      { diam: '150\u2013600 mm', soft: 4.5, medium: 4.2, hard: 3.5 },
+      { diam: '650 mm', soft: 3.2, medium: 3.7, hard: 3.3 },
+      { diam: '700 mm', soft: 3.0, medium: 2.8, hard: 2.5 },
+      { diam: '750 mm', soft: 2.6, medium: 2.4, hard: 2.1 },
+      { diam: '800 mm', soft: 2.0, medium: 1.8, hard: 1.7 },
+      { diam: '850 mm', soft: 1.7, medium: 1.6, hard: 1.4 },
+      { diam: '900 mm', soft: 1.5, medium: 1.3, hard: 1.2 },
+    ],
   },
   {
     model: 'YA-8000',
-    soft: [6.5, 4.0, 3.6],
-    medium: [5.5, 3.7, 3.5],
-    hard: [5.0, 3.5, 3.0],
+    rows: [
+      { diam: '150\u2013500 mm', soft: 6.5, medium: 5.5, hard: 5.0 },
+      { diam: '550 mm', soft: 4.5, medium: 4.5, hard: 3.5 },
+      { diam: '600 mm', soft: 4.0, medium: 3.7, hard: 3.5 },
+      { diam: '650 mm', soft: 4.0, medium: 3.7, hard: 3.5 },
+      { diam: '700 mm', soft: 4.0, medium: 3.7, hard: 3.5 },
+      { diam: '750 mm', soft: 3.6, medium: 3.5, hard: 3.2 },
+      { diam: '800 mm', soft: 3.0, medium: 2.8, hard: 2.4 },
+      { diam: '850 mm', soft: 2.6, medium: 2.7, hard: 2.4 },
+      { diam: '900 mm', soft: 2.5, medium: 2.2, hard: 2.0 },
+    ],
   },
   {
     model: 'YA-10000',
-    soft: [6.5, 4.0, 3.6],
-    medium: [5.5, 3.7, 3.5],
-    hard: [5.0, 3.5, 3.0],
+    rows: [
+      { diam: '150\u2013500 mm', soft: 6.5, medium: 5.5, hard: 5.0 },
+      { diam: '550 mm', soft: 4.5, medium: 4.5, hard: 3.5 },
+      { diam: '600 mm', soft: 4.0, medium: 3.7, hard: 3.5 },
+      { diam: '650 mm', soft: 4.0, medium: 3.7, hard: 3.5 },
+      { diam: '700 mm', soft: 4.0, medium: 3.7, hard: 3.5 },
+      { diam: '750 mm', soft: 3.6, medium: 3.5, hard: 3.2 },
+      { diam: '800 mm', soft: 3.0, medium: 2.8, hard: 2.4 },
+      { diam: '850 mm', soft: 2.6, medium: 2.7, hard: 2.4 },
+      { diam: '900 mm', soft: 2.5, medium: 2.2, hard: 2.0 },
+      { diam: '1000 mm', soft: 2.3, medium: 1.9, hard: 1.5 },
+    ],
   },
   {
     model: 'YA-18000',
-    soft: [7.0, 6.0, 5.3],
-    medium: [6.2, 5.3, 4.6],
-    hard: [5.5, 4.8, 4.3],
+    rows: [
+      { diam: '150\u2013400 mm', soft: 8.6, medium: 7.6, hard: 7.0 },
+      { diam: '500 mm', soft: 7.2, medium: 6.4, hard: 5.8 },
+      { diam: '600 mm', soft: 7.1, medium: 6.4, hard: 5.7 },
+      { diam: '650 mm', soft: 7.0, medium: 6.2, hard: 5.5 },
+      { diam: '700 mm', soft: 6.5, medium: 5.8, hard: 5.4 },
+      { diam: '750 mm', soft: 6.1, medium: 5.4, hard: 5.0 },
+      { diam: '800 mm', soft: 6.0, medium: 5.3, hard: 4.8 },
+      { diam: '850 mm', soft: 5.7, medium: 5.2, hard: 4.6 },
+      { diam: '900 mm', soft: 5.5, medium: 5.0, hard: 4.6 },
+      { diam: '950 mm', soft: 5.3, medium: 4.6, hard: 4.3 },
+      { diam: '1000 mm', soft: 5.0, medium: 4.5, hard: 4.2 },
+      { diam: '1100 mm', soft: 4.7, medium: 4.2, hard: 4.0 },
+      { diam: '1200 mm', soft: 4.5, medium: 4.0, hard: 3.7 },
+    ],
   },
   {
     model: 'YA-30000',
-    soft: [8.6, 8.0, 6.5],
-    medium: [7.7, 7.3, 6.0],
-    hard: [7.0, 6.6, 5.3],
+    rows: [
+      { diam: '150\u2013400 mm', soft: 9.0, medium: 8.2, hard: 7.3 },
+      { diam: '450 mm', soft: 8.6, medium: 7.7, hard: 7.0 },
+      { diam: '500 mm', soft: 8.6, medium: 7.7, hard: 7.0 },
+      { diam: '550 mm', soft: 8.6, medium: 7.7, hard: 7.0 },
+      { diam: '600 mm', soft: 8.6, medium: 7.7, hard: 7.0 },
+      { diam: '650 mm', soft: 8.6, medium: 7.7, hard: 7.0 },
+      { diam: '700 mm', soft: 8.4, medium: 7.5, hard: 6.8 },
+      { diam: '800 mm', soft: 8.0, medium: 7.3, hard: 6.6 },
+      { diam: '900 mm', soft: 7.6, medium: 6.8, hard: 6.2 },
+      { diam: '1000 mm', soft: 7.0, medium: 6.3, hard: 5.7 },
+      { diam: '1100 mm', soft: 6.5, medium: 6.0, hard: 5.3 },
+      { diam: '1200 mm', soft: 6.3, medium: 5.7, hard: 5.0 },
+      { diam: '1500 mm', soft: 5.0, medium: 4.6, hard: 4.0 },
+    ],
   },
   {
     model: 'YA-50000',
-    soft: [12, 11, 9],
-    medium: [11, 10, 7],
-    hard: [8, 7, 6],
+    rows: [
+      { diam: '300\u2013450 mm', soft: 12, medium: 11, hard: 8 },
+      { diam: '500 mm', soft: 12, medium: 11, hard: 8 },
+      { diam: '550 mm', soft: 11, medium: 10, hard: 7 },
+      { diam: '600 mm', soft: 11, medium: 10, hard: 7 },
+      { diam: '650 mm', soft: 11, medium: 10, hard: 7 },
+      { diam: '700 mm', soft: 10, medium: 9, hard: 7 },
+      { diam: '800 mm', soft: 9, medium: 7, hard: 6 },
+      { diam: '900 mm', soft: 9, medium: 7, hard: 6 },
+      { diam: '1000 mm', soft: 8, medium: 6, hard: 5 },
+      { diam: '1100 mm', soft: 8, medium: 6, hard: 5 },
+      { diam: '1200 mm', soft: 7, medium: 5, hard: 5 },
+      { diam: '1500 mm', soft: 6, medium: 5, hard: 4 },
+      { diam: '1800 mm', soft: 4, medium: 3.3, hard: 2.5 },
+    ],
   },
   {
     model: 'YA-80000',
-    soft: [15, 14, 10],
-    medium: [11, 10, 8],
-    hard: [8, 7, 6],
-  },
-  {
-    model: 'YA-100000',
-    soft: [null, null, null],
-    medium: [null, null, null],
-    hard: [null, null, null],
+    rows: [
+      { diam: '300\u2013600 mm', soft: 15, medium: 11, hard: 8 },
+      { diam: '700 mm', soft: 14, medium: 10, hard: 7 },
+      { diam: '800 mm', soft: 14, medium: 10, hard: 7 },
+      { diam: '900 mm', soft: 14, medium: 10, hard: 7 },
+      { diam: '1000 mm', soft: 12, medium: 9, hard: 7 },
+      { diam: '1100 mm', soft: 12, medium: 9, hard: 7 },
+      { diam: '1200 mm', soft: 10, medium: 8, hard: 6 },
+      { diam: '1500 mm', soft: 8, medium: 7, hard: 6 },
+      { diam: '1800 mm', soft: 8, medium: 7, hard: 6 },
+      { diam: '2000 mm', soft: 7, medium: 6, hard: 5 },
+    ],
   },
 ];
 
-function DepthCell({ v }: { v: number | null }) {
-  const empty = v === null;
-  return (
-    <td
-      className={`whitespace-nowrap border-b border-line px-2 py-1.5 text-center text-sm ${
-        empty ? 'text-[#a6b0bf]' : 'text-ink'
-      }`}
-    >
-      {empty ? '–' : v}
-    </td>
-  );
-}
-
 const headerBlue = 'bg-[#0A2E5C] text-white';
-const subBlue = 'bg-[#123a6d] text-white';
 
 export default function DrivesPage() {
   return (
@@ -231,53 +284,49 @@ export default function DrivesPage() {
             Maximum drilling depth by model, ground type, and auger diameter (meters)
           </p>
           <div className="mt-6 overflow-x-auto rounded-xl border border-line shadow-sm">
-            <table className="w-full min-w-[680px] border-collapse text-sm">
+            <table className="w-full min-w-[620px] border-collapse text-sm">
               <thead>
-                <tr>
-                  <th
-                    rowSpan={2}
-                    className={`sticky left-0 z-20 border-b-2 border-r border-white/20 px-3 py-2.5 text-left font-semibold ${headerBlue}`}
-                  >
-                    Model
+                <tr className={headerBlue}>
+                  <th className="border-b border-r border-white/20 px-3 py-2.5 text-left font-semibold">Model</th>
+                  <th className="border-b border-r border-white/20 px-3 py-2.5 text-left font-semibold">Auger Diameter</th>
+                  <th className="border-b border-r border-white/20 px-3 py-2.5 text-center font-semibold">
+                    Max Depth — Soft Ground (m)
                   </th>
-                  {DRILL_GROUPS.map((g) => (
-                    <th
-                      key={g.key}
-                      colSpan={3}
-                      className={`border-b border-r border-white/20 px-2 py-2 text-center font-semibold ${headerBlue}`}
-                    >
-                      {g.label}
-                    </th>
-                  ))}
-                </tr>
-                <tr>
-                  {DRILL_GROUPS.map((g) =>
-                    g.diams.map((mm) => (
-                      <th
-                        key={`${g.key}-${mm}`}
-                        className={`whitespace-nowrap border-b-2 border-r border-white/15 px-2 py-1.5 text-center text-xs font-medium ${subBlue}`}
-                      >
-                        {mm}
-                      </th>
-                    ))
-                  )}
+                  <th className="border-b border-r border-white/20 px-3 py-2.5 text-center font-semibold">
+                    Max Depth — Medium Ground (m)
+                  </th>
+                  <th className="border-b px-3 py-2.5 text-center font-semibold">
+                    Max Depth — Hard Ground (m)
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {depthRows.map((d, idx) => {
-                  const zebra = idx % 2 === 0;
-                  const rowBg = zebra ? 'bg-white' : 'bg-[#F4F6FA]';
-                  const cellTd = zebra ? 'bg-white' : 'bg-[#F4F6FA]';
-                  const modelTd = `sticky left-0 z-10 border-b border-r border-line px-3 py-2 text-left font-semibold text-hm ${cellTd}`;
-                  return (
-                    <tr key={d.model} className={rowBg}>
-                      <td className={modelTd}>{d.model}</td>
-                      {[...d.soft, ...d.medium, ...d.hard].map((v, i) => (
-                        <DepthCell key={i} v={v} />
-                      ))}
-                    </tr>
-                  );
-                })}
+                {depthTable.map((m) => (
+                  <Fragment key={m.model}>
+                    {m.rows.map((r, i) => (
+                      <tr key={r.diam} className={i % 2 ? 'bg-[#F4F6FA]' : 'bg-white'}>
+                        {i === 0 && (
+                          <td
+                            rowSpan={m.rows.length}
+                            className="border-b border-r border-line px-3 py-2 align-top font-semibold text-hm"
+                          >
+                            {m.model}
+                          </td>
+                        )}
+                        <td className="whitespace-nowrap border-b border-r border-line px-3 py-2 text-ink">{r.diam}</td>
+                        <td className="border-b border-r border-line px-3 py-2 text-center text-ink">{r.soft}</td>
+                        <td className="border-b border-r border-line px-3 py-2 text-center text-ink">{r.medium}</td>
+                        <td className="border-b px-3 py-2 text-center text-ink">{r.hard}</td>
+                      </tr>
+                    ))}
+                  </Fragment>
+                ))}
+                <tr className="bg-white">
+                  <td className="border-b border-r border-line px-3 py-2 font-semibold text-hm">YA-100000</td>
+                  <td colSpan={4} className="px-3 py-2 text-inksoft">
+                    Contact us for application-specific depth guidance.
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -285,7 +334,6 @@ export default function DrivesPage() {
             Values shown are indicative maximum drilling depths (meters) for popular auger
             diameters. Your results may vary based on soil composition, moisture content, and
             machine configuration. Contact us for application-specific recommendations.
-            &ldquo;&ndash;&rdquo; indicates this drive model does not support that diameter.
           </p>
         </div>
       </section>

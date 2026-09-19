@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { PageHeader } from '@/components/site-nav';
-import { ImagePlaceholder } from '@/components/image-placeholder';
+import { ProductImage } from '@/components/product-image';
 import { categories } from '@/lib/products';
 
 export const metadata: Metadata = {
@@ -29,17 +29,18 @@ export default function ProductsPage() {
                 href={`/products/${c.slug}`}
                 className="group flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-all hover:-translate-y-1 hover:border-hm-bright-2 hover:shadow-lg"
               >
-                <ImagePlaceholder alt={c.name} label={c.image} className="h-44 w-full border-b border-line" />
+                <ProductImage
+                  src={c.image}
+                  alt={c.name}
+                  fit={c.slug === 'earth-augers' || c.slug === 'helical-piles' || c.slug === 'tools' ? 'cover' : 'contain'}
+                  className="h-44 w-full shrink-0 border-b border-line bg-white p-3"
+                />
                 <div className="flex flex-1 flex-col p-5">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold text-hm">{c.name}</h3>
                     <ArrowRight className="h-5 w-5 text-line transition-transform group-hover:translate-x-1 group-hover:text-hm-bright-2" />
                   </div>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-hm-bright-2">{c.short}</p>
-                  <p className="mt-3 text-sm text-inksoft">{c.description}</p>
-                  <p className="mt-4 text-xs font-medium text-inksoft">
-                    {c.items.length} item{c.items.length > 1 ? 's' : ''}
-                  </p>
+                  <p className="mt-2 text-sm text-inksoft">{c.description}</p>
                 </div>
               </Link>
             ))}

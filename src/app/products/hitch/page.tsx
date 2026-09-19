@@ -16,7 +16,7 @@ const hitchTypes = [
   {
     name: 'Double Pin Hitch',
     desc: 'Loose and fixed pin design, available in standard and quick hitch types.',
-    points: ['Loose and fixed pin', 'Standard and quick hitch', 'All Yichen drive ranges'],
+    points: ['Loose and fixed pin', 'Standard and quick hitch', 'Compatible with all YA drive models'],
     image: '/products-img/hitch-double-pin.png',
   },
   {

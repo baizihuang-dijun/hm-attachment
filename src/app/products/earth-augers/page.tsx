@@ -14,8 +14,8 @@ const augerTypes = [
     tag: 'General Drilling',
     desc: 'All purpose earth auger for general drilling. Multi-faced tungsten providing longer wear life and greater cutting performance.',
     geology: 'Earth, clay, shale, soft rocks',
-    pilot: 'ADP2',
-    teeth: 'AOT2',
+    pilot: 'A0P2',
+    teeth: 'A0T2',
     image: '/products-img/earth-auger-w2.png',
   },
   {
@@ -23,17 +23,17 @@ const augerTypes = [
     tag: 'Combination Drilling',
     desc: 'Efficient and cost effective auger for general purpose drilling in earth, clay shale and soft rocks. Fitted with Tungsten Taper Teeth for the ultimate ripping ability in fracturable rock, permafrost and general earth conditions. Taper teeth design — the ultimate all performance auger.',
     geology: 'Fracturable rock, permafrost, general earth',
-    pilot: 'AOP3',
-    teeth: 'AOT3',
+    pilot: 'A0P3',
+    teeth: 'A0T3',
     image: '/products-img/earth-auger-w3.png',
   },
   {
     name: 'W4 Rock Auger',
     tag: 'Dedicated Rock Drilling',
-    desc: 'Yichen Rock augers — heavy duty engineered design, with high efficiency cutting heads to maximize your rock drilling performance. Fitted with a range of quality wear parts providing superior wear and performance. Heavy duty auger for dedicated rock drilling.',
+    desc: 'Heavy-duty rock auger with high-efficiency cutting heads for dedicated rock drilling. Fitted with a range of quality wear parts for superior wear life and performance. Geology: concrete, shale, fracturable rock.',
     geology: 'Concrete, shale, fracturable rock',
-    pilot: 'AOP4',
-    teeth: 'AOT4',
+    pilot: 'A0P4',
+    teeth: 'A0T4',
     image: '/products-img/earth-auger-w4.png',
   },
 ];
@@ -65,15 +65,10 @@ export default function EarthAugersPage() {
           <div className="mt-6 grid items-center gap-8 lg:grid-cols-2">
             <div className="space-y-4 text-ink">
               <p>
-                Yichen auger products can be used perfectly with Yichen auger drives, and are
-                also suitable for drives from most other manufacturers. In order to cope with
-                different geological conditions, Yichen augers are mainly divided into three
-                categories: W2, W3 and W4.
-              </p>
-              <p>
-                Whether it is clay geology or rock geology, you can find a solution that suits
-                your application. Yichen augers are made of the most advanced design and the
-                best materials. Can effectively improve your production efficiency.
+                HM Attachment augers are compatible with YA-series auger drives and also suit
+                drives from most other manufacturers. To match different geological conditions,
+                the range is divided into three categories — W2, W3 and W4 — covering clay,
+                mixed ground and rock drilling.
               </p>
             </div>
             <div className="aspect-[16/8] w-full overflow-hidden rounded-lg border border-line">
@@ -95,12 +90,10 @@ export default function EarthAugersPage() {
           <div className="mt-6 grid items-center gap-8 lg:grid-cols-2">
             <div className="text-ink">
               <p>
-                Yichen auger series are designed for different earth conditions and
-                applications. Manufactured from high quality EN series gear steel and the
-                latest processing technology, makes our auger more durable and wear-resistant.
-                The diameter range is from 150mm to 2000mm. Shallow pitch flight design ensures
-                earth moving efficiency. Forged Tungsten auger teeth and pilot ensures the
-                toughness and drilling accuracy.
+                The auger series is built around EN-series gear steel flights with shallow-pitch
+                design for efficient spoil removal, in diameters from 150 mm to 2000 mm. Forged
+                tungsten-carbide pilot points and teeth provide drilling accuracy and wear
+                resistance across ground conditions.
               </p>
             </div>
             <div className="aspect-[4/5] w-full overflow-hidden rounded-lg border border-line">

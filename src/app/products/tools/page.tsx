@@ -29,8 +29,8 @@ const tools = [
     image: '/products-img/tool-stump-planer.png',
     desc: 'Z-shaped blade stump planer with two-stage cutting and replaceable tips.',
     params: [
-      ['APS-250', '1-5T / 250mm / 25kg / YA3000-5000'],
-      ['APS-350', '4.5-10T / 350mm / 33kg / YA8000-10000'],
+      ['ASP-250', '1-5T / 250mm / 25kg / YA3000-5000'],
+      ['ASP-350', '4.5-10T / 350mm / 33kg / YA8000-10000'],
     ],
     features: ['Z-shaped blade', 'Two-stage cutting', 'Replaceable tips'],
   },

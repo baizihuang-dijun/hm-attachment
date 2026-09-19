@@ -3,7 +3,7 @@ export type SpecRow = { label: string; value: string };
 export type ProductItem = {
   name: string;
   model?: string;
-  image: string; // "[image-xxx]" placeholder marker, replace with real image URL later
+  image: string; // real image path under public/, empty '' if none
   description: string;
   specs?: SpecRow[];
 };
@@ -20,7 +20,33 @@ export type Category = {
   table?: { headers: string[]; rows: string[][] };
 };
 
-const pImg = (name: string) => `[image-${name}]`;
+const productImages: Record<string, string> = {
+  drives: '/products-img/auger-drive.png',
+  'auger-drive-ya': '/products-img/auger-drive.png',
+  'hs-drive': '/products-img/high-speed-auger-drive.png',
+  'hd-drive': '/products-img/horizontal-auger-drive.png',
+  'earth-augers': '/fullbleed/auger-app.png',
+  'auger-w2': '/products-img/earth-auger-w2.png',
+  'auger-w3': '/products-img/earth-auger-w3.png',
+  'auger-w4': '/products-img/earth-auger-w4.png',
+  hitch: '/products-img/hitch-double-pin-cradle.png',
+  'hitch-single': '/products-img/hitch-single-pin.png',
+  'hitch-double': '/products-img/hitch-double-pin.png',
+  'hitch-cradle': '/products-img/hitch-double-pin-cradle.png',
+  'hitch-skid': '/products-img/hitch-skid-steer-frame.png',
+  'helical-piles': '/fullbleed/helical-pile-app.png',
+  'helical-pile': '/products-img/helical-pile.png',
+  'torque-indicator': '/products-img/sensor-torque-indicator.png',
+  tools: '/fullbleed/tool-stump-planer-app.png',
+  'tool-log-splitter': '/products-img/tool-log-splitter.png',
+  'tool-stump-planer': '/products-img/tool-stump-planer.png',
+  'tool-core-barrel': '/products-img/tool-core-barrel.png',
+  'tool-cement-mixer': '/products-img/tool-cement-mixer-bowl.png',
+  'tool-hole-cleaner': '/products-img/tool-hole-cleaner.png',
+  applications: '/fullbleed/app-general-scene.png',
+};
+
+const pImg = (name: string): string => productImages[name] ?? '';
 
 export const brand = {
   name: 'HM Attachment',
@@ -32,7 +58,7 @@ export const brand = {
     'HM Attachment supplies excavator auger drives, drilling drives, augers, hitches, helical piles and drilling tools for construction, piling and drilling sites worldwide.',
 };
 
-// Yichen YA series Standard Auger Drive specification table (10 models)
+// YA series Standard Auger Drive specification table (10 models)
 export const augerDrivesTable = {
   headers: [
     'Model',
@@ -43,20 +69,21 @@ export const augerDrivesTable = {
     'Rated Power',
     'Output Speed',
     'Weight',
+    'Overall Length',
     'Hose',
     'Shaft',
   ] as string[],
   rows: [
-    ['YA-2000', '0.5-2 ton', '1,900 Nm', '70-240 bar', '27-75 LPM', '19 kW', '30-95 RPM', '41 kg', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
-    ['YA-3300', '1-3 ton', '3,000 Nm', '70-240 bar', '27-75 LPM', '24 kW', '35-100 RPM', '41 kg', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
-    ['YA-5000', '3-4.5 ton', '5,000 Nm', '90-240 bar', '50-95 LPM', '42 kW', '42-95 RPM', '66 kg', '1/2" BSP', '55mm round / 2" hex / 57mm square'],
-    ['YA-8000', '4-8 ton', '8,000 Nm', '140-260 bar', '60-135 LPM', '67 kW', '35-80 RPM', '124 kg', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
-    ['YA-10000', '5-10 ton', '10,000 Nm', '140-260 bar', '50-135 LPM', '80 kW', '35-80 RPM', '131 kg', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
-    ['YA-18000', '8-15 ton', '18,330 Nm', '160-240 bar', '80-170 LPM', '90 kW', '28-42 RPM', '155 kg', '3/4" BSP', '75mm square'],
-    ['YA-31000', '15-22 ton', '30,090 Nm', '160-250 bar', '80-170 LPM', '94 kW', '12-28 RPM', '255 kg', '1" BSP', '75mm square'],
-    ['YA-50000', '20-36 ton', '50,030 Nm', '220-350 bar', '100-300 LPM', '157 kW', '0-30 RPM', '460 kg', '1" BSP 1-1/4', '110mm square'],
-    ['YA-80000', '25-40 ton', '83,000 Nm', '220-350 bar', '200-630 LPM', '167 kW', '0-20 RPM', '770 kg', 'SAE FS-20 G1-1/4', '110mm square'],
-    ['YA-100000', '32-52 ton', '100,000 Nm', '250-350 bar', '300-477 LPM', '157 kW', '0-15 RPM', '1050 kg', 'SAE FS-20 G1-1/4', '110mm square'],
+    ['YA-2000', '0.5-2 ton', '1,900 Nm', '70-240 bar', '27-75 LPM', '19 kW', '30-95 RPM', '41 kg', '606 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['YA-3000', '1-3 ton', '3,000 Nm', '70-240 bar', '27-75 LPM', '24 kW', '35-88 RPM', '41 kg', '606 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['YA-5000', '3-4.5 ton', '5,000 Nm', '80-240 bar', '50-95 LPM', '42 kW', '42-80 RPM', '66 kg', '687 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['YA-8000', '4.5-8 ton', '8,000 Nm', '80-260 bar', '60-135 LPM', '67 kW', '35-80 RPM', '124 kg', '808 mm', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
+    ['YA-10000', '5-10 ton', '10,000 Nm', '80-260 bar', '60-135 LPM', '80 kW', '35-80 RPM', '131 kg', '808 mm', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
+    ['YA-18000', '8-15 ton', '18,000 Nm', '80-240 bar', '80-170 LPM', '80 kW', '20-42 RPM', '165 kg', '937 mm', '3/4" BSP', '75mm square'],
+    ['YA-30000', '15-22 ton', '30,000 Nm', '160-260 bar', '80-170 LPM', '94 kW', '12-28 RPM', '255 kg', '1158 mm', '1" BSP', '75mm square'],
+    ['YA-50000', '20-36 ton', '50,000 Nm', '220-350 bar', '100-300 LPM', '157 kW', '0-30 RPM', '460 kg', '1354 mm', '1" BSP 1-1/4', '110mm square'],
+    ['YA-80000', '26-40 ton', '80,000 Nm', '220-350 bar', '200-400 LPM', '167 kW', '0-20 RPM', '770 kg', '1572 mm', 'SAE FS-20 1-1/4"', '110mm square'],
+    ['YA-100000', '32-52 ton', '100,000 Nm', '250-300 bar', '300-477 LPM', '157 kW', '0-15 RPM', '1050 kg', '1725 mm', 'SAE FS-20 G1-1/4"', '110mm square'],
   ],
 };
 
