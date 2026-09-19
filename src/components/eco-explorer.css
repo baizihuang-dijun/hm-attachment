@@ -30,7 +30,7 @@
      rgba(13,26,48,.38) 44%,rgba(13,26,48,.62) 72%);
   z-index:3;
 }.ya-eco .stage.focusing .stage-spot {opacity:1}.ya-eco .stage-hint {
-  position:absolute;left:18px;bottom:16px;z-index:5;margin:0;
+  position:absolute;left:12px;top:12px;bottom:auto;z-index:5;margin:0;
   font-size:.78rem;color:var(--muted);background:rgba(255,255,255,.85);
   border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;backdrop-filter:blur(4px);
   transition:opacity .3s;
@@ -67,3 +67,10 @@
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
+/* ---------- eco-explorer: hover-preview / click-zoom separation ---------- */
+.ya-eco .hc-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:2px}
+.ya-eco .hc-back{display:none;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);border-radius:999px;padding:.42rem .9rem;font-size:.82rem;font-weight:600;cursor:pointer}
+.ya-eco .hcard.focused .hc-back{display:inline-flex}
+.ya-eco .hc-back:hover{color:var(--ink);border-color:var(--accent-line);background:var(--accent-soft)}
+.ya-eco .stage.highlighting:not(.focusing) .eco-part{opacity:.45;filter:saturate(.75)}
+.ya-eco .eco-part.is-active{opacity:1!important;filter:none!important;z-index:4}
