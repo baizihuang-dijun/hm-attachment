@@ -89,8 +89,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center gap-6">
-            <div className="rounded-lg border border-dashed border-line bg-mist/60 p-8 text-center">
+          <div className="flex flex-col justify-center rounded-lg border border-dashed border-line bg-mist/60 p-8 text-center">
               <p className="text-sm font-bold uppercase tracking-widest text-hm-bright-2">
                 Get in Touch
               </p>
@@ -99,25 +98,7 @@ export default function AboutPage() {
                 For model, spec and pricing enquiries, contact us at hm@hmattachment.com.
               </p>
             </div>
-
-            <div className="rounded-lg border border-line bg-white p-8">
-              <h4 className="text-base font-extrabold tracking-tight text-hm">
-                Useful information to include
-              </h4>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink">
-                <li>Your excavator make, model and operating tonnage (or hydraulic pressure and oil flow)</li>
-                <li>Ground conditions (earth, clay, shale or rock)</li>
-                <li>Required auger diameter and drilling depth</li>
-                <li>Existing part number or drive/brand model to match</li>
-                <li>Hitch type and output shaft (round, hex or square)</li>
-                <li>Quantity and expected annual demand</li>
-              </ul>
-              <p className="mt-4 text-xs leading-relaxed text-inksoft">
-                Don&apos;t have all the details? Send what you have - we&apos;ll help fill in the gaps.
-              </p>
-            </div>
           </div>
-        </div>
       </section>
     </div>
   );
