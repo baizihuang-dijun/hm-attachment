@@ -67,3 +67,14 @@
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
+
+.ya-eco .hcard {pointer-events:none;}
+.ya-eco .stage.focusing .hcard {pointer-events:auto;}
+.ya-eco .hc-foot {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px;}
+.ya-eco .hc-back {
+  background:transparent;border:1px solid var(--line);border-radius:10px;
+  padding:.5rem .8rem;font-size:.82rem;font-weight:600;color:var(--ink-2);cursor:pointer;
+  transition:background .18s var(--ease),border-color .18s var(--ease);
+}
+.ya-eco .hc-back:hover {background:var(--surface-2);border-color:var(--accent-line);color:var(--focus);}
+.ya-eco .stage.focusing .eco-part {pointer-events:none;}
