@@ -10,7 +10,17 @@ export const metadata: Metadata = {
   description: 'HM Attachment full range of excavator attachments and drilling equipment.',
 };
 
-const mainCats = categories.filter((c) => c.slug !== 'about');
+const mainCats = categories.filter((c) => c.slug !== 'about' && c.slug !== 'applications');
+
+// Category-card imagery for the All Products page (kept local so other pages and
+// navigation are unaffected).
+const catImg: Record<string, string> = {
+  drives: '/cat/cat-drives.png',
+  'earth-augers': '/cat/cat-augers.png',
+  hitch: '/cat/cat-hitch.png',
+  'helical-piles': '/cat/cat-helical.png',
+  tools: '/cat/cat-tools.png',
+};
 
 export default function ProductsPage() {
   return (
@@ -30,9 +40,15 @@ export default function ProductsPage() {
                 className="group flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-all hover:-translate-y-1 hover:border-hm-bright-2 hover:shadow-lg"
               >
                 <ProductImage
-                  src={c.image}
+                  src={catImg[c.slug] ?? c.image}
                   alt={c.name}
-                  fit={c.slug === 'earth-augers' || c.slug === 'helical-piles' || c.slug === 'tools' ? 'cover' : 'contain'}
+                  fit={
+                    c.slug in catImg
+                      ? 'contain'
+                      : c.slug === 'earth-augers' || c.slug === 'helical-piles' || c.slug === 'tools'
+                        ? 'cover'
+                        : 'contain'
+                  }
                   className="h-44 w-full shrink-0 border-b border-line bg-white p-3"
                 />
                 <div className="flex flex-1 flex-col p-5">
