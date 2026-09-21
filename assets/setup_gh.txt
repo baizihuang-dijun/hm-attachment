@@ -1,0 +1,33 @@
+请把项目正式配置为"静态导出 + GitHub Pages 自动部署"，并确保构建通过。不要部署到扣子平台、不要执行任何 git push（推送由主会话统一处理）。业务代码与交互逻辑一律不动。
+
+需要完成的改动：
+
+1. next.config.ts：
+   - 增加 `output: 'export'`
+   - 增加 `images: { unoptimized: true }`（如已有 images 配置则在其中补 unoptimized，不要破坏其它项）
+   - 移除现有的 `redirects()`（静态导出不支持；4 条旧 URL 重定向放弃，不需要做替代页）
+   - 不要设置 basePath、不要设置 assetPrefix（我们最终用自定义域名根路径 www.hmattachment.com）
+
+2. src/app/robots.ts：增加 `export const dynamic = 'force-static'`，其余不动。
+
+3. src/app/products/[slug]/page.tsx：删除 `export const dynamicParams = true` 这一行（generateStaticParams 已覆盖全部类别），其余不动。
+
+4. 在 public/ 目录下新建文件 `CNAME`，文件内容只有一行（无空格、无换行符以外的内容）：
+   www.hmattachment.com
+   （这样静态导出后 out/CNAME 会存在，GitHub Pages 据此识别自定义域名。）
+
+5. 在 `.github/workflows/deploy.yml` 创建 GitHub Actions 工作流，作用是：push 到 main 分支时，安装依赖 → 构建静态产物 → 部署 out/ 到 GitHub Pages。要求：
+   - on: push branches [main]，并加 workflow_dispatch
+   - permissions: contents: read / pages: write / id-token: write
+   - 两个 job：build（checkout、按项目实际包管理器 setup-node 并启用缓存、安装依赖、运行项目现有构建命令、用 actions/upload-pages-artifact 上传 path: ./out）和 deploy（needs build，environment name: github-pages，用 actions/deploy-pages，输出 page_url）
+   - Node 版本用项目要求的版本（先看 package.json / 现有配置确认，不确定就用 20）
+   - 请确保工作流里的构建命令确实会产出 out/（即依赖第 1 步的 output:export）。
+
+6. 完成后在本地运行一次完整生产构建（项目现有 build 命令），确认：
+   - 构建成功且生成 out/ 目录
+   - out/CNAME 存在且内容为 www.hmattachment.com
+   - out/ 下 HTML、_next 静态资源、图片、robots.txt 齐全
+   - 抽查 drives 页显示 HMA 型号、首页 H1 为 The HMA Series Auger Drill Ecosystem
+   - 再跑 pnpm lint、pnpm ts-check（或项目对应命令）确认通过
+
+汇报：每个文件的具体改动、工作流最终内容、构建产物验证结果（页面数、关键文件）。不要 git init/push，不要部署。

@@ -2,15 +2,8 @@ import type { NextConfig } from 'next';
 import path from 'path';
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      { source: '/products/auger-drives', destination: '/products/drives', permanent: true },
-      { source: '/products/drilling-drives', destination: '/products/drives', permanent: true },
-      { source: '/products/wear-parts', destination: '/products/earth-augers#teeth', permanent: true },
-      { source: '/products/accessories', destination: '/products/tools', permanent: true },
-    ];
-  },
   // outputFileTracingRoot: path.resolve(__dirname, '../../'),  // Uncomment and add 'import path from "path"' if needed
+  output: 'export',
   /* config options here */
   serverExternalPackages: ['coze-coding-dev-sdk'],
   webpack: (config, { dev }) => {
@@ -23,6 +16,7 @@ const nextConfig: NextConfig = {
   },
   allowedDevOrigins: ['*.dev.coze.site'],
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
