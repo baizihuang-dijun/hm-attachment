@@ -1,0 +1,18 @@
+请先只做排查，不要修改任何文件。
+
+我需要在项目里找到包含以下文案分节的页面（可能是某个产品详情页或 applications 相关页）：
+
+1. "Augers" 部分下有：
+   - "Product Introduction"
+   - "Features and Benefits"
+2. "Helical Piles" 部分下有：
+   - "Advantages"
+   - "Applications"
+3. 还有 "Section 2"（标题可能是 Installation System 之类）和 "Section 3"
+
+请用 grep 在 src/ 下搜索这些关键词（Product Introduction、Features and Benefits、Advantages、Applications、Installation、Section），告诉我：
+- 这些内容分别在哪个文件的哪些行号
+- 该页面里 Augers、Helical Piles 各部分的完整 Section 结构和顺序
+- "Section2 installation system"、"Section3" 的真实标题、文件路径和行号范围
+
+只汇报，先不要改代码。
