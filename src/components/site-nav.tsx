@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
@@ -74,18 +75,16 @@ export function SiteNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded bg-hm text-sm font-black text-white">
-            H
-          </span>
-          <span className="leading-tight">
-            <span className="block text-base font-extrabold tracking-tight text-hm">
-              HM {''}Attachment
-            </span>
-            <span className="block text-[10px] uppercase tracking-widest text-inksoft">
-              Drilling Equipment
-            </span>
-          </span>
+        <Link href="/" className="flex items-center" aria-label="HM Attachment">
+          <Image
+            src="/brand/hm-attachment-logo.png"
+            alt="HM Attachment"
+            width={120}
+            height={40}
+            priority
+            className="h-9 w-auto"
+            sizes="120px"
+          />
         </Link>
 
         {/* Desktop nav */}
