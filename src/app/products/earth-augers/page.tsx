@@ -53,56 +53,6 @@ export default function EarthAugersPage() {
         ]}
       />
 
-      {/* Section 1 - Product Introduction */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl border-t border-line px-4 py-14 sm:px-6 lg:px-8">
-          <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-            Product Introduction
-          </span>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
-            Augers for Every Ground Condition
-          </h2>
-          <div className="mt-6 grid items-center gap-8 lg:grid-cols-2">
-            <div className="space-y-4 text-ink">
-              <p>
-                HM Attachment augers are compatible with YA-series auger drives and also suit
-                drives from most other manufacturers. To match different geological conditions,
-                the range is divided into three categories — W2, W3 and W4 — covering clay,
-                mixed ground and rock drilling.
-              </p>
-            </div>
-            <div className="aspect-[16/8] w-full overflow-hidden rounded-lg border border-line">
-              <img alt="Auger introduction" src="/fullbleed/auger-app.png" className="h-full w-full object-cover object-center" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2 - Features and Benefits (paragraph) */}
-      <section className="bg-mist">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-            Features and Benefits
-          </span>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
-            Built to Last, Built to Cut
-          </h2>
-          <div className="mt-6 grid items-center gap-8 lg:grid-cols-2">
-            <div className="text-ink">
-              <p>
-                The auger series is built around EN-series gear steel flights with shallow-pitch
-                design for efficient spoil removal, in diameters from 150 mm to 2000 mm. Forged
-                tungsten-carbide pilot points and teeth provide drilling accuracy and wear
-                resistance across ground conditions.
-              </p>
-            </div>
-            <div className="aspect-[4/5] w-full overflow-hidden rounded-lg border border-line">
-              <img alt="Auger features" src="/fullbleed/auger-drive-app-1.png" className="h-full w-full object-cover object-center" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Section 3 - Drilling Performance Table */}
 
       {/* Section 4 - Auger Types */}

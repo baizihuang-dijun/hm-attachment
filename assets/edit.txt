@@ -1,0 +1,18 @@
+请修改两个文件，严格按下列范围删除，不要改动其他内容。
+
+## 文件1：src/app/products/earth-augers/page.tsx
+1. 删除整个 "Product Introduction" section：注释行56 到 </section>（约57–79行，H2 为 Augers for Every Ground Condition）。
+2. 删除整个 "Features and Benefits" section：注释行81 到 </section>（约82–104行，H2 为 Built to Last, Built to Cut）。
+3. 保留后面的空占位注释、Auger Types、Auger Extension，不要动它们，也不要重新编号。
+4. 删除后检查：若顶部/页面有引用被删区块的锚点链接（如目录、跳转），一并去掉指向它们的链接；面包屑、导航保留。
+
+## 文件2：src/app/products/helical-piles/page.tsx
+1. 在 Section 1（Helical Piles AP Series）内部，删除 Advantages 与 Applications 整个两列网格区块（约145–166行，含 H3 Advantages 第147行、H3 Applications 第157行）。保留前面的 H2 和 Specification 表格。
+2. 删除整个 Section 2 "Installation System"：注释行170 到 </section>（约171–199行，H2 为 Installation System）。
+3. 把原 Section 3 "Sensors" 的视觉标签文字从 "Section 3" 改为 "Section 2"（第205行附近的标签）；该 section 的 id="sensors"、H2 Sensors、三张卡片全部保留不动。
+4. 数据数组 pileAdvantages（约28行）、pileApplications（约44行）删除后不再被引用，请把这两个未使用的数组定义一并删除，避免未使用变量报错。
+5. 检查页面内是否有目录/锚点链接指向 installation system 或 advantages/applications，去掉这些失效链接；若有指向 #sensors 的链接保留。
+
+## 完成后
+- 运行构建/lint 确认无报错（特别检查未使用变量、失效 import）。
+- 不要部署，构建通过后告诉我，并分别说明两个文件最终保留了哪些分节。

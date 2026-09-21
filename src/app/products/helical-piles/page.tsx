@@ -25,42 +25,6 @@ const pileRows: string[][] = [
   ['AP-46', "5.5 x 0.361", '1"', '0.5" thick · 10/12/14/16" dia', '3in', 'Galvanized / Bare / Epoxy', 'Ultimate 92 / Allowable 46', 'Ultimate 78 / Allowable 39'],
 ];
 
-const pileAdvantages = [
-  'Cost Effective',
-  'Quick Installation',
-  'No Curing Time',
-  'Can be battered',
-  'Proven Engineering',
-  'Environmental Friendly',
-  'All Weather',
-  'Re-Usable',
-  'Low Noise',
-  'Vibration Free',
-  'Removable',
-  'Groutable',
-  'Galvanized',
-];
-
-const pileApplications = [
-  'Pole bases',
-  'Underpin foundations',
-  'Walkways',
-  'Telecom masts',
-  'Electrical pylons',
-  'Modular buildings',
-  'Highway signage',
-  'Concrete slab lifting',
-  'Rail structures',
-  'Structural support',
-  'Anchors',
-  'Retaining walls',
-  'Wind turbines',
-  'Solar farms',
-  'Fencing',
-  'Utility tie downs',
-  'Slope stabilization',
-];
-
 function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
     <div className="overflow-x-auto rounded-lg border border-line bg-white">
@@ -141,60 +105,6 @@ export default function HelicalPilesPage() {
               </div>
             ))}
           </div>
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-2">
-            <div>
-              <h3 className="text-lg font-bold text-hm">Advantages</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {pileAdvantages.map((a) => (
-                  <span key={a} className="rounded-md border border-line bg-white px-3 py-1.5 text-sm text-ink">
-                    {a}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold text-hm">Applications</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {pileApplications.map((a) => (
-                  <span key={a} className="rounded-md border border-line bg-white px-3 py-1.5 text-sm text-ink">
-                    {a}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2 - Installation System */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-            Section 2
-          </span>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
-            Installation System
-          </h2>
-          <div className="mt-4 grid items-start gap-8 lg:grid-cols-2">
-            <div className="aspect-[2/3] w-full overflow-hidden rounded-lg border border-line">
-              <img alt="Installation system" src="/fullbleed/helical-pile-app.png" className="h-full w-full object-cover object-center" />
-            </div>
-            <div className="space-y-4 text-ink">
-              <p>
-                Wireless data transmission between components delivers real-time data to the
-                in-cab monitor. Operators control angle and read ground state from the cab.
-              </p>
-              <ul className="grid gap-2">
-                {['Wireless data transmission', 'Real-time data to in-cab monitor', 'Control angle and read ground state'].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-hm-bright-2" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -202,7 +112,7 @@ export default function HelicalPilesPage() {
       <section id="sensors" className="bg-mist scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <span className="inline-block rounded bg-hm px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-            Section 3
+            Section 2
           </span>
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-hm sm:text-3xl">
             Sensors
