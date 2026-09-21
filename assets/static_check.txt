@@ -1,0 +1,15 @@
+请只做"静态导出可行性检测 + 试构建"，先不要部署、不要改业务代码。
+
+背景：我们打算把这个 Next.js 网站部署到 GitHub Pages（和另一个项目 HM Hydraulics 一样），需要产出纯静态文件（HTML/CSS/JS/图片）。请检测：
+
+1. 当前项目是否配置了静态导出能力：检查 next.config.* 里有没有 `output: 'export'`，以及 images 配置（静态导出不支持 next/image 默认优化器，需要 unoptimized 或用普通 img）。
+2. 排查代码里所有"会阻碍静态导出"的用法，逐一列出文件和位置：
+   - 任何服务端功能：route handlers（route.ts/route.js 的 API 路由）、Server Actions（"use server"）、middleware.ts、getServerSideProps、动态路由 generateStaticParams 是否覆盖全部路径、rewrites/redirects 依赖服务器的配置
+   - 是否使用了运行时后端能力（数据库、Node 运行时、请求时读取环境变量、鉴权/session 等）
+   - next/image 使用情况（静态导出需 images.unoptimized=true）
+   - 是否有依赖请求时动态生成的内容
+3. 实际做一次静态导出试构建（可临时用 next build 带 output:export 的方式，或按项目现有脚本），确认能否成功生成 out/ 目录，并报告：是否成功、产物大小、页面数量、有无报错或警告。
+   - 注意：如果需要临时改 next.config 才能试构建，请用最小改动，试完说明改了什么；不要动任何业务/交互代码。
+4. 给出明确结论：该项目能否直接静态导出部署到 GitHub Pages？如果不能，阻碍点是什么、需要哪些改造（只评估，不执行改造）。
+
+只汇报检测与试构建结果，不要部署。
