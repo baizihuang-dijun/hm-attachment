@@ -1,0 +1,5 @@
+这是页眉(浅色白底 header)使用的完整 logo 图片，请保存为 public/brand/hm-attachment-logo.png。
+本任务要把页眉和页脚两处"CSS方块H+文字"的品牌标识替换成完整 logo 图。
+- 页眉 SiteNav (src/components/site-nav.tsx 约L75-89，浅白底)：用本图(黑红原色)替换。
+- 页脚 SiteFooter (同文件约L275-288，深蓝底 #06203f)：稍后我会再单独发一张适配深色背景的白色版，请等收到白色版图后再改页脚；在那之前可以先只完成页眉。
+要求：整图等比缩放保持约3:1，页眉高度贴合 h-16 导航(可用 h-9/h-10 w-auto)，垂直居中；保留 <Link href="/"> 与 alt="HM Attachment"，移除原 CSS H 方块和重复的品牌文字 span(但页脚的描述文案/版权不属于logo，保留)；不改任何路由和交互。先只改页眉，等我发白色版再改页脚，最后统一构建。
