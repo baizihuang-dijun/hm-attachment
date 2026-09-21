@@ -276,10 +276,14 @@ export function SiteFooter() {
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded bg-white/15 text-sm font-black text-white">
-                H
-              </span>
-              <span className="text-base font-extrabold">{brand.name}</span>
+              <Image
+                src="/brand/hm-attachment-logo-white.png"
+                alt={brand.name}
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+                sizes="160px"
+              />
             </div>
             <p className="mt-3 max-w-md text-sm text-white/70">
               {brand.slogan}。{brand.short}
