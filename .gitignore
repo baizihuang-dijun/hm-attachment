@@ -166,3 +166,4 @@ Desktop.ini
 
 # GH 令牌附件，禁止提交
 assets/push_gh.txt
+assets/deploy.txt
