@@ -163,3 +163,6 @@ Desktop.ini
 # Misc
 .coze-logs
 .codegraph/
+
+# GH 令牌附件，禁止提交
+assets/push_gh.txt
