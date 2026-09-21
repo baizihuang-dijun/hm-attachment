@@ -82,8 +82,8 @@ export function SiteNav() {
             width={120}
             height={40}
             priority
-            className="h-9 w-auto"
-            sizes="120px"
+            className="h-11 w-auto"
+            sizes="140px"
           />
         </Link>
 
@@ -281,8 +281,8 @@ export function SiteFooter() {
                 alt={brand.name}
                 width={120}
                 height={40}
-                className="h-10 w-auto"
-                sizes="160px"
+                className="h-14 w-auto"
+                sizes="180px"
               />
             </div>
             <p className="mt-3 max-w-md text-sm text-white/70">

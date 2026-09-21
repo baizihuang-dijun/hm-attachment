@@ -1,0 +1,9 @@
+任务：把页眉和页脚两处品牌 logo 显示尺寸都调大一档。图片文件和引用路径都不变，只改 src/components/site-nav.tsx 里两个 next/image 的 className 高度（宽度继续 w-auto 保持3:1等比）。
+
+1. 页眉 SiteNav 的 logo（当前 className="h-9 w-auto"，即36px高；header 总高 h-16=64px）：改为 className="h-11 w-auto"（44px高）。确认在 64px 高的 header 里上下仍居中、不贴边、不与右侧导航重叠；若 44px 显得挤，可降到 h-10，并在汇报中说明实际采用值。
+
+2. 页脚 SiteFooter 的 logo（当前 className="h-10 w-auto"，即40px高）：改为 className="h-13 w-auto" 若 Tailwind 无 h-13，则用 className="h-14 w-auto"（56px）或 style 高度约52px。要求在页脚左栏不破坏整体对齐与布局、垂直方向协调；若过大导致与左栏文字/其它列错位，请适当回调并说明。
+
+3. 不要改动 Link、alt、sizes 以外的任何逻辑；如 next/image 的 sizes 属性与新高度明显不符可一并微调（页眉约44px、页脚约52-56px）。
+
+改完跑 lint/ts-check 和生产静态构建，确认通过、产物 HTML 中 logo 高度类名已更新。暂不部署。汇报两处最终采用的高度值与是否影响布局。
