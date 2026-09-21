@@ -16,19 +16,19 @@ const hitchTypes = [
   {
     name: 'Double Pin Hitch',
     desc: 'Loose and fixed pin design, available in standard and quick hitch types.',
-    points: ['Loose and fixed pin', 'Standard and quick hitch', 'Compatible with all YA drive models'],
+    points: ['Loose and fixed pin', 'Standard and quick hitch', 'Compatible with all HMA drive models'],
     image: '/products-img/hitch-double-pin.png',
   },
   {
     name: 'Double Pin Cradle Hitch',
-    desc: 'Cradle hitch for the YA2000-YA100000 drive range.',
-    points: ['For YA2000-YA100000', 'Eliminates auger swing', 'Safe transport'],
+    desc: 'Cradle hitch for the HMA2000-HMA100000 drive range.',
+    points: ['For HMA2000-HMA100000', 'Eliminates auger swing', 'Safe transport'],
     image: '/products-img/hitch-double-pin-cradle.png',
   },
   {
     name: 'Skid Steer Loader Frame',
     desc: 'Slide operation hitch for skid steer loaders.',
-    points: ['Slide operation', 'For YA2000-YA5000'],
+    points: ['Slide operation', 'For HMA2000-HMA5000'],
     image: '/products-img/hitch-skid-steer-frame.png',
   },
 ];

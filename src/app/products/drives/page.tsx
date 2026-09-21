@@ -6,7 +6,7 @@ import { augerDrivesTable } from '@/lib/products';
 export const metadata: Metadata = {
   title: 'Auger Drives | HM Attachment',
   description:
-    'Standard, high speed and horizontal auger drives. YA series from 1,900 N·m to 100,000 N·m for 0.5-52 ton excavators.',
+    'Standard, high speed and horizontal auger drives. HMA series from 1,900 N·m to 100,000 N·m for 0.5-52 ton excavators.',
 };
 
 function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
@@ -45,7 +45,7 @@ type DepthRow = { diam: string; soft: number; medium: number; hard: number };
 
 const depthTable: { model: string; rows: DepthRow[] }[] = [
   {
-    model: 'YA-2000',
+    model: 'HMA-2000',
     rows: [
       { diam: '150 mm', soft: 3.5, medium: 3.5, hard: 3.0 },
       { diam: '200 mm', soft: 3.0, medium: 3.0, hard: 3.0 },
@@ -56,7 +56,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-3000',
+    model: 'HMA-3000',
     rows: [
       { diam: '150 mm', soft: 3.5, medium: 3.5, hard: 3.0 },
       { diam: '200 mm', soft: 3.0, medium: 3.0, hard: 3.0 },
@@ -69,7 +69,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-5000',
+    model: 'HMA-5000',
     rows: [
       { diam: '150\u2013600 mm', soft: 4.5, medium: 4.2, hard: 3.5 },
       { diam: '650 mm', soft: 3.2, medium: 3.7, hard: 3.3 },
@@ -81,7 +81,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-8000',
+    model: 'HMA-8000',
     rows: [
       { diam: '150\u2013500 mm', soft: 6.5, medium: 5.5, hard: 5.0 },
       { diam: '550 mm', soft: 4.5, medium: 4.5, hard: 3.5 },
@@ -95,7 +95,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-10000',
+    model: 'HMA-10000',
     rows: [
       { diam: '150\u2013500 mm', soft: 6.5, medium: 5.5, hard: 5.0 },
       { diam: '550 mm', soft: 4.5, medium: 4.5, hard: 3.5 },
@@ -110,7 +110,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-18000',
+    model: 'HMA-18000',
     rows: [
       { diam: '150\u2013400 mm', soft: 8.6, medium: 7.6, hard: 7.0 },
       { diam: '500 mm', soft: 7.2, medium: 6.4, hard: 5.8 },
@@ -128,7 +128,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-30000',
+    model: 'HMA-30000',
     rows: [
       { diam: '150\u2013400 mm', soft: 9.0, medium: 8.2, hard: 7.3 },
       { diam: '450 mm', soft: 8.6, medium: 7.7, hard: 7.0 },
@@ -146,7 +146,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-50000',
+    model: 'HMA-50000',
     rows: [
       { diam: '300\u2013450 mm', soft: 12, medium: 11, hard: 8 },
       { diam: '500 mm', soft: 12, medium: 11, hard: 8 },
@@ -164,7 +164,7 @@ const depthTable: { model: string; rows: DepthRow[] }[] = [
     ],
   },
   {
-    model: 'YA-80000',
+    model: 'HMA-80000',
     rows: [
       { diam: '300\u2013600 mm', soft: 15, medium: 11, hard: 8 },
       { diam: '700 mm', soft: 14, medium: 10, hard: 7 },
@@ -187,7 +187,7 @@ export default function DrivesPage() {
     <div>
       <ProductHero
         image="/hero/drives.png"
-        alt="YA series hydraulic auger drive on site"
+        alt="HMA series hydraulic auger drive on site"
         title="Auger Drives"
         subtitle="Standard, high speed and horizontal auger drives built for reliable rotational power across 0.5-52 ton excavators."
         trail={[
@@ -212,14 +212,14 @@ export default function DrivesPage() {
             </div>
             <div className="space-y-4 text-ink">
               <p>
-                The YA series hydraulic auger drive couples a hydraulic motor with a
+                The HMA series hydraulic auger drive couples a hydraulic motor with a
                 planetary gearbox for powerful, reliable rotational drilling. Ten models
                 cover 0.5-52 ton excavators with torque from 1,900 N·m up to 100,000 N·m,
                 suited to piling, fence, pole, well and foundation drilling.
               </p>
               <p>
                 Drives accept round, hex or square shanks (configurable per machine) and are
-                matched to the full range of YA hitches and auger flights for complete,
+                matched to the full range of HMA hitches and auger flights for complete,
                 dependable drilling systems.
               </p>
               <ul className="grid gap-2 sm:grid-cols-2">
@@ -261,7 +261,7 @@ export default function DrivesPage() {
                   <img alt={m} src={`/products-img/${m}.png`} className="h-full w-full object-contain" />
                 </div>
                 <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-hm">
-                  {m.toUpperCase()}
+                  {m.replace('ya', 'HMA').toUpperCase()}
                 </span>
               </div>
             ))}
@@ -322,7 +322,7 @@ export default function DrivesPage() {
                   </Fragment>
                 ))}
                 <tr className="bg-white">
-                  <td className="border-b border-r border-line px-3 py-2 font-semibold text-hm">YA-100000</td>
+                  <td className="border-b border-r border-line px-3 py-2 font-semibold text-hm">HMA-100000</td>
                   <td colSpan={4} className="px-3 py-2 text-inksoft">
                     Contact us for application-specific depth guidance.
                   </td>

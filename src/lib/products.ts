@@ -58,7 +58,7 @@ export const brand = {
     'HM Attachment supplies excavator auger drives, drilling drives, augers, hitches, helical piles and drilling tools for construction, piling and drilling sites worldwide.',
 };
 
-// YA series Standard Auger Drive specification table (10 models)
+// HMA series Standard Auger Drive specification table (10 models)
 export const augerDrivesTable = {
   headers: [
     'Model',
@@ -74,16 +74,16 @@ export const augerDrivesTable = {
     'Shaft',
   ] as string[],
   rows: [
-    ['YA-2000', '0.5-2 ton', '1,900 Nm', '70-240 bar', '27-75 LPM', '19 kW', '30-95 RPM', '41 kg', '606 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
-    ['YA-3000', '1-3 ton', '3,000 Nm', '70-240 bar', '27-75 LPM', '24 kW', '35-88 RPM', '41 kg', '606 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
-    ['YA-5000', '3-4.5 ton', '5,000 Nm', '80-240 bar', '50-95 LPM', '42 kW', '42-80 RPM', '66 kg', '687 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
-    ['YA-8000', '4.5-8 ton', '8,000 Nm', '80-260 bar', '60-135 LPM', '67 kW', '35-80 RPM', '124 kg', '808 mm', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
-    ['YA-10000', '5-10 ton', '10,000 Nm', '80-260 bar', '60-135 LPM', '80 kW', '35-80 RPM', '131 kg', '808 mm', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
-    ['YA-18000', '8-15 ton', '18,000 Nm', '80-240 bar', '80-170 LPM', '80 kW', '20-42 RPM', '165 kg', '937 mm', '3/4" BSP', '75mm square'],
-    ['YA-30000', '15-22 ton', '30,000 Nm', '160-260 bar', '80-170 LPM', '94 kW', '12-28 RPM', '255 kg', '1158 mm', '1" BSP', '75mm square'],
-    ['YA-50000', '20-36 ton', '50,000 Nm', '220-350 bar', '100-300 LPM', '157 kW', '0-30 RPM', '460 kg', '1354 mm', '1" BSP 1-1/4', '110mm square'],
-    ['YA-80000', '26-40 ton', '80,000 Nm', '220-350 bar', '200-400 LPM', '167 kW', '0-20 RPM', '770 kg', '1572 mm', 'SAE FS-20 1-1/4"', '110mm square'],
-    ['YA-100000', '32-52 ton', '100,000 Nm', '250-300 bar', '300-477 LPM', '157 kW', '0-15 RPM', '1050 kg', '1725 mm', 'SAE FS-20 G1-1/4"', '110mm square'],
+    ['HMA-2000', '0.5-2 ton', '1,900 Nm', '70-240 bar', '27-75 LPM', '19 kW', '30-95 RPM', '41 kg', '606 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['HMA-3000', '1-3 ton', '3,000 Nm', '70-240 bar', '27-75 LPM', '24 kW', '35-88 RPM', '41 kg', '606 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['HMA-5000', '3-4.5 ton', '5,000 Nm', '80-240 bar', '50-95 LPM', '42 kW', '42-80 RPM', '66 kg', '687 mm', '1/2" BSP', '65mm round / 2" hex / 57mm square'],
+    ['HMA-8000', '4.5-8 ton', '8,000 Nm', '80-260 bar', '60-135 LPM', '67 kW', '35-80 RPM', '124 kg', '808 mm', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
+    ['HMA-10000', '5-10 ton', '10,000 Nm', '80-260 bar', '60-135 LPM', '80 kW', '35-80 RPM', '131 kg', '808 mm', '1/2" or 3/4" BSP', '2.5" hex / 75mm square'],
+    ['HMA-18000', '8-15 ton', '18,000 Nm', '80-240 bar', '80-170 LPM', '80 kW', '20-42 RPM', '165 kg', '937 mm', '3/4" BSP', '75mm square'],
+    ['HMA-30000', '15-22 ton', '30,000 Nm', '160-260 bar', '80-170 LPM', '94 kW', '12-28 RPM', '255 kg', '1158 mm', '1" BSP', '75mm square'],
+    ['HMA-50000', '20-36 ton', '50,000 Nm', '220-350 bar', '100-300 LPM', '157 kW', '0-30 RPM', '460 kg', '1354 mm', '1" BSP 1-1/4', '110mm square'],
+    ['HMA-80000', '26-40 ton', '80,000 Nm', '220-350 bar', '200-400 LPM', '167 kW', '0-20 RPM', '770 kg', '1572 mm', 'SAE FS-20 1-1/4"', '110mm square'],
+    ['HMA-100000', '32-52 ton', '100,000 Nm', '250-300 bar', '300-477 LPM', '157 kW', '0-15 RPM', '1050 kg', '1725 mm', 'SAE FS-20 G1-1/4"', '110mm square'],
   ],
 };
 
@@ -93,10 +93,10 @@ export const categories: Category[] = [
     name: 'Auger Drives',
     short: 'Auger Drives',
     description:
-      'Standard, high speed and horizontal auger drives. YA series from 1,900 N·m to 100,000 N·m for 0.5-52 ton excavators.',
+      'Standard, high speed and horizontal auger drives. HMA series from 1,900 N·m to 100,000 N·m for 0.5-52 ton excavators.',
     image: pImg('drives'),
     items: [
-      { name: 'Standard Auger Drive', model: 'YA-2000 ~ YA-100000', image: pImg('auger-drive-ya'), description: 'Hydraulic motor and planetary gearbox auger drive covering ten models and 0.5-52 ton excavators.' },
+      { name: 'Standard Auger Drive', model: 'HMA-2000 ~ HMA-100000', image: pImg('auger-drive-ya'), description: 'Hydraulic motor and planetary gearbox auger drive covering ten models and 0.5-52 ton excavators.' },
       { name: 'High Speed Auger Drive', image: pImg('hs-drive'), description: 'Specially designed for high-speed applications for unparalleled productivity.' },
       { name: 'Horizontal Drill Auger Drive', image: pImg('hd-drive'), description: 'Designed for horizontal drilling and foundation penetrations.' },
     ],
@@ -124,8 +124,8 @@ export const categories: Category[] = [
     items: [
       { name: 'Single Pin Hitch', image: pImg('hitch-single'), description: 'Lightweight, non-bulky and economical.' },
       { name: 'Double Pin Hitch', image: pImg('hitch-double'), description: 'Loose and fixed pin, standard and quick hitch.' },
-      { name: 'Double Pin Cradle Hitch', image: pImg('hitch-cradle'), description: 'For YA2000-YA100000 range, eliminates auger swing.' },
-      { name: 'Skid Steer Loader Frame', image: pImg('hitch-skid'), description: 'Slide operation for YA2000-YA5000.' },
+      { name: 'Double Pin Cradle Hitch', image: pImg('hitch-cradle'), description: 'For HMA2000-HMA100000 range, eliminates auger swing.' },
+      { name: 'Skid Steer Loader Frame', image: pImg('hitch-skid'), description: 'Slide operation for HMA2000-HMA5000.' },
     ],
   },
   {

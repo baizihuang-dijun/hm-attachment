@@ -1,0 +1,45 @@
+请按以下清单执行 YA→HMA 替换。只改"展示给用户看的型号/系列文本"，严禁改任何交互逻辑、事件、组件行为、变量名、import、className、CSS 选择器、对象 key、文件路径、图片文件名、URL/路由。改完跑 pnpm lint、pnpm ts-check、pnpm run build，全部必须通过；暂不部署。
+
+【替换规则】
+- 型号带连字符：`YA-2000`→`HMA-2000`，其余 YA-3000/5000/8000/10000/18000/30000/50000/80000/100000 同理（仅前缀 YA→HMA，数字与连字符不变）。
+- 无连字符区间/型号：`YA2000`→`HMA2000`、`YA5000`→`HMA5000`、`YA10000`→`HMA10000`、`YA100000`→`HMA100000`、`YA3000`→`HMA3000`、`YA8000`→`HMA8000`，区间写法（如 `YA2000-YA5000`、`YA2000–YA100000`、`YA3000–YA10000`）把其中每个 YA 前缀替换为 HMA，数字、连字符、en dash 全部保留。
+- 系列普通词：`YA series`→`HMA series`、`YA Series`→`HMA Series`、`YA hitches`→`HMA hitches`。
+- 注释里的 YA series 可一并改成 HMA series（仅文案）。
+
+【逐文件要改的位置】
+1. src/lib/products.ts
+   - 61 行注释
+   - 77–86 行规格表 Model 列 10 个型号
+   - 96 行 drives 分类 description 里的 YA series
+   - 99 行 `model: 'YA-2000 ~ YA-100000'`（波浪号与空格保留）
+   - 127、128 行描述里的型号区间
+   - 注意：99 行 `pImg('auger-drive-ya')` 的 'auger-drive-ya' 是对象 key，绝对不要改。
+
+2. src/app/products/drives/page.tsx
+   - 9 行 metadata.description 里 YA series
+   - 48/59/72/84/98/113/131/149/167 行 model 共 9 处
+   - 190 行 alt 文本里 YA series
+   - 215、222 行正文里 YA series / YA hitches
+   - 325 行规格表型号 YA-100000
+   - 重点：245–254 行的 'ya-2000'…'ya-100000' 这 10 个字符串本身绝对不要改（它们用于图片路径 /products-img/ya-XXXX.png，且 public/products-img 下是同名 ya-*.png 文件，禁止重命名图片）。这里展示型号是通过 {m.toUpperCase()} 得到的，会显示成 YA-XXXX。请用最小改动、且不改变交互的方式，让"图片 src 继续用原始 m（ya-xxxx）"，而"展示文本显示为 HMA-XXXX"。例如在渲染展示文本处把 m 的前缀 ya 替换成 hma 再 toUpperCase（src 仍用原 m）；不要改数组元素、不要改 key、不要改图片路径逻辑。若该数组的 m 还被用于其它逻辑，请只在纯展示那一处做前缀替换，保证行为不变。
+
+3. src/app/products/tools/page.tsx：32、33、59、60 行表格里的型号区间（YA3000-5000、YA8000-10000、YA2000-5000 等），仅 YA→HMA，其余型号（ASP-*、ACM-* 等）不要动。
+
+4. src/app/products/hitch/page.tsx：19、24、25、31 行 YA series 与型号区间。
+
+5. src/app/page.tsx：81 行注释、89 行 H1 "The YA Series Auger Drill Ecosystem"→"The HMA Series Auger Drill Ecosystem"。
+
+6. src/components/eco-explorer.tsx（注意是单文件内的转义字符串 ECO_DOM 与 ECO_JS）：
+   - ECO_DOM：alt="Auger Drive — YA Series" 与 rail-lead 同名文本 → HMA Series。
+   - ECO_JS：drive 的 "Auger Drive — YA Series"、"The YA series auger drive…"、["Series","YA2000 – YA100000"]；hitch-double-cradle 的 "…from YA2000 to YA100000…"、["Drive range","YA2000–YA100000"]；hitch-skid-frame ["Drive range","YA2000–YA5000"]；tool-mixer-bowl ["Drive range","YA2000–YA10000"]；tool-log-splitter ["Drive range","YA2000–YA5000"]；tool-stump-planer ["Drive range","YA3000–YA10000"]。按规则替换，破折号/en dash 与空格保持原样。
+   - 绝对不要改 ECO_JS 里的 "Yichen"/"Yichen drives" 品牌词。
+
+【绝对禁止改动（再次强调）】
+- src/components/eco-explorer.css 里所有 .ya-eco 选择器
+- src/lib/products.ts 的 pImg('auger-drive-ya') key
+- src/app/globals.css 的 'Microsoft YaHei' 字体名
+- drives/page.tsx 245–254 数组元素 ya-* 及所有图片路径/文件名
+- eco-explorer.tsx 里 Yichen 品牌词
+- 任何交互逻辑
+
+完成后汇报：每个文件实际改了哪些行、drives 245–254 展示与图片路径是如何解耦的、lint/ts-check/build 结果。先不部署。

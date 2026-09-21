@@ -78,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* YA Series Auger Drill Ecosystem — interactive explorer (1:1 port) */}
+      {/* HMA Series Auger Drill Ecosystem — interactive explorer (1:1 port) */}
       <section className="border-b border-line bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <header className="mb-6 text-center">
@@ -86,7 +86,7 @@ export default function Home() {
               One system, every attachment
             </p>
             <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-hm sm:text-4xl">
-              The YA Series Auger Drill Ecosystem
+              The HMA Series Auger Drill Ecosystem
             </h1>
             <p className="mx-auto mt-3 max-w-2xl text-inksoft">
               One drive unit becomes a full working system. Hover any part — on the diagram or in

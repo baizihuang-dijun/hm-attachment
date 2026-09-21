@@ -29,8 +29,8 @@ const tools = [
     image: '/products-img/tool-stump-planer.png',
     desc: 'Z-shaped blade stump planer with two-stage cutting and replaceable tips.',
     params: [
-      ['ASP-250', '1-5T / 250mm / 25kg / YA3000-5000'],
-      ['ASP-350', '4.5-10T / 350mm / 33kg / YA8000-10000'],
+      ['ASP-250', '1-5T / 250mm / 25kg / HMA3000-5000'],
+      ['ASP-350', '4.5-10T / 350mm / 33kg / HMA8000-10000'],
     ],
     features: ['Z-shaped blade', 'Two-stage cutting', 'Replaceable tips'],
   },
@@ -56,8 +56,8 @@ const tools = [
     image: '/products-img/tool-cement-mixer-bowl.png',
     desc: 'Concrete mixing bowl for on-site slurry and mix preparation.',
     params: [
-      ['ACM-18065', 'YA2000-5000 / 1-8T / 180L / 65 Round / 38kg'],
-      ['ACM-18075', 'YA8000-10000 / 1-8T / 180L / 75 Square / 39kg'],
+      ['ACM-18065', 'HMA2000-5000 / 1-8T / 180L / 65 Round / 38kg'],
+      ['ACM-18075', 'HMA8000-10000 / 1-8T / 180L / 75 Square / 39kg'],
     ],
     features: ['140 / 180 / 220L options', '2 blades', 'Quick attach'],
   },
