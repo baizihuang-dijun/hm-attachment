@@ -187,8 +187,8 @@ export default function ElectricCouplerPage() {
               >
                 <img
                   id="ec-hero-product"
-                  src="/products/electric-coupler-hero.png"
-                  alt="HM Electric Quick Coupler – real product on excavator arm"
+                  src="/hero/electric-coupler-hero.png"
+                  alt="HM Electric Quick Coupler – product render"
                   draggable={false}
                   className="relative z-10 mx-auto block h-auto object-contain"
                   style={{ filter: 'drop-shadow(0 0 30px rgba(59,130,246,0.35))' }}
