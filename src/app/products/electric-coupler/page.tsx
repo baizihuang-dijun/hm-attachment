@@ -357,7 +357,7 @@ export default function ElectricCouplerPage() {
             <img
               src="/site/electric-drive-cut.png"
               alt="Electric Drive"
-              className="mt-6 block h-auto w-full rounded-lg lg:absolute lg:right-0 lg:top-1/2 lg:z-10 lg:mt-0 lg:w-[46%] lg:-translate-y-1/2 lg:scale-125 lg:origin-right lg:rounded-none"
+              className="mt-6 block h-auto w-full rounded-lg lg:absolute lg:right-[24px] lg:top-1/2 lg:z-10 lg:mt-0 lg:h-[115%] lg:w-auto lg:max-w-[44%] lg:-translate-y-1/2 lg:rounded-none"
             />
           </div>
         </div>
