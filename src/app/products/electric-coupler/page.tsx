@@ -429,14 +429,22 @@ export default function ElectricCouplerPage() {
                 ))}
               </ul>
             </div>
-            <div className="w-full overflow-hidden rounded-lg border border-line bg-white">
-              <div className="aspect-[3/4] w-full">
-                <img
-                  src="/images/jobsite-breaking.jpg"
-                  alt="All-weather durability"
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4">
+              {[
+                { src: '/site/jobsite-cold.jpg', alt: 'Cold weather jobsite' },
+                { src: '/site/jobsite-normal.jpg', alt: 'Normal mountain jobsite' },
+                { src: '/site/jobsite-trench.jpg', alt: 'Open trench jobsite' },
+              ].map((img) => (
+                <div key={img.src} className="w-full overflow-hidden rounded-lg border border-line bg-white">
+                  <div className="aspect-[3/4] w-full">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
