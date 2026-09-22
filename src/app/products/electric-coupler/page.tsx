@@ -340,12 +340,12 @@ export default function ElectricCouplerPage() {
 
       {/* 6. ELECTRIC DRIVE */}
       <section className="bg-hm text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-widest text-white/60">Control</p>
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight">
             ELECTRIC DRIVE
           </h2>
-          <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-center">
+          <div className="mt-4 grid gap-6 lg:grid-cols-2 lg:items-center">
             <ul className="space-y-4">
               {controllerPoints.map((p) => (
                 <li key={p} className="flex gap-3 text-white/85">
