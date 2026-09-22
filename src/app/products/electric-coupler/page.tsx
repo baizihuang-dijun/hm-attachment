@@ -338,14 +338,14 @@ export default function ElectricCouplerPage() {
         </div>
       </section>
 
-      {/* 6. INTELLIGENT CONTROLLER */}
-      <section className="bg-hm text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* 6. ELECTRIC DRIVE */}
+      <section className="relative overflow-visible bg-hm text-white">
+        <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-widest text-white/60">Control</p>
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight">
-            INTELLIGENT CONTROLLER
+            ELECTRIC DRIVE
           </h2>
-          <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-center">
+          <div className="relative mt-8 grid gap-6 lg:grid-cols-2 lg:items-center">
             <ul className="space-y-4">
               {controllerPoints.map((p) => (
                 <li key={p} className="flex gap-3 text-white/85">
@@ -354,15 +354,14 @@ export default function ElectricCouplerPage() {
                 </li>
               ))}
             </ul>
-            <div className="h-56 w-full overflow-hidden rounded-lg">
-              <img
-                src="/site/controller-navy.jpg"
-                alt="Intelligent controller"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
+            <img
+              src="/site/electric-drive-cut.png"
+              alt="Electric Drive"
+              className="mt-6 block h-auto w-full rounded-lg lg:absolute lg:right-0 lg:top-1/2 lg:z-10 lg:mt-0 lg:w-[46%] lg:-translate-y-1/2 lg:scale-125 lg:origin-right lg:rounded-none"
+            />
           </div>
         </div>
+        <div className="pb-16" />
       </section>
 
       {/* 7. SIMPLE INSTALLATION */}
