@@ -354,11 +354,11 @@ export default function ElectricCouplerPage() {
                 </li>
               ))}
             </ul>
-            <div className="h-56 w-full overflow-hidden rounded-lg bg-white">
+            <div className="h-56 w-full overflow-hidden rounded-lg">
               <img
-                src="/images/coupler-xray-render.png"
+                src="/site/controller-navy.jpg"
                 alt="Intelligent controller"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
@@ -481,7 +481,7 @@ export default function ElectricCouplerPage() {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div className="h-72 w-full overflow-hidden rounded-lg border border-line bg-white">
               <img
-                src="/images/coupler-compact-render.png"
+                src="/site/coupler-cut.png"
                 alt="Compact design"
                 className="h-full w-full object-contain"
               />
